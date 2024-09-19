@@ -9,7 +9,12 @@ function Navbar() {
   return (
     <nav className='header flex gap-2 justify-between'>
       <h1 className='logo'>
-        <a href='#'>NextAuth</a>
+      {session ? (
+        <p>Welcome, {session.user?.name || 'User'}!</p>
+        )  
+        : (<a href='#'>NextAuth</a>)
+        }
+        
       </h1>
       <ul className={`main-nav flex gap-2 ${(!session && (status === "loading") ) ? 'loading' : 'loaded'}`}>
         <li>
@@ -22,7 +27,6 @@ function Navbar() {
             <p>Dashboard</p>
           </Link>
         </li>
-
 
         {(status !== "authenticated")  && !session && (
           <li>
