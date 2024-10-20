@@ -12,3 +12,18 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+model Collection {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+}
+
+model Bill {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  accrued Int
+  claimed Int
+  real Int
+  mounth Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
