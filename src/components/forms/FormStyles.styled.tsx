@@ -100,9 +100,9 @@ export const Form_Universal = styled('form')`
     position: relative;
     display: flex;
     gap: 8px;
-    background-color: #cbd5e1;
-    border-radius: 1.25rem;
-    height: 38px;
+    /* background-color: #cbd5e1; */
+    /* border-radius: 1.25rem; */
+    /* height: 38px; */
 `;
 
 export const Form_PhoneEdit = styled('form')`

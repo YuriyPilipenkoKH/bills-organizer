@@ -54,7 +54,7 @@ export const AddNewCategoryForm: React.FC = () => {
   return (
     <Form_Universal
 		onSubmit={handleSubmit(onSubmit)}
-		className='flex gap-2 items-center'
+		className='flex flex-col gap-2 items-center'
 		autoComplete="off"
 		noValidate>
 			<FormLabel>Name
