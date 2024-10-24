@@ -41,7 +41,7 @@ export const AddNewCategoryForm: React.FC = () => {
 			try {
 					const result = await addCollection(formData);
 					if (result.success) {
-							toast.success(`Collection ${capitalize(data.name)} added successfully`!);
+							toast.success(`Collection ${capitalize(data.name)} ${data.year} added successfully`!);
 							reset();
 					} else {
 							toast.error(`Failed to add ${capitalize(data.name)} Collection : ${result.error}`);
@@ -66,14 +66,14 @@ export const AddNewCategoryForm: React.FC = () => {
 			<FormInput 
 			 {...register('name')}
 				 placeholder=	{( isSubmitting ) 
-				? "Process" 
-				: 'collection name'}
+				? "Processing" 
+				: 'name'}
 			/>
 			</FormLabel>
 			<FormLabel>
 			<FormInput
 				{...register('year')}
-				placeholder={isSubmitting ? 'Processing' : 'Year'}
+				placeholder={isSubmitting ? 'Processing' : 'year'}
 				type="text" // Ensures the input is treated as a string
 			/>
 			</FormLabel>
