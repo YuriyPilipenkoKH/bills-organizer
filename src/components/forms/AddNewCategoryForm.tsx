@@ -32,10 +32,9 @@ export const AddNewCategoryForm: React.FC = () => {
 			isValid ,
 			isSubmitting,
 		} = formState
-		console.log('isValid',isValid)
+
 		const onSubmit = async (data: addNewCollectionSchemaType) => {
 			const formData = new FormData();
-			console.log(data)
 			formData.append('name', data.name);
 			formData.append('year', String(data.year)); // Convert `year` to a string
 
@@ -86,9 +85,10 @@ export const AddNewCategoryForm: React.FC = () => {
 				Add
 			</CancelBtn>
 		<div className='absolute bottom-[46px] w-full px-2 md:w-[518px]'>
-		{( errors?.name ) && (
+		{( errors?.name || errors?.year ) && (
 				<AuthError className="autherror">
-					{errors.name && <div>{errors?.name.message}</div>}
+				{errors.name && <div>{errors.name.message}</div>}
+				{!errors.name && errors.year && <div>{errors.year.message}</div>}
 				</AuthError>
 			)}
 		</div>		
