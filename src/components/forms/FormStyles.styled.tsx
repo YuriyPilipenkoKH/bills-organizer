@@ -17,10 +17,15 @@ export const FormLabel = styled('label')`
     height: 67px;
     color: #999;
     font-weight: 600;
+    width: 300px;
     &>input.publishedAt{
         width: 155px;
        padding: 1.08rem 2px;
     }
+    @media screen and (min-width: 768px) {
+        width: 500px;
+    }
+
 `;
 
 export const baseInputStyles = css`
@@ -100,6 +105,7 @@ export const Form_Universal = styled('form')`
     position: relative;
     display: flex;
     gap: 8px;
+    width: 100%;
     /* background-color: #cbd5e1; */
     /* border-radius: 1.25rem; */
     /* height: 38px; */
