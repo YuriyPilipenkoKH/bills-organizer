@@ -1,10 +1,11 @@
 'use client'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
-
+import { usePathname } from 'next/navigation'
 
 function Navbar() {
     const { data: session, status } = useSession()
+    const pathname = usePathname()
 
   return (
     <nav className='header flex gap-2 justify-between'>
@@ -18,12 +19,16 @@ function Navbar() {
       </h1>
       <ul className={`main-nav flex gap-2 ${(!session && (status === "loading") ) ? 'loading' : 'loaded'}`}>
         <li>
-          <Link href='/'>
+          <Link 
+            className={`link ${pathname === '/' ? 'active' : ''}`}
+            href='/'>
             <p>Home</p>
           </Link>
         </li>
         <li>
-          <Link href='/dashboard'>
+          <Link 
+            className={`link ${pathname === '/dashboard' ? 'active' : ''}`}
+            href='/dashboard'>
             <p>Dashboard</p>
           </Link>
         </li>

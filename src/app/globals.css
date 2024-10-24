@@ -122,6 +122,14 @@ img {
   border-radius:0 22px 0 0 ;
 
 }
+
+.link.active {
+  color:#0f552b;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+
 /*  custom modal styles */
 .MainModal >div[tabindex='-1'] {
   display: grid;
