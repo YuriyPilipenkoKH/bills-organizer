@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { AddNewBtn } from '../Button/Button'
+import {  CancelBtn } from '../Button/Button'
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import toast from 'react-hot-toast';
@@ -52,13 +52,16 @@ export const AddNewCategoryForm: React.FC = () => {
 	};
 
   return (
+		<>
+		<h2 className='text-slate-200'>
+			Add new collection
+		</h2>
     <Form_Universal
 		onSubmit={handleSubmit(onSubmit)}
-		className='flex flex-col gap-2 items-center'
+		className='flex flex-col gap-3 items-center'
 		autoComplete="off"
 		noValidate>
-			<FormLabel>Name
-
+			<FormLabel>
 			<FormInput 
 			 {...register('name')}
 				 placeholder=	{( isSubmitting ) 
@@ -66,13 +69,14 @@ export const AddNewCategoryForm: React.FC = () => {
 				: 'collection name'}
 			/>
 			</FormLabel>
-			<AddNewBtn 
+			<CancelBtn 
+			className='mt-auto'
 			type='submit'
 			disabled={isSubmitting || !isDirty || !isValid}
 						>
 				Add
-			</AddNewBtn>
-		<div className='absolute bottom-[-24px]'>
+			</CancelBtn>
+		<div className='absolute bottom-[46px] w-full'>
 		{( errors?.name ) && (
 				<AuthError className="autherror">
 					{errors.name && <div>{errors?.name.message}</div>}
@@ -80,6 +84,7 @@ export const AddNewCategoryForm: React.FC = () => {
 			)}
 		</div>		
     </Form_Universal>
+		</>
   )
 }
 

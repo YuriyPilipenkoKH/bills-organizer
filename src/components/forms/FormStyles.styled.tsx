@@ -14,7 +14,7 @@ export const FormLabel = styled('label')`
     display: flex;
     flex-direction: column;
     gap: 2px;
-    height: 67px;
+    height: 38px;
     color: #999;
     font-weight: 600;
     width: 300px;
@@ -86,7 +86,7 @@ export const PricingWrap = styled('div')`
 
 export const AuthError = styled('div')`
     color: #ededed;
-    background-color: transparent;
+    background-color: darkred;
     font-size: 0.7rem;
     line-height: 1.25rem/* 20px */;
     padding: 8px 8px;
@@ -95,6 +95,7 @@ export const AuthError = styled('div')`
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    justify-self: flex-start !important;
     height: 28px;
     overflow: hidden; 
     text-overflow: ellipsis; 
@@ -108,7 +109,7 @@ export const Form_Universal = styled('form')`
     width: 100%;
     /* background-color: #cbd5e1; */
     /* border-radius: 1.25rem; */
-    /* height: 38px; */
+    height: 120px;
 `;
 
 export const Form_PhoneEdit = styled('form')`
