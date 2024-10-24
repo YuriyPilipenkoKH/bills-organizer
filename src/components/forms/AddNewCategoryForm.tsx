@@ -36,7 +36,7 @@ export const AddNewCategoryForm: React.FC = () => {
 		const onSubmit = async (data: addNewCollectionSchemaType) => {
 			const formData = new FormData();
 			formData.append('name', data.name);
-			formData.append('year', data.year);
+			formData.append('year', String(data.year)); // Convert `year` to a string
 
 			try {
 					const result = await addCollection(formData);
