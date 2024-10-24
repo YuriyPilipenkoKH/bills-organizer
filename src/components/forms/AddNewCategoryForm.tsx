@@ -76,7 +76,7 @@ export const AddNewCategoryForm: React.FC = () => {
 						>
 				Add
 			</CancelBtn>
-		<div className='absolute bottom-[46px] w-full'>
+		<div className='absolute bottom-[46px] w-full px-2 md:w-[518px]'>
 		{( errors?.name ) && (
 				<AuthError className="autherror">
 					{errors.name && <div>{errors?.name.message}</div>}
