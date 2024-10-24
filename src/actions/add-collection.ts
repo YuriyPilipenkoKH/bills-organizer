@@ -6,23 +6,22 @@ import prisma from "../../prisma"
 
 
 export const addCollection= async (formData: FormData) => {
-  const name = formData.get('name') as string | null;
-  const year = formData.get('year') as string | null;
+  const name = formData.get('name') // as string | null;
+  const year = formData.get('year') // as string | null;
 		if (!name || !year) {
 			return { success: false, error: "Name and year are required" };
 		}
+
 	
-		const parsedYear = parseInt(year, 10);
-	
-		if (isNaN(parsedYear)) {
-			return { success: false, error: "Year must be a valid number" };
+		if (typeof name !== 'string' || !year || isNaN(Number(year))) {
+			return { success: false, error: "Invalid input data" };
 		}
   
     try {
         const newCollection = await prisma.collection.create({
             data: {
 							name,
-							year: parsedYear, // Use the parsed number
+							year: Number(year) // Convert `year` to a number
             }
         })
         revalidatePath('/dashboard')
