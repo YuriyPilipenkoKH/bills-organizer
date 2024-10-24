@@ -21,7 +21,7 @@ export const AddNewCategoryForm: React.FC = () => {
 		} = useForm<addNewCollectionSchemaType>({
 			defaultValues: {
 				name: '',
-				year: undefined
+				year: ''
 			},
 				mode:'all',
 				resolver: zodResolver(addNewCollectionSchema),
@@ -32,9 +32,10 @@ export const AddNewCategoryForm: React.FC = () => {
 			isValid ,
 			isSubmitting,
 		} = formState
-
+		console.log('isValid',isValid)
 		const onSubmit = async (data: addNewCollectionSchemaType) => {
 			const formData = new FormData();
+			console.log(data)
 			formData.append('name', data.name);
 			formData.append('year', String(data.year)); // Convert `year` to a string
 
@@ -71,11 +72,10 @@ export const AddNewCategoryForm: React.FC = () => {
 			/>
 			</FormLabel>
 			<FormLabel>
-			<FormInput 
-			 {...register('year')}
-				 placeholder=	{( isSubmitting ) 
-				? "Process" 
-				: 'year'}
+			<FormInput
+				{...register('year')}
+				placeholder={isSubmitting ? 'Processing' : 'Year'}
+				type="text" // Ensures the input is treated as a string
 			/>
 			</FormLabel>
 			<CancelBtn 
