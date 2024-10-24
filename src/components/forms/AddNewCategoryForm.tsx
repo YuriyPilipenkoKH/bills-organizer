@@ -11,13 +11,9 @@ import { AuthError, Form_Universal, FormInput } from './FormStyles.styled';
 import { addNewCollectionSchema, addNewCollectionSchemaType,  } from '@/models/addCollection';
 
 
-interface AddNewCategoryFormProps {
-	creator: string
-}
 
-export const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
-	creator
-	}) => {
+
+export const AddNewCategoryForm: React.FC = () => {
 		// const [logError, setLogError] = useState<string>('')
 		const {
 			register, 
@@ -42,7 +38,6 @@ export const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 		const onSubmit = async (data: addNewCollectionSchemaType) => {
 			const formData = new FormData();
 			formData.append('name', data.name);
-			formData.append('creator', creator);
 
 			try {
 					const result = await addCollection(formData);
@@ -64,12 +59,6 @@ export const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 		className='flex gap-2 items-center'
 		autoComplete="off"
 		noValidate>
-			<input
-				hidden
-				id='creator'
-				name='creator'
-				defaultValue={creator}
-				/>
 			<FormInput 
 			 {...register('name')}
 				 placeholder=	{( isSubmitting ) 
