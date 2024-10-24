@@ -7,10 +7,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import toast from 'react-hot-toast';
 import capitalize from '@/lib/capitalize'
 import { addCollection } from '@/actions/add-collection';
-import { AuthError, Form_Universal, FormInput } from './FormStyles.styled';
+import { AuthError, Form_Universal, FormInput, FormLabel } from './FormStyles.styled';
 import { addNewCollectionSchema, addNewCollectionSchemaType,  } from '@/models/addCollection';
-
-
 
 
 export const AddNewCategoryForm: React.FC = () => {
@@ -59,12 +57,15 @@ export const AddNewCategoryForm: React.FC = () => {
 		className='flex gap-2 items-center'
 		autoComplete="off"
 		noValidate>
+			<FormLabel>Name
+
 			<FormInput 
 			 {...register('name')}
 				 placeholder=	{( isSubmitting ) 
 				? "Process" 
-				: 'category name'}
+				: 'collection name'}
 			/>
+			</FormLabel>
 			<AddNewBtn 
 			type='submit'
 			disabled={isSubmitting || !isDirty || !isValid}

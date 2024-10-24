@@ -3,25 +3,172 @@
 @tailwind utilities;
 
 :root {
-  --background: #777;
-  --foreground: #171717;
+  --background-color: #777;
+  --accent-color: #ff8356;
+  --fone-color: #fef9f9;
+  --background-modal:  #9a9b96;
+
+  --yellow: #ffc107;
+  --white: #ffffff;
+  --white-bg: #fdf7f2;
+
+  --black: #111111;
+  --medium-blue: #76bcf9;
+  --blue: #54adff;
+  --light-blue: #9acbf8;
+  --green: #159638;
+  --dark-green: #14532d;
+  --red: #b10b26;
+  --grey: #888888;
+
+  /* Your default theme */
+  --background: #eee;
+  --foreground: #333;
+  --text:#222;
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #777;
-    --foreground: #ededed;
-  }
+
+:root.light {
+  --background-color: #9a9b96;
+  --background-link: transparent;
+  --background-modal:  #9a9b96;
+  --text-color: #1C1E21;
+  --card-color: #fff;
+  
+  --main-text:  #001129;
+  --link-span:  #ffc107;
 }
+
+:root.dark {
+  --background-color: #041020;
+  --background-link: #ff75;
+  --background-modal:  #042043;
+  --text-color: #f5f6f7cc;
+  --card-color: #9994;
+
+  --main-text:  #001129;
+  --link-span:  #54adff;
+
+}
+
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: all 1s ease;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+* {
+  box-sizing: border-box;
 }
+
+ul, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+.mtext {
+  color: var(--text-color);
+  font-weight: 600;
+}
+.headst {
+  background-color:  var(--dark-green);
+
+}
+.bl {
+  border-radius:  22px 0 0 0;
+
+}
+.br {
+  border-radius:0 22px 0 0 ;
+
+}
+/*  custom modal styles */
+.MainModal >div[tabindex='-1'] {
+  display: grid;
+  place-items: center;
+
+}
+
+.MainModal >div>.ant-modal-content{
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: var(--background-modal) ;
+  color: var(--text-color);
+  
+}
+.delCategoryConfirm >div>.ant-modal-content{
+  height: 160px;
+}
+.delProductConfirm >div>.ant-modal-content{
+  height: 160px;
+}
+.editProduct >div>.ant-modal-content{
+  height: 240px;
+}
+.updateImgUrl >div>.ant-modal-content{
+  height: 420px;
+}
+
+.MainModal >div>.ant-modal-content>div>.ant-modal-title {
+  background-color: var(--background-modal) ;
+  color: var(--text-color); 
+
+}
+.MainModal >div>.ant-modal-content>div>.ant-modal-title>svg{
+  fill: var(--text-color); 
+}
+.MainModal .ant-modal-content>button.ant-modal-close>span>span>svg{
+  fill: var(--text-color); 
+}
+
+.MainModal >div>.ant-modal-content >.ant-modal-footer {
+  display: flex;
+  gap: 22px;
+  justify-content: flex-end;
+  margin-top: auto;
+
+}
+
+
