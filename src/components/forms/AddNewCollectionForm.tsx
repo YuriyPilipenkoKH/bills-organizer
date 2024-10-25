@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import {  CancelBtn } from '../Button/Button'
+import {  CancelBtn,  FlatBtn } from '../Button/Button'
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import toast from 'react-hot-toast';
@@ -9,7 +9,7 @@ import capitalize from '@/lib/capitalize'
 import { addCollection } from '@/actions/add-collection';
 import { AuthError, Form_Universal, FormInput, FormLabel } from './FormStyles.styled';
 import { addNewCollectionSchema, addNewCollectionSchemaType,  } from '@/models/addCollection';
-
+import { CgCloseO } from "react-icons/cg";
 
 export const AddNewCollectionForm: React.FC = () => {
 		// const [logError, setLogError] = useState<string>('')
@@ -86,10 +86,13 @@ export const AddNewCollectionForm: React.FC = () => {
 			</CancelBtn>
 		<div className='absolute bottom-[46px] w-full px-2 md:w-[518px]'>
 		{( errors?.name || errors?.year ) && (
-				<AuthError className="autherror">
+			<AuthError className="autherror ">
 				{errors.name && <div>{errors.name.message}</div>}
 				{!errors.name && errors.year && <div>{errors.year.message}</div>}
-				</AuthError>
+				<FlatBtn>
+					<CgCloseO size={30} />
+				</FlatBtn>
+			</AuthError>
 			)}
 		</div>		
     </Form_Universal>

@@ -94,7 +94,7 @@ export const AuthError = styled('div')`
     border-radius: 0.8rem/* 6px */;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     justify-self: flex-start !important;
     height: 28px;
     overflow: hidden; 
