@@ -131,11 +131,17 @@ img {
 .r180{
   transform: rotate(180deg);
 }
-.folded{
+.uiWrap{
   background-color: #04459455;
   /* padding: 0 0 12px; */
   border-radius: 6px;
   border: 1px solid #fff;
+}
+
+.folded{
+  height: 0;
+  overflow: clip;
+  visibility: hidden;
 }
 /*  custom modal styles */
 .MainModal >div[tabindex='-1'] {

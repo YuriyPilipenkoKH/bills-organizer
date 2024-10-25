@@ -8,7 +8,7 @@ import { AddNewCollectionForm } from './forms/AddNewCollectionForm'
 function NewCollectionUi() {
     const [open, setOpen] = useState(false)
   return (
-    <div className='w-full grid gap-2 folded'>
+    <div className='w-full grid gap-2 uiWrap '>
     <CancelBtn className='text-slate-200'
         onClick={()=> setOpen(!open)}>
             {open ? 'Fold' :'Add new collection'}
@@ -17,10 +17,14 @@ function NewCollectionUi() {
                 : <BiDownArrow className=''/>
                 }
     </CancelBtn>
-        {open && <h2 className='text-slate-300 text-center font-semibold'>
-            Add collection</h2>
-        }
-        {open && <AddNewCollectionForm />}
+        <div className='folded'>
+					{open && <h2 className='text-slate-300 text-center font-semibold'>
+							Add collection</h2>
+					}
+					{open &&(
+									 <AddNewCollectionForm />
+									)}
+				</div>
     </div>
   )
 }
