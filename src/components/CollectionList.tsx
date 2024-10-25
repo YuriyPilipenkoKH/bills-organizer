@@ -1,5 +1,6 @@
 import React from 'react'
 import prisma from '../../prisma'
+import CollectionCard from './CollectionCard'
 
 async function CollectionList() {
     const collections= await prisma.collection.findMany({
@@ -10,10 +11,10 @@ async function CollectionList() {
   return (
     <div>
         {collections.length > 0 ? (
-        <div>
+        <div className='grid gap-2'>
             {collections.map((collection,idx:number)=> (
                 <div key={idx}>
-                    {collection.name}
+                    <CollectionCard collection={collection}/>
                 </div>
             ))}
         </div>
