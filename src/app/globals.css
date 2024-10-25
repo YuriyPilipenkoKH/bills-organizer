@@ -128,7 +128,9 @@ img {
   font-weight: 600;
   text-decoration: underline;
 }
-
+.r180{
+  transform: rotate(180deg);
+}
 
 /*  custom modal styles */
 .MainModal >div[tabindex='-1'] {

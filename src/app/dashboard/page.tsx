@@ -12,7 +12,10 @@ function DashboardPage() {
         <CancelBtn className='text-slate-200'
             onClick={()=> setOpen(!open)}>
             {open ? 'Proceed' :'Add new collection'}
-            <BiDownArrow />
+            {open 
+                ?  <BiDownArrow  className='r180' /> 
+                : <BiDownArrow className=''/>
+            }
         </CancelBtn>
         {open && <AddNewCollectionForm />}
     </div>
