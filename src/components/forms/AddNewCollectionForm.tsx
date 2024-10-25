@@ -56,10 +56,7 @@ export const AddNewCollectionForm: React.FC = () => {
 	};
 
   return (
-		<>
-		<h2 className='text-slate-200'>
-			Add new collection
-		</h2>
+
     <Form_Universal
 		onSubmit={handleSubmit(onSubmit)}
 		className='flex flex-col gap-3 items-center'
@@ -101,7 +98,7 @@ export const AddNewCollectionForm: React.FC = () => {
 			)}
 		</div>		
     </Form_Universal>
-		</>
+
   )
 }
 

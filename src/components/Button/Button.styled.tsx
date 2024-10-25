@@ -183,14 +183,24 @@ export const SAddNewBtn = styled('button')`
 
 export const SCancelBtn = styled('button')`
   ${buttonStyles} ;
-
+  position: relative;
   font-weight: 600;
   border-radius:6px; 
 
   background-color: #5604ef;
-
+  transition: all 0.5s ease;
+  &>svg{
+    position: absolute;
+    right: 10px;
+  }
   &:hover {
   background-color: #5604efa0;
+  color: #444;
+  transition: all 0.5s ease;
+  &>svg{
+    fill:#444;
+    transition: all 0.5s ease;
+  }
   }
   &:disabled{
   background-color: #888;
