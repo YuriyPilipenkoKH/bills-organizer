@@ -11,13 +11,14 @@ function NewCollectionUi() {
     <div className='w-full grid gap-2'>
     <CancelBtn className='text-slate-200'
         onClick={()=> setOpen(!open)}>
-            {open ? 'Proceed' :'Add new collection'}
+            {open ? 'Fold' :'Add new collection'}
             {open 
                 ?  <BiDownArrow  className='r180' /> 
                 : <BiDownArrow className=''/>
                 }
     </CancelBtn>
-            {open && <AddNewCollectionForm />}
+        {open && <h2>Add collection</h2>}
+        {open && <AddNewCollectionForm />}
     </div>
   )
 }
