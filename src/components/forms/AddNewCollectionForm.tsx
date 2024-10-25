@@ -11,7 +11,7 @@ import { AuthError, Form_Universal, FormInput, FormLabel } from './FormStyles.st
 import { addNewCollectionSchema, addNewCollectionSchemaType,  } from '@/models/addCollection';
 
 
-export const AddNewCategoryForm: React.FC = () => {
+export const AddNewCollectionForm: React.FC = () => {
 		// const [logError, setLogError] = useState<string>('')
 		const {
 			register, 

@@ -1,10 +1,11 @@
-import { AddNewCategoryForm } from '@/components/forms/AddNewCategoryForm'
+
+import { AddNewCollectionForm } from '@/components/forms/AddNewCollectionForm'
 import React from 'react'
 
 function DashboardPage() {
   return (
     <div className='w-full'>
-        <AddNewCategoryForm />
+        <AddNewCollectionForm />
     </div>
   )
 }
