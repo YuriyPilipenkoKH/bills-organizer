@@ -89,7 +89,8 @@ export const AddNewCollectionForm: React.FC = () => {
 			<AuthError className="autherror ">
 				{errors.name && <div>{errors.name.message}</div>}
 				{!errors.name && errors.year && <div>{errors.year.message}</div>}
-				<FlatBtn>
+				<FlatBtn 
+				onClick={()=>reset()}>
 					<CgCloseO size={30} />
 				</FlatBtn>
 			</AuthError>
