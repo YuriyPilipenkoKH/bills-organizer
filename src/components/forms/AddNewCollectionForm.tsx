@@ -78,7 +78,7 @@ export const AddNewCollectionForm: React.FC = () => {
 			/>
 			</FormLabel>
 			<CancelBtn 
-			className='mt-auto'
+			className='mt-auto mb-1'
 			type='submit'
 			disabled={isSubmitting || !isDirty || !isValid}
 						>

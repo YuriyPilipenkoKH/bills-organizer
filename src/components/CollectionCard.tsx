@@ -1,6 +1,5 @@
-import capitalize from '@/lib/capitalize'
 import { Bill, Collection } from '@prisma/client'
-import React from 'react'
+import capitalize from '@/lib/capitalize'
 
 interface CollectionCardProps {
     collection: Collection & {
@@ -10,7 +9,7 @@ interface CollectionCardProps {
 
 function CollectionCard({collection} :CollectionCardProps) {
   return (
-    <div className='  bg-lime-300'>
+    <div className='card '>
         {capitalize(collection?.name)}
     </div>
   )

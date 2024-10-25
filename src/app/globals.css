@@ -131,7 +131,12 @@ img {
 .r180{
   transform: rotate(180deg);
 }
-
+.folded{
+  background-color: #04459455;
+  /* padding: 0 0 12px; */
+  border-radius: 6px;
+  border: 1px solid #fff;
+}
 /*  custom modal styles */
 .MainModal >div[tabindex='-1'] {
   display: grid;
