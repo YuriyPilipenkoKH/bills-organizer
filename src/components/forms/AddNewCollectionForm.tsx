@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import {  CancelBtn,  FlatBtn } from '../Button/Button'
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -12,7 +12,7 @@ import { addNewCollectionSchema, addNewCollectionSchemaType,  } from '@/models/a
 import { CgCloseO } from "react-icons/cg";
 
 export const AddNewCollectionForm: React.FC = () => {
-		// const [logError, setLogError] = useState<string>('')
+		const [logError, setLogError] = useState<string>('')
 		const {
 			register, 
 			handleSubmit,
@@ -46,9 +46,12 @@ export const AddNewCollectionForm: React.FC = () => {
 					} else {
 							toast.error(`Failed to add ${capitalize(data.name)} Collection : ${result.error}`);
 					}
-        } catch (error) {
+        } catch 
+				(error) {
+					reset();
 					const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
 					toast.error(`An error occurred: ${errorMessage}`);
+					setLogError(errorMessage)
 			}
 	};
 
@@ -89,9 +92,10 @@ export const AddNewCollectionForm: React.FC = () => {
 			<AuthError className="autherror ">
 				{errors.name && <div>{errors.name.message}</div>}
 				{!errors.name && errors.year && <div>{errors.year.message}</div>}
+				{logError && <div>{logError}</div>}
 				<FlatBtn 
-				onClick={()=>reset()}>
-					<CgCloseO size={30} />
+					onClick={()=>reset()}>
+						<CgCloseO size={30} />
 				</FlatBtn>
 			</AuthError>
 			)}
