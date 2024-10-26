@@ -34,6 +34,7 @@ export const AddNewCollectionForm: React.FC = () => {
 		} = formState
 
 		const onSubmit = async (data: addNewCollectionSchemaType) => {
+
 			const formData = new FormData();
 			formData.append('name', data.name);
 			formData.append('year', String(data.year)); // Convert `year` to a string
@@ -54,17 +55,26 @@ export const AddNewCollectionForm: React.FC = () => {
 					setLogError(errorMessage)
 			}
 	};
+	const handleInputChange = () => {
+    if (logError) {
+      setLogError('');
+    }
+  };
+
+  const onInvalid = () => {
+    setLogError('Please fill in all required fields');
+  };
 
   return (
 
     <Form_Universal
-		onSubmit={handleSubmit(onSubmit)}
+		onSubmit={handleSubmit(onSubmit, onInvalid)}
 		className='flex flex-col gap-3 items-center'
 		autoComplete="off"
 		noValidate>
 			<FormLabel>
 			<FormInput 
-			 {...register('name')}
+			 {...register('name', { onChange: handleInputChange })}
 				 placeholder=	{( isSubmitting ) 
 				? "Processing" 
 				: 'name'}
@@ -72,7 +82,7 @@ export const AddNewCollectionForm: React.FC = () => {
 			</FormLabel>
 			<FormLabel>
 			<FormInput
-				{...register('year')}
+				{...register('year', { onChange: handleInputChange })}
 				placeholder={isSubmitting ? 'Processing' : 'year'}
 				type="text" // Ensures the input is treated as a string
 			/>
