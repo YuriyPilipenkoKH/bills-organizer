@@ -136,15 +136,16 @@ img {
   /* padding: 0 0 12px; */
   border-radius: 6px;
   border: 1px solid #fff;
+
 }
 
-.folded{
+.CancelBtn + .folded{
   height: 0;
   overflow: clip;
   visibility: hidden;
   transition: height 2s ease, visibility 2s;
 }
-.opened{
+.CancelBtn + .opened{
   height: auto;
   visibility: visible;
 }
