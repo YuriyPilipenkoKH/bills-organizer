@@ -51,9 +51,6 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
          <RiDeleteBin2Line />
     </BtnDelete>
     )}
-
-
-
     <Modal
       className={cn('MainModal relative',
         (modalName === 'DeletingCollectionConfirm')  && `DeletingCollectionConfirm`,
@@ -92,7 +89,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         </p>
 
         <div className='absolute bottom-[20px]'>
-        {(modalName === 'DeletingCategoryConfirm') && (
+        {(modalName === 'DeletingCollectionConfirm') && (
           <DeleteCollectionForm
             id={id}
             name={name}
