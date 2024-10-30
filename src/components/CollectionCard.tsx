@@ -3,6 +3,8 @@ import capitalize from '@/lib/capitalize'
 import { RiDeleteBin2Line } from "react-icons/ri";
 import { MdCallMissedOutgoing } from "react-icons/md";
 import { FlatBtn } from './Button/Button';
+import MainModal from './modals/MainModal';
+import { DeletingCollectionConfirmProps } from '@/data/modalProps';
 
 interface CollectionCardProps {
     collection: Collection & {
@@ -20,9 +22,11 @@ function CollectionCard({collection} :CollectionCardProps) {
 				{collection.year}
 			</span>
 			<div className='flex gap-2  ml-auto'>
-				<FlatBtn >
-					<RiDeleteBin2Line />
-				</FlatBtn>
+				<MainModal 
+						modalTypes={DeletingCollectionConfirmProps}
+						id={collection.id}
+						name={collection.name}
+						/>
 				<FlatBtn >
 					<MdCallMissedOutgoing /> 
 				</FlatBtn>

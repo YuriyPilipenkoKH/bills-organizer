@@ -6,6 +6,7 @@ import { ModalBaseTypes } from '@/types/modalTypes';
 import capitalize from '@/lib/capitalize';
 import { cn } from '@/lib/utils';
 import { RiDeleteBin2Line } from 'react-icons/ri';
+import DeleteCollectionForm from '../forms/DeleteCollectionForm';
 
 interface MainModalProps {
     modalTypes: ModalBaseTypes
@@ -41,7 +42,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
 
   return (
     <>
-    {(modalName === 'DeletingCategoryConfirm' 
+    {(modalName === 'DeletingCollectionConfirm' 
     || modalName === 'DeletingProductConfirm')
     && (
     <BtnDelete
@@ -55,7 +56,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
 
     <Modal
       className={cn('MainModal relative',
-        (modalName === 'DeletingCategoryConfirm')  && `delCategoryConfirm`,
+        (modalName === 'DeletingCollectionConfirm')  && `DeletingCollectionConfirm`,
         (modalName === 'DeletingProductConfirm')  && `delProductConfirm`,
         (modalName === 'EditProduct')  && `editProduct`,
         (modalName === 'UpdateImgUrl')  && `updateImgUrl`,
@@ -92,7 +93,12 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
 
         <div className='absolute bottom-[20px]'>
         {(modalName === 'DeletingCategoryConfirm') && (
-          <div></div>
+          <DeleteCollectionForm
+            id={id}
+            name={name}
+            setIsSubmitting={setIsSubmitting}
+            setOpen={setOpen}
+            />
         )}
 
         </div>
@@ -103,9 +109,3 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
 
 export default MainModal
 
-// <DeleteCategoryForm
-//   id={id}
-//   name={name}
-//   setIsSubmitting={setIsSubmitting}
-//   setOpen={setOpen}
-//   />
