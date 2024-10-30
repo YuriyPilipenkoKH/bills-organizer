@@ -4,8 +4,8 @@ import React, { useState } from 'react'
 import { BtnDelete, CancelBtn} from '../Button/Button';
 import { ModalBaseTypes } from '@/types/modalTypes';
 import capitalize from '@/lib/capitalize';
-import DeleteCategoryForm from '../forms/DeleteCategoryForm';
 import { cn } from '@/lib/utils';
+import { RiDeleteBin2Line } from 'react-icons/ri';
 
 
 interface MainModalProps {
@@ -49,7 +49,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
     <BtnDelete
         type="button" 
         onClick={showModal}>
-         <DelIcon  />
+         <RiDeleteBin2Line />
     </BtnDelete>
     )}
 
@@ -94,12 +94,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
 
         <div className='absolute bottom-[20px]'>
         {(modalName === 'DeletingCategoryConfirm') && (
-          <DeleteCategoryForm
-            id={id}
-            name={name}
-            setIsSubmitting={setIsSubmitting}
-            setOpen={setOpen}
-            />
+          <div></div>
         )}
 
         </div>
@@ -109,3 +104,10 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
 }
 
 export default MainModal
+
+// <DeleteCategoryForm
+//   id={id}
+//   name={name}
+//   setIsSubmitting={setIsSubmitting}
+//   setOpen={setOpen}
+//   />
