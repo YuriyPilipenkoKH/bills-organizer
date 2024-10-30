@@ -7,13 +7,11 @@ import capitalize from '@/lib/capitalize';
 import { cn } from '@/lib/utils';
 import { RiDeleteBin2Line } from 'react-icons/ri';
 
-
 interface MainModalProps {
     modalTypes: ModalBaseTypes
     id: string
     name: string
 }
-
 
 const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
     const {
