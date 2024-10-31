@@ -149,6 +149,9 @@ img {
   height: auto;
   visibility: visible;
 }
+.Mcard{
+  border: 2px solid #fdf7f2;
+}
 
 /*  custom modal styles */
 .MainModal >div[tabindex='-1'] {

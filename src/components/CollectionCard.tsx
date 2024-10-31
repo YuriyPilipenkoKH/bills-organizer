@@ -14,7 +14,7 @@ interface CollectionCardProps {
 
 function CollectionCard({collection} :CollectionCardProps) {
   return (
-    <div className='card flex gap-2 items-center bg-cyan-700 border-slate-200 rounded-lg p-2 text-slate-400 '>
+    <div className='Mcard flex gap-2 items-center bg-cyan-700  rounded-lg p-2 text-slate-400 '>
 			<h2 className='text-xl  font-bold w-24'>
 					{capitalize(collection?.name)}
 			</h2>
