@@ -91,7 +91,8 @@ export const SBtnDelete = styled('button')`
   padding: 0.25rem 0.5rem;
   transition: all 0.4s ease;
   & >svg {
-  fill: var(--text-color);
+  /* fill:  var(--text-color) !important; */
+  color:  var(--text-color) ;
   transition: all 0.4s ease;
   }
   &:hover  {
