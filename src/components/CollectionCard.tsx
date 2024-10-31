@@ -2,7 +2,7 @@ import { Bill, Collection } from '@prisma/client'
 import capitalize from '@/lib/capitalize'
 import { RiDeleteBin2Line } from "react-icons/ri";
 import { MdCallMissedOutgoing } from "react-icons/md";
-import { FlatBtn } from './Button/Button';
+import { BtnUpdate, FlatBtn } from './Button/Button';
 import MainModal from './modals/MainModal';
 import { DeletingCollectionConfirmProps } from '@/data/modalProps';
 
@@ -27,9 +27,9 @@ function CollectionCard({collection} :CollectionCardProps) {
 						id={collection.id}
 						name={collection.name}
 						/>
-				<FlatBtn >
+				<BtnUpdate >
 					<MdCallMissedOutgoing /> 
-				</FlatBtn>
+				</BtnUpdate>
 			</div>
     </div>
   )

@@ -120,7 +120,8 @@ export const SBtnUpdate = styled('button')`
   padding: 0;
   transition: all 0.4s ease;
   & >svg {
-  fill: var(--text-color);
+  /* fill: var(--text-color); */
+  color:  var(--text-color) ;
   transition: all 0.4s ease;
   }
   &:hover  {
