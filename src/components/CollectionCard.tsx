@@ -16,7 +16,7 @@ interface CollectionCardProps {
 function CollectionCard({collection} :CollectionCardProps) {
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 	const { bills } = collection 
-
+	
   return (
     <>
 			<div className='Mcard flex gap-2 items-center bg-cyan-700  rounded-lg p-2 text-slate-400 '>
@@ -37,21 +37,25 @@ function CollectionCard({collection} :CollectionCardProps) {
 				</BtnUpdate>
 			</div>
 			</div>
-			{isOpen ? (
-				<div>
-					{bills.map((bill, idx) => (
-						<div key={idx}>
-							<p>mounth{bill.mounth}</p>
-							<p>accrued{bill.accrued}</p>
-							<p>claimed{bill.claimed}</p>
-							<p>real{bill.real}</p>
-						</div>
-					))}
-				</div>
-			) : (
-				<div>no bills added</div>
-			)
-		}
+			{isOpen && (
+			<div className='bg-slate-300'>
+				{bills && bills.length > 0 ? (
+					<div >
+						{bills.map((bill, idx) => (
+							<div key={idx}>
+								<p>mounth{bill.mounth}</p>
+								<p>accrued{bill.accrued}</p>
+								<p>claimed{bill.claimed}</p>
+								<p>real{bill.real}</p>
+							</div>
+						))}
+					</div>
+				) : (
+					<div>no bills added</div>
+				)
+						}
+			</div>
+        )}
 		</>
   )
 }
