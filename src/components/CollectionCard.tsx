@@ -8,6 +8,8 @@ import MainModal from './modals/MainModal';
 import { DeletingCollectionConfirmProps } from '@/data/modalProps';
 import { Divider } from 'antd';
 import { McardHeader } from './styles/mcard/Mcard.styled';
+import { AiFillCaretDown } from "react-icons/ai";
+import { SiOneplus } from "react-icons/si";
 
 interface CollectionCardProps {
     collection: Collection & {
@@ -37,7 +39,7 @@ function CollectionCard({collection} :CollectionCardProps) {
 						name={collection.name}
 						/>
 				<BtnUpdate onClick={()=> setIsOpen(!isOpen)}>
-					<MdCallMissedOutgoing /> 
+				<AiFillCaretDown />
 				</BtnUpdate>
 			</div>
 			</McardHeader>
@@ -62,7 +64,10 @@ function CollectionCard({collection} :CollectionCardProps) {
 				</div>
 				 <Divider/>
 				<div className="mcard-footer">
-							footer
+							<span>footer</span>
+				<BtnUpdate className='addOne'>
+					<SiOneplus />
+				</BtnUpdate>		
 				</div>
 			</>
         )}
