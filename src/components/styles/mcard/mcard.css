@@ -1,13 +1,6 @@
 /* mcard styles */
 .mcard-header{
-    border: 2px solid #fdf7f2;
-    display: flex;
-    gap:  8px ;
-    align-items: center;
-    background-color: #0e7490 ;
-    border-radius:  8px ;
-    padding: 8px ;
-    color:  #94a3b8 ;
+
   }
   .mcard-content{
     display: grid;

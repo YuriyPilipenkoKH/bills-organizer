@@ -7,6 +7,7 @@ import { BtnUpdate } from './Button/Button';
 import MainModal from './modals/MainModal';
 import { DeletingCollectionConfirmProps } from '@/data/modalProps';
 import { Divider } from 'antd';
+import { McardHeader } from './styles/mcard/Mcard.styled';
 
 interface CollectionCardProps {
     collection: Collection & {
@@ -20,7 +21,9 @@ function CollectionCard({collection} :CollectionCardProps) {
 
   return (
     <>
-			<div className='mcard-header  '>
+			<McardHeader
+				isOpen={isOpen}
+			 className='mcard-header  '>
 			<h2 className='text-xl  font-bold w-24'>
 					{capitalize(collection?.name)}
 			</h2>
@@ -37,7 +40,7 @@ function CollectionCard({collection} :CollectionCardProps) {
 					<MdCallMissedOutgoing /> 
 				</BtnUpdate>
 			</div>
-			</div>
+			</McardHeader>
 			{isOpen && (
 			<>
 				<div className='mcard-content'>
