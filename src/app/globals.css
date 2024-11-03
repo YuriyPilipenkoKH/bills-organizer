@@ -106,21 +106,6 @@ img {
   clip: rect(0 0 0 0);
 }
 
-/* .mtext {
-  color: var(--text-color);
-  font-weight: 600;
-}
-.headst {
-  background-color:  var(--dark-green);
-
-} */
-/* .bl {
-  border-radius:  22px 0 0 0;
-
-}
-.br {
-  border-radius:0 22px 0 0 ;
-} */
 
 .link.active {
   color:#0f552b;
