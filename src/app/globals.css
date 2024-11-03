@@ -149,8 +149,14 @@ img {
   height: auto;
   visibility: visible;
 }
-.Mcard{
+.mcard-header{
   border: 2px solid #fdf7f2;
+  display: flex;
+  gap:  8px ;
+
+  background-color: rgb(14 116 144) ;
+  border-radius:  8px ;
+
 }
 
 /*  custom modal styles */
@@ -201,5 +207,25 @@ img {
   margin-top: auto;
 
 }
+/* mcard styles */
+.mcard-content{
+  display: grid;
+  gap: 2px;
+  align-items: center;
+  padding: 8px ;
+  background-color: var(--white-bg);
 
-
+  /* transition: all 1s ease; */
+  @media screen and (min-width: 768px) {
+    padding: 8px 16px;
+  }
+}
+.mcard-footer{
+  display: flex;
+  background-color: var(--white-bg);
+  padding: 8px ;
+  border-radius: 0 0 6px 6px;
+}
+.ant-divider-horizontal{
+  margin: 0;
+}
