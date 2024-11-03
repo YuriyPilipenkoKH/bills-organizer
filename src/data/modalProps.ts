@@ -2,14 +2,14 @@ import { ModalBaseTypes } from '@/types/modalTypes';
 
 export const DeletingCollectionConfirmProps: ModalBaseTypes = {
   modalName: 'DeletingCollectionConfirm',
-  dimentions: ['320px', '180px'],
+  dimentions: ['320px', '200px','420px','250px'],
   title: 'Are you sure deleting',
   text: 'There will be no return....',
 };
 
 export const AddBillProps: ModalBaseTypes = {
   modalName: 'AddBill',
-  dimentions: ['320px', '700px'],
+  dimentions: ['320px', '400px','420px','450px'],
   title: 'Add New Bill to',
   text: 'You can add 12 bills to current collection',
 };

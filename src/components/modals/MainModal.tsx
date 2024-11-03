@@ -1,6 +1,6 @@
 'use client'
 import { Modal } from 'antd';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/mainModal/mainModal.css'
 import { BtnDelete, BtnUpdate, CancelBtn} from '../Button/Button';
 import { ModalBaseTypes } from '@/types/modalTypes';
@@ -21,6 +21,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         modalName, 
         text, 
         title,
+        dimentions
     } = modalTypes
     const [loading, setLoading] = useState<boolean>(false);
     const [open, setOpen] = useState<boolean>(false);
@@ -41,6 +42,20 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         setCanceling(true)
         setOpen(false);
     };
+    // Adjust modal width based on screen size
+    useEffect(() => {
+      if (open) {
+        const modalContent = document.querySelector('.MainModal > div > .ant-modal-content') as HTMLElement;
+        if (modalContent && window.innerWidth <= 400) {  
+          modalContent.style.width = dimentions[0];
+          modalContent.style.height = dimentions[1];
+        } else {
+          modalContent.style.width = dimentions[2];
+          modalContent.style.height = dimentions[3];
+
+        }
+      }
+    }, [open, dimentions]);
 
   return (
     <>

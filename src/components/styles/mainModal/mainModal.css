@@ -6,8 +6,8 @@
   }
   
   .MainModal >div>.ant-modal-content{
-    width: 320px;
-    height: 260px;
+    /* width: 320px;
+    height: 260px; */
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -15,12 +15,12 @@
     color: var(--text-color);
     
   }
-  .delCategoryConfirm >div>.ant-modal-content{
-    height: 160px;
+  /* .DeletingCollectionConfirm >div>.ant-modal-content{
+    height: 180px;
   }
-  .delProductConfirm >div>.ant-modal-content{
-    height: 160px;
-  }
+  .AddBill >div>.ant-modal-content{
+    height: 420px;
+  } */
   .editProduct >div>.ant-modal-content{
     height: 240px;
   }
