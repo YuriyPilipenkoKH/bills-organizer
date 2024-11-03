@@ -55,8 +55,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         //   modalContent.style.width = dimentions[2];
         //   modalContent.style.height = dimentions[3];
         // }
-      }
-      return modalContent.setAttribute('found','false')
+        }
     }, [open, dimentions]);
 
   return (

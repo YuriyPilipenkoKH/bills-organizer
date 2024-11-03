@@ -6,21 +6,22 @@
   }
   
   .MainModal >div>.ant-modal-content{
-    /* width: 320px;
-    height: 260px; */
+    width: 300px; 
     display: flex;
     flex-direction: column;
     gap: 12px;
     background-color: var(--background-modal) ;
     color: var(--text-color);
-    
+    @media screen and (min-width: 768px) {
+        width: 400px;
+    }
   }
-  /* .DeletingCollectionConfirm >div>.ant-modal-content{
+  .DeletingCollectionConfirm >div>.ant-modal-content{
     height: 180px;
   }
   .AddBill >div>.ant-modal-content{
-    height: 420px;
-  } */
+    height: 380px;
+  }
   .editProduct >div>.ant-modal-content{
     height: 240px;
   }
