@@ -5,7 +5,7 @@ import capitalize from '@/lib/capitalize'
 import { MdCallMissedOutgoing } from "react-icons/md";
 import { BtnUpdate } from './Button/Button';
 import MainModal from './modals/MainModal';
-import { DeletingCollectionConfirmProps } from '@/data/modalProps';
+import { AddBillProps, DeletingCollectionConfirmProps } from '@/data/modalProps';
 import { Divider } from 'antd';
 import { McardHeader } from './styles/mcard/Mcard.styled';
 import { AiFillCaretDown } from "react-icons/ai";
@@ -64,10 +64,11 @@ function CollectionCard({collection} :CollectionCardProps) {
 				</div>
 				 <Divider/>
 				<div className="mcard-footer">
-							<span>footer</span>
-				<BtnUpdate className='addOne'>
-					<SiOneplus />
-				</BtnUpdate>		
+				<MainModal 
+						modalTypes={AddBillProps}
+						id={collection.id}
+						name={collection.name}
+						/>
 				</div>
 			</>
         )}

@@ -2,12 +2,13 @@
 import { Modal } from 'antd';
 import React, { useState } from 'react';
 import './../../components/styles/mcard/mcard.css';
-import { BtnDelete, CancelBtn} from '../Button/Button';
+import { BtnDelete, BtnUpdate, CancelBtn} from '../Button/Button';
 import { ModalBaseTypes } from '@/types/modalTypes';
 import capitalize from '@/lib/capitalize';
 import { cn } from '@/lib/utils';
 import { RiDeleteBin2Line } from 'react-icons/ri';
 import DeleteCollectionForm from '../forms/DeleteCollectionForm';
+import { SiOneplus } from 'react-icons/si';
 
 interface MainModalProps {
     modalTypes: ModalBaseTypes
@@ -51,6 +52,16 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         onClick={showModal}>
          <RiDeleteBin2Line />
     </BtnDelete>
+    )}
+  {(modalName === 'AddBill' 
+      || modalName === 'DeletingProductConfirm')
+      && (
+      <BtnUpdate
+        className='addOne'
+        type="button" 
+        onClick={showModal}>
+          <SiOneplus />
+      </BtnUpdate>
     )}
     <Modal
       className={cn('MainModal relative',
