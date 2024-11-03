@@ -6,16 +6,18 @@
   }
   
   .MainModal >div>.ant-modal-content{
-    width: 300px; 
+    width: var(--modal-width, 300px); /* Fallback to 300px if not defined */
     display: flex;
     flex-direction: column;
     gap: 12px;
     background-color: var(--background-modal) ;
     color: var(--text-color);
+
     @media screen and (min-width: 768px) {
         width: 400px;
     }
   }
+
   .DeletingCollectionConfirm >div>.ant-modal-content{
     height: 180px;
   }
