@@ -149,15 +149,7 @@ img {
   height: auto;
   visibility: visible;
 }
-.mcard-header{
-  border: 2px solid #fdf7f2;
-  display: flex;
-  gap:  8px ;
 
-  background-color: rgb(14 116 144) ;
-  border-radius:  8px ;
-
-}
 
 /*  custom modal styles */
 .MainModal >div[tabindex='-1'] {
@@ -208,6 +200,16 @@ img {
 
 }
 /* mcard styles */
+.mcard-header{
+  border: 2px solid #fdf7f2;
+  display: flex;
+  gap:  8px ;
+  align-items: center;
+  background-color: #0e7490 ;
+  border-radius:  8px ;
+  padding: 8px ;
+  color:  #94a3b8 ;
+}
 .mcard-content{
   display: grid;
   gap: 2px;

@@ -20,7 +20,7 @@ function CollectionCard({collection} :CollectionCardProps) {
 
   return (
     <>
-			<div className='mcard-header flex gap-2 items-center bg-cyan-700  rounded-lg p-2 text-slate-400 '>
+			<div className='mcard-header  '>
 			<h2 className='text-xl  font-bold w-24'>
 					{capitalize(collection?.name)}
 			</h2>
