@@ -18,7 +18,6 @@ const StHeader = css`
 	transition: all 0.5s ease;
 `
 
-
 export const McardHeader = styled("div", {
     shouldForwardProp: (prop: string) =>
       isPropValid(prop) && !["isOpen"].includes(prop),

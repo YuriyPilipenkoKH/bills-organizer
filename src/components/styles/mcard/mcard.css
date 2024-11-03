@@ -1,7 +1,5 @@
 /* mcard styles */
-.mcard-header{
 
-  }
   .mcard-content{
     display: grid;
     gap: 2px;
@@ -9,7 +7,7 @@
     padding: 8px ;
     background-color: var(--white-bg);
   
-    /* transition: all 1s ease; */
+    transition: all 0.5s ease;
     @media screen and (min-width: 768px) {
       padding: 8px 16px;
     }
@@ -19,4 +17,5 @@
     background-color: var(--white-bg);
     padding: 8px ;
     border-radius: 0 0 6px 6px;
+    transition: all 0.5s ease;
   }
