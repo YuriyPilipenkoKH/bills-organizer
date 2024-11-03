@@ -1,15 +1,16 @@
 'use client'
 import { useState } from 'react';
+import './../components/styles/mcard/mcard.css';
 import { Bill, Collection } from '@prisma/client'
 import capitalize from '@/lib/capitalize'
-import { MdCallMissedOutgoing } from "react-icons/md";
+// import { MdCallMissedOutgoing } from "react-icons/md";
 import { BtnUpdate } from './Button/Button';
 import MainModal from './modals/MainModal';
 import { AddBillProps, DeletingCollectionConfirmProps } from '@/data/modalProps';
 import { Divider } from 'antd';
 import { McardHeader } from './styles/mcard/Mcard.styled';
 import { AiFillCaretDown } from "react-icons/ai";
-import { SiOneplus } from "react-icons/si";
+
 
 interface CollectionCardProps {
     collection: Collection & {

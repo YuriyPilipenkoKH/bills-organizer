@@ -1,0 +1,49 @@
+/*  custom modal styles */
+.MainModal >div[tabindex='-1'],
+.MainModal >div[tabindex='0'] {
+    display: grid;
+    place-items: center;
+  }
+  
+  .MainModal >div>.ant-modal-content{
+    width: 320px;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: var(--background-modal) ;
+    color: var(--text-color);
+    
+  }
+  .delCategoryConfirm >div>.ant-modal-content{
+    height: 160px;
+  }
+  .delProductConfirm >div>.ant-modal-content{
+    height: 160px;
+  }
+  .editProduct >div>.ant-modal-content{
+    height: 240px;
+  }
+  .updateImgUrl >div>.ant-modal-content{
+    height: 420px;
+  }
+  
+.MainModal >div>.ant-modal-content>div>.ant-modal-title {
+    background-color: var(--background-modal) ;
+    color: var(--text-color); 
+  
+  }
+  .MainModal >div>.ant-modal-content>div>.ant-modal-title>svg{
+    fill: var(--text-color); 
+  }
+  .MainModal .ant-modal-content>button.ant-modal-close>span>span>svg{
+    fill: var(--text-color); 
+  }
+  
+  .MainModal >div>.ant-modal-content >.ant-modal-footer {
+    display: flex;
+    gap: 22px;
+    justify-content: flex-end;
+    margin-top: auto;
+  
+  }

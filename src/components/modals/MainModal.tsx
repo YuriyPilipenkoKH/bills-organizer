@@ -1,7 +1,7 @@
 'use client'
 import { Modal } from 'antd';
 import React, { useState } from 'react';
-import './../../components/styles/mcard/mcard.css';
+import '../styles/mainModal/mainModal.css'
 import { BtnDelete, BtnUpdate, CancelBtn} from '../Button/Button';
 import { ModalBaseTypes } from '@/types/modalTypes';
 import capitalize from '@/lib/capitalize';
@@ -66,7 +66,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
     <Modal
       className={cn('MainModal relative',
         (modalName === 'DeletingCollectionConfirm')  && `DeletingCollectionConfirm`,
-        (modalName === 'DeletingProductConfirm')  && `delProductConfirm`,
+        (modalName === 'AddBill')  && `AddBill`,
         (modalName === 'EditProduct')  && `editProduct`,
         (modalName === 'UpdateImgUrl')  && `updateImgUrl`,
         )}
