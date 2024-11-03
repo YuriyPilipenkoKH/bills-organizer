@@ -10,7 +10,7 @@ export const addBill = async (formData: FormData) => {
     const mounth = formData.get('mounth') 
     const collectionId = formData.get('collectionId') 
 
-    if (!accrued || !collectionId) {
+    if (!accrued || !collectionId || !claimed || !mounth) {
         return { success: false, error: "all fields are required" };
     }
   
