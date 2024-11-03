@@ -1,6 +1,7 @@
 'use client'
 import { Modal } from 'antd';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import './../../app/styles/mcard.css';
 import { BtnDelete, CancelBtn} from '../Button/Button';
 import { ModalBaseTypes } from '@/types/modalTypes';
 import capitalize from '@/lib/capitalize';
