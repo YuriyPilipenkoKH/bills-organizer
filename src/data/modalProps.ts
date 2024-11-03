@@ -2,7 +2,7 @@ import { ModalBaseTypes } from '@/types/modalTypes';
 
 export const DeletingCollectionConfirmProps: ModalBaseTypes = {
   modalName: 'DeletingCollectionConfirm',
-  dimentions: ['320px', '200px','420px','250px'],
+  dimentions: ['300px', '200px','420px','250px'],
   title: 'Are you sure deleting',
   text: 'There will be no return....',
 };
