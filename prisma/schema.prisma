@@ -22,7 +22,6 @@ model Collection {
 
 model Bill {
   id String @id @default(auto()) @map("_id") @db.ObjectId
-  billId String
   accrued Int
   claimed Int
   real Int?
