@@ -44,8 +44,8 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
     };
     // Adjust modal width based on screen size
     useEffect(() => {
+      const modalContent = document.querySelector('.MainModal > div > .ant-modal-content') as HTMLElement;
       if (open) {
-        const modalContent = document.querySelector('.MainModal > div > .ant-modal-content') as HTMLElement;
         if (modalContent ) {  // && window.innerWidth <= 400
           // modalContent.style.width = dimentions[0];
           // modalContent.style.height = dimentions[1];
@@ -56,6 +56,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         //   modalContent.style.height = dimentions[3];
         // }
       }
+      return modalContent.setAttribute('found','false')
     }, [open, dimentions]);
 
   return (
