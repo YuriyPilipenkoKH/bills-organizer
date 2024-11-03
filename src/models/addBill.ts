@@ -19,9 +19,9 @@ export const addBillSchema = z.object({
         .min(1, { message: "Month must be between 1 and 12" })
         .max(12, { message: "Month must be between 1 and 12" }),
     
-    billId: z
-        .string()
-        .min(1, { message: "Bill ID is required" })
+    // billId: z
+    //     .string()
+    //     .min(1, { message: "Bill ID is required" })
 });
 
 export type addBillSchemaType = z.infer<typeof addBillSchema>;
