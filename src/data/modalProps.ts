@@ -9,7 +9,7 @@ export const DeletingCollectionConfirmProps: ModalBaseTypes = {
 
 export const AddBillProps: ModalBaseTypes = {
   modalName: 'AddBill',
-  dimentions: ['320px', '400px','420px','450px'],
+  dimentions: ['300px', '380px','420px','450px'],
   title: 'Add New Bill to',
   text: 'You can add 12 bills to current collection',
 };
