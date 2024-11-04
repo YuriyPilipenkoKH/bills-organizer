@@ -76,7 +76,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         className='addOne'
         type="button" 
         onClick={showModal}>
-          <SiOneplus />
+          <SiOneplus className='ml-[2px] mb-[2px]' />
       </BtnUpdate>
     )}
     <Modal

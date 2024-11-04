@@ -20,10 +20,10 @@ export const addBill = async (formData: FormData) => {
     try {
         const newBill = await prisma.bill.create({
             data: {
-                accrued :Number(accrued),
-                claimed :Number(claimed),
-                real :Number(real),
-                mounth :Number(mounth),
+                accrued : Number(accrued),
+                claimed : Number(claimed),
+                real    : Number(real),
+                mounth  : Number(mounth),
                 collectionId
             }
         })
