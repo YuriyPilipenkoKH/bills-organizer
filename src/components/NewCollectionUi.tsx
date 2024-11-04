@@ -10,7 +10,7 @@ import { AddNewCollectionFormProps } from '@/data/formProps'
 
 function NewCollectionUi() {
     const [open, setOpen] = useState(false)
-		
+		const {formName, dimentions} = AddNewCollectionFormProps
   return (
 
 		<>
@@ -34,8 +34,8 @@ function NewCollectionUi() {
 						}
 						{open &&(
 							<AddNewCollectionForm 
-							formName ={AddNewCollectionFormProps.formName}
-							dimentions ={AddNewCollectionFormProps.dimentions}
+							formName ={formName}
+							dimentions ={dimentions}
 							/>
 										)}
 				</div>
