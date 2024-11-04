@@ -87,15 +87,15 @@ export const AddNewCollectionForm: React.FC = () => {
 			/>
 			</FormLabel>
 			<CancelBtn 
-			className='mt-auto mb-1'
+			className='mt-auto '
 			type='submit'
 			disabled={isSubmitting || !isDirty || !isValid}
 						>
 				Add
 			</CancelBtn>
-		<div className='absolute bottom-[46px] w-full px-2 md:w-[518px]'>
+		<div className='absolute bottom-[46px] sm:w-[300px]  md:w-[500px]'>
 		{( errors?.name || errors?.year ) && (
-			<AuthError className="autherror ">
+			<AuthError className="autherror w-full">
 				{errors.name && <div>{errors.name.message}</div>}
 				{!errors.name && errors.year && <div>{errors.year.message}</div>}
 				{logError && <div>{logError}</div>}

@@ -17,12 +17,12 @@ function NewCollectionUi() {
 			)}
 			> */}
 				<CancelBtn className='CancelBtn text-slate-200'
-					onClick={()=> setOpen(!open)}>
-							{open ? 'Fold' :'Add new collection'}
-							{open
-									?  <BiDownArrow  className='r180' />
-									: <BiDownArrow className=''/>
-									}
+				onClick={()=> setOpen(!open)}>
+						{open ? 'Fold' :'Add new collection'}
+						{open
+							?  <BiDownArrow  className='r180' />
+							: <BiDownArrow className=''/>
+							}
 				</CancelBtn>
 				<div className={cn('w-full   uiWrap',
 					open ? 'opened' : 'folded') }>

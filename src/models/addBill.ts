@@ -2,22 +2,22 @@ import { z } from 'zod';
 
 export const addBillSchema = z.object({
     accrued: z
-        .number()
-        .min(0, { message: "Accrued amount cannot be negative" }),
+		.number()
+		.min(0, { message: "Accrued amount cannot be negative" }),
     
     claimed: z
-        .number()
-        .min(0, { message: "Claimed amount cannot be negative" }),
+		.number()
+		.min(0, { message: "Claimed amount cannot be negative" }),
     
     real: z
-        .number()
-        .min(0, { message: "Real amount cannot be negative" })
-        .optional(),
+		.number()
+		.min(0, { message: "Real amount cannot be negative" })
+		.optional(),
     
     mounth: z
-        .number()
-        .min(1, { message: "Month must be between 1 and 12" })
-        .max(12, { message: "Month must be between 1 and 12" }),
+		.number()
+		.min(1, { message: "Month must be between 1 and 12" })
+		.max(12, { message: "Month must be between 1 and 12" }),
     
 
 });

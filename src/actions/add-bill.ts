@@ -18,17 +18,17 @@ export const addBill = async (formData: FormData) => {
         return { success: false, error: "Invalid input data" };
     }
     try {
-        const newBill = await prisma.bill.create({
-            data: {
-                accrued : Number(accrued),
-                claimed : Number(claimed),
-                real    : Number(real),
-                mounth  : Number(mounth),
-                collectionId
-            }
-        })
-        revalidatePath('/dashboard')
-        return { success: true, newBill };
+			const newBill = await prisma.bill.create({
+				data: {
+					accrued : Number(accrued),
+					claimed : Number(claimed),
+					real    : Number(real),
+					mounth  : Number(mounth),
+					collectionId
+				}
+			})
+			revalidatePath('/dashboard')
+			return { success: true, newBill };
     }
     catch (error) {
         console.log('Error'+ error)
