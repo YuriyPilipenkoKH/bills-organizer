@@ -5,9 +5,12 @@ import { CancelBtn } from './Button/Button'
 import { BiDownArrow } from 'react-icons/bi'
 import { AddNewCollectionForm } from './forms/AddNewCollectionForm'
 import {cn} from './../lib/utils'
+import { AddNewCollectionFormProps } from '@/data/formProps'
+
 
 function NewCollectionUi() {
     const [open, setOpen] = useState(false)
+		
   return (
 
 		<>
@@ -30,7 +33,10 @@ function NewCollectionUi() {
 								Add collection</h2>
 						}
 						{open &&(
-							<AddNewCollectionForm />
+							<AddNewCollectionForm 
+							formName ={AddNewCollectionFormProps.formName}
+							dimentions ={AddNewCollectionFormProps.dimentions}
+							/>
 										)}
 				</div>
 			{/* </div> */}

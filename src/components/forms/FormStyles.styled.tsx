@@ -100,12 +100,10 @@ export const AuthError = styled('div')`
     overflow: hidden; 
     text-overflow: ellipsis; 
     white-space: nowrap; 
-
-
 `;
 
 interface FormUniversalProps {
-	isOpen: boolean;
+	formHeight: string;
 }
 const FormUniversal = css`
     position: relative;
@@ -115,10 +113,10 @@ const FormUniversal = css`
 `
 export const Form_Universal = styled("form", {
     shouldForwardProp: (prop: string) =>
-      isPropValid(prop) && !["isOpen"].includes(prop),
+      isPropValid(prop) && !["formHeight"].includes(prop),
     })<FormUniversalProps>(
-        ({ isOpen }) => css`
-					height: ${isOpen ? `170px` : ''};
+        ({ formHeight }) => css`
+					height: ${formHeight ? `170px` : ''};
 
 					${FormUniversal}
         `

@@ -9,8 +9,10 @@ import { addCollection } from '@/actions/add-collection';
 import { AuthError, Form_Universal, FormInput, FormLabel } from './FormStyles.styled';
 import { addNewCollectionSchema, addNewCollectionSchemaType,  } from '@/models/addCollection';
 import { CgCloseO } from "react-icons/cg";
+import { FormBaseTypes } from '@/types/formTypes';
 
-export const AddNewCollectionForm: React.FC = () => {
+
+export const AddNewCollectionForm: React.FC<FormBaseTypes> = ( {dimentions} ) => {
 		const [logError, setLogError] = useState<string>('')
 		const {
 			register, 
@@ -25,13 +27,14 @@ export const AddNewCollectionForm: React.FC = () => {
 				mode:'all',
 				resolver: zodResolver(addNewCollectionSchema),
 		})
+		
 		const {
 			errors,
 			isDirty,
 			isValid ,
 			isSubmitting,
 		} = formState
-
+		console.log(dimentions)
 		const onSubmit = async (data: addNewCollectionSchemaType) => {
 
 			const formData = new FormData();
@@ -69,6 +72,7 @@ export const AddNewCollectionForm: React.FC = () => {
     <Form_Universal
 		onSubmit={handleSubmit(onSubmit, onInvalid)}
 		className='flex flex-col gap-3 items-center'
+		formHeight={dimentions[1]}
 		autoComplete="off"
 		noValidate>
 			<FormLabel>
