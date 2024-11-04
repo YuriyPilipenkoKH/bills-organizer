@@ -12,7 +12,9 @@ import { CgCloseO } from "react-icons/cg";
 import { FormBaseTypes } from '@/types/formTypes';
 
 
-export const AddNewCollectionForm: React.FC<FormBaseTypes> = ( {dimentions} ) => {
+export const AddNewCollectionForm: React.FC<FormBaseTypes> = ( {
+	dimentions
+} ) => {
 		const [logError, setLogError] = useState<string>('')
 		const {
 			register, 
@@ -27,16 +29,14 @@ export const AddNewCollectionForm: React.FC<FormBaseTypes> = ( {dimentions} ) =>
 				mode:'all',
 				resolver: zodResolver(addNewCollectionSchema),
 		})
-		
 		const {
 			errors,
 			isDirty,
 			isValid ,
 			isSubmitting,
 		} = formState
-		console.log(dimentions)
-		const onSubmit = async (data: addNewCollectionSchemaType) => {
 
+		const onSubmit = async (data: addNewCollectionSchemaType) => {
 			const formData = new FormData();
 			formData.append('name', data.name);
 			formData.append('year', String(data.year)); // Convert `year` to a string
