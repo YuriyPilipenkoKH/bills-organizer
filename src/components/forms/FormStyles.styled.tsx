@@ -100,18 +100,31 @@ export const AuthError = styled('div')`
     overflow: hidden; 
     text-overflow: ellipsis; 
     white-space: nowrap; 
+
+
 `;
 
-export const Form_Universal = styled('form')`
+interface FormUniversalProps {
+	isOpen: boolean;
+}
+const FormUniversal = css`
     position: relative;
     display: flex;
     gap: 8px;
-    width: 100%;
-    /* background-color: #cbd5e1; */
-    /* border-radius: 1.25rem; */
-    height: 170px;
     padding: 6px;
-`;
+`
+export const Form_Universal = styled("form", {
+    shouldForwardProp: (prop: string) =>
+      isPropValid(prop) && !["isOpen"].includes(prop),
+    })<FormUniversalProps>(
+        ({ isOpen }) => css`
+					height: ${isOpen ? `170px` : ''};
+
+					${FormUniversal}
+        `
+    );
+
+
 
 export const Form_PhoneEdit = styled('form')`
     display: grid;
