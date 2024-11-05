@@ -25,3 +25,6 @@
       margin-left: auto;
     }
   }
+  .mcard-table{
+    display: grid;
+  }

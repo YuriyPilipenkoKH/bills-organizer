@@ -58,10 +58,10 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
 			try {
 					const result = await addBill(formData);
 					if (result.success) {
-							toast.success(`Collection ${capitalize(name)} added successfully`!);
+							toast.success(`Bill for ${capitalize(String(data.month))} month added successfully`!);
 							reset();
 					} else {
-							toast.error(`Failed to add ${capitalize(name)} Collection : ${result.error}`);
+							toast.error(`Failed to add Bill for ${capitalize(String(data.month))} month  ${result.error}`);
 					}
         } catch 
 				(error) {
