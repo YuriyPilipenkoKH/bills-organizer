@@ -6,7 +6,11 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-interface AddBillFormProps {
+import { AuthError, Form_Universal, FormInput, FormLabel } from './FormStyles.styled';
+import { CancelBtn, FlatBtn } from '../Button/Button';
+import { CgCloseO } from 'react-icons/cg';
+import { FormBaseTypes } from '@/types/formTypes';
+interface AddBillFormProps extends FormBaseTypes {
     id: string;
     name: string
     setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
@@ -17,7 +21,9 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
     id, 
     name,
     setIsSubmitting,
-    setOpen
+    setOpen,
+    formName,
+    dimentions
     }) => {
       const [logError, setLogError] = useState<string>('')
 		const {
@@ -63,8 +69,54 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
 					setLogError(errorMessage)
 			}
 	};
+  const handleInputChange = () => {
+    if (logError) {
+      setLogError('');
+    }
+  };
   return (
-    <div>AddBillForm</div>
+    <Form_Universal
+		onSubmit={handleSubmit(onSubmit)}
+		className='flex flex-col gap-3 items-center'
+		formHeight={dimentions[1]}
+		autoComplete="off"
+		noValidate>
+			<FormLabel>
+			<FormInput 
+			 {...register('claimed', { onChange: handleInputChange })}
+				 placeholder=	{( isSubmitting )
+				  ? "Processing" : 'claimed'}
+			/>
+			</FormLabel>
+			<FormLabel>
+			<FormInput
+				{...register('real', { onChange: handleInputChange })}
+				placeholder={isSubmitting 
+          ? 'Processing' : 'real'}
+				type="text" // Ensures the input is treated as a string
+			/>
+			</FormLabel>
+			<CancelBtn 
+			className='mt-auto '
+			type='submit'
+			disabled={isSubmitting || !isDirty || !isValid}
+						>
+				Add
+			</CancelBtn>
+		<div className='absolute bottom-[46px] sm:w-[300px]  md:w-[500px]'>
+		{( errors?.name || errors?.year ) && (
+			<AuthError className="autherror w-full">
+				{errors.name && <div>{errors.name.message}</div>}
+				{!errors.name && errors.year && <div>{errors.year.message}</div>}
+				{logError && <div>{logError}</div>}
+				<FlatBtn 
+					onClick={()=>reset()}>
+						<CgCloseO size={30} />
+				</FlatBtn>
+			</AuthError>
+			)}
+		</div>		
+    </Form_Universal>
   )
 }
 
