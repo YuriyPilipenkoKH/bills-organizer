@@ -51,7 +51,7 @@ function CollectionCard({collection} :CollectionCardProps) {
 						<div >
 							{bills.map((bill, idx) => (
 								<div key={idx}>
-									<span>mounth{bill.mounth}</span>
+									<span>month{bill.month}</span>
 									<span>accrued{bill.accrued}</span>
 									<span>claimed{bill.claimed}</span>
 									<span>real{bill.real}</span>

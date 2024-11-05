@@ -7,10 +7,10 @@ export const addBill = async (formData: FormData) => {
     const accrued = formData.get('accrued') 
     const claimed = formData.get('claimed') 
     const real = formData.get('real') 
-    const mounth = formData.get('mounth') 
+    const month = formData.get('month') 
     const collectionId = formData.get('collectionId') 
 
-    if (!accrued || !collectionId || !claimed || !mounth) {
+    if (!accrued || !collectionId || !claimed || !month) {
         return { success: false, error: "all fields are required" };
     }
   
@@ -23,7 +23,7 @@ export const addBill = async (formData: FormData) => {
 					accrued : Number(accrued),
 					claimed : Number(claimed),
 					real    : Number(real),
-					mounth  : Number(mounth),
+					month  : Number(month),
 					collectionId
 				}
 			})

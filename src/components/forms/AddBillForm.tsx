@@ -50,7 +50,7 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
 			
 			formData.append('year', String(data.claimed)); // Convert to string
 			formData.append('year', String(data.real)); 
-			formData.append('year', String(data.mounth)); 
+			formData.append('year', String(data.month)); 
 
 			try {
 					const result = await addBill(formData);
@@ -82,10 +82,10 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
   noValidate>
     <FormLabel>
       <FormInput
-        {...register('mounth', { onChange: handleInputChange })}
+        {...register('month', { onChange: handleInputChange })}
         placeholder={isSubmitting 
-          ? 'Processing' : 'mounth'}
-        type="text" // Ensures the input is treated as a string
+          ? 'Processing' : 'month'}
+        type="number" // Ensures the input is treated as a string
       />
     </FormLabel>
     <FormLabel>
@@ -111,11 +111,11 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
         Add
     </CancelBtn>
 		<div className='absolute bottom-[46px] sm:w-[300px]  md:w-[500px]'>
-		{( errors?.mounth || errors?.claimed || errors?.real ) && (
+		{( errors?.month || errors?.claimed || errors?.real ) && (
 			<AuthError className="autherror w-full">
-				{errors.mounth && <div>{errors.mounth.message}</div>}
-				{!errors.mounth && errors.claimed && <div>{errors.claimed.message}</div>}
-				{!errors.mounth && !errors.claimed && errors.real && <div>{errors.real.message}</div>}
+				{errors.month && <div>{errors.month.message}</div>}
+				{!errors.month && errors.claimed && <div>{errors.claimed.message}</div>}
+				{!errors.month && !errors.claimed && errors.real && <div>{errors.real.message}</div>}
 				{logError && <div>{logError}</div>}
 				<FlatBtn 
 					onClick={()=>reset()}>

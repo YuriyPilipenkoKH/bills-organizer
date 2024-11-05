@@ -14,7 +14,7 @@ export const addBillSchema = z.object({
 		.min(0, { message: "Real amount cannot be negative" })
 		.optional(),
     
-    mounth: z
+    month: z
 		.number()
 		.min(1, { message: "Month must be between 1 and 12" })
 		.max(12, { message: "Month must be between 1 and 12" }),

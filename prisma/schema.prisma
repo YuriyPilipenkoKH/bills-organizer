@@ -25,7 +25,7 @@ model Bill {
   accrued Int
   claimed Int
   real Int?
-  mounth Int
+  month Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   collectionId String @db.ObjectId // Add a field to reference the Collection
