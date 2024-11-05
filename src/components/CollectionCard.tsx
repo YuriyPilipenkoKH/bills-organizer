@@ -4,13 +4,13 @@ import './../components/styles/mcard/mcard.css';
 import { Bill, Collection } from '@prisma/client'
 import capitalize from '@/lib/capitalize'
 // import { MdCallMissedOutgoing } from "react-icons/md";
-import { BtnUpdate } from './Button/Button';
+import { BtnUpdate, FlatBackBtn } from './Button/Button';
 import MainModal from './modals/MainModal';
 import { AddBillProps, DeletingCollectionConfirmProps } from '@/data/modalProps';
 import { Divider } from 'antd';
 import { McardHeader } from './styles/mcard/Mcard.styled';
 import { AiFillCaretDown } from "react-icons/ai";
-
+import { FiEdit } from "react-icons/fi";
 
 interface CollectionCardProps {
     collection: Collection & {
@@ -55,6 +55,7 @@ function CollectionCard({collection} :CollectionCardProps) {
 									<th className='w-1/4'>claimed</th>
 									<th className='w-1/4'>real</th>
 									<th className='w-1/4'>accrued</th>
+									<th className='w-1/8 text-end'>e</th>
 								</tr>
 							</thead>
 							<Divider/>
@@ -72,6 +73,11 @@ function CollectionCard({collection} :CollectionCardProps) {
 									</td>
 									<td className='w-1/4  text-center'>
 										{bill.accrued}
+									</td>
+									<td className='w-1/4  '>
+										<FlatBackBtn>
+										<FiEdit />
+										</FlatBackBtn>
 									</td>
 								</tr>
 							))}
