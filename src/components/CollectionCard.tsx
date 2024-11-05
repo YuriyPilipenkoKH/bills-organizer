@@ -61,7 +61,7 @@ function CollectionCard({collection} :CollectionCardProps) {
 							<Divider/>
 							<tbody className='mcard-tablebody'>
 							{bills.map((bill, idx) => (
-								<tr key={idx}>
+								<tr key={idx} className='odd:bg-green-200'>
 									<td className='w-1/8 '>
 										<FlatBackBtn >
 											{bill.month}
