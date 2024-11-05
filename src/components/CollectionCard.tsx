@@ -48,23 +48,23 @@ function CollectionCard({collection} :CollectionCardProps) {
 			<>
 				<div className='mcard-content'>
 					{bills && bills.length > 0 ? (
-						<table className='mcard-table'	>
+						<table className='mcard-table w-full'	>
 							<thead>
 								<tr>
-									<th>m</th>
-									<th>claimed</th>
-									<th>real</th>
-									<th>accrued</th>
+									<th className='w-1/6'>m</th>
+									<th className='w-1/4'>claimed</th>
+									<th className='w-1/4'>real</th>
+									<th className='w-1/4'>accrued</th>
 								</tr>
 							</thead>
 							<Divider/>
 							<tbody >
 							{bills.map((bill, idx) => (
 								<tr key={idx}>
-									<td>{bill.month}</td>
-									<td>{bill.claimed}</td>
-									<td>{bill.real}</td>
-									<td>{bill.accrued}</td>
+									<td className='w-1/6'>{bill.month}</td>
+									<td className='w-1/4'>{bill.claimed}</td>
+									<td className='w-1/4'>{bill.real}</td>
+									<td className='w-1/4'>{bill.accrued}</td>
 								</tr>
 							))}
 							</tbody>
