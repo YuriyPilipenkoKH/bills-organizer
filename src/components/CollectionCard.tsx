@@ -51,20 +51,28 @@ function CollectionCard({collection} :CollectionCardProps) {
 						<table className='mcard-table w-full'	>
 							<thead>
 								<tr>
-									<th className='w-1/6'>m</th>
+									<th className='w-1/8'></th>
 									<th className='w-1/4'>claimed</th>
 									<th className='w-1/4'>real</th>
 									<th className='w-1/4'>accrued</th>
 								</tr>
 							</thead>
 							<Divider/>
-							<tbody >
+							<tbody className='mcard-tablebody'>
 							{bills.map((bill, idx) => (
 								<tr key={idx}>
-									<td className='w-1/6'>{bill.month}</td>
-									<td className='w-1/4'>{bill.claimed}</td>
-									<td className='w-1/4'>{bill.real}</td>
-									<td className='w-1/4'>{bill.accrued}</td>
+									<td className='w-1/8 '>
+										{bill.month}
+									</td>
+									<td className='w-1/4 text-center'>
+										{bill.claimed}
+									</td>
+									<td className='w-1/4  text-center'>
+										{bill.real}
+									</td>
+									<td className='w-1/4  text-center'>
+										{bill.accrued}
+									</td>
 								</tr>
 							))}
 							</tbody>
