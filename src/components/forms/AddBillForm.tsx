@@ -47,10 +47,11 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
 		} = formState
 		const onSubmit = async (data: addBillSchemaType) => {
 			const formData = new FormData();
+      // console.log(data)
 			
-			formData.append('year', String(data.claimed)); // Convert to string
-			formData.append('year', String(data.real)); 
-			formData.append('year', String(data.month)); 
+			formData.append('claimed', String(data.claimed)); // Convert to string
+			formData.append('real', String(data.real)); 
+			formData.append('month', String(data.month)); 
 
 			try {
 					const result = await addBill(formData);
@@ -93,6 +94,7 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
         {...register('claimed', { onChange: handleInputChange })}
           placeholder=	{( isSubmitting )
           ? "Processing" : 'claimed'}
+          type="number" 
       />
     </FormLabel>
     <FormLabel>
@@ -100,7 +102,7 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
         {...register('real', { onChange: handleInputChange })}
         placeholder={isSubmitting 
           ? 'Processing' : 'real'}
-        type="text" 
+          type="number" 
       />
     </FormLabel>
     <CancelBtn 
