@@ -33,8 +33,8 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
 			reset,
 		} = useForm<addBillSchemaType>({
 			defaultValues: {
-				claimed: 0,
-        real: 0,
+				claimed: undefined,
+        real: undefined,
         },
 				mode:'all',
 				resolver: zodResolver(addBillSchema),

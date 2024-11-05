@@ -116,7 +116,7 @@ export const Form_Universal = styled("form", {
       isPropValid(prop) && !["formHeight"].includes(prop),
     })<FormUniversalProps>(
         ({ formHeight }) => css`
-					height: ${formHeight ? `170px` : ''};
+					height: ${formHeight ? formHeight : ''};
 
 					${FormUniversal}
         `

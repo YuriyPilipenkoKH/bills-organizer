@@ -7,3 +7,9 @@ export const AddNewCollectionFormProps: FormBaseTypes = {
   title: '',
   text: '',
 };
+export const AddBillFormProps: FormBaseTypes = {
+  formName: 'AddBillForm',
+  dimentions: ['300px', '270px','420px','250px'],
+  title: '',
+  text: '',
+};
