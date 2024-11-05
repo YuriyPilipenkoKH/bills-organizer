@@ -63,7 +63,9 @@ function CollectionCard({collection} :CollectionCardProps) {
 							{bills.map((bill, idx) => (
 								<tr key={idx}>
 									<td className='w-1/8 '>
-										{bill.month}
+										<FlatBackBtn >
+											{bill.month}
+										</FlatBackBtn>
 									</td>
 									<td className='w-1/4 text-center'>
 										{bill.claimed}
@@ -75,7 +77,7 @@ function CollectionCard({collection} :CollectionCardProps) {
 										{bill.accrued}
 									</td>
 									<td className='w-1/8  edit-wrapp'>
-										<FlatBackBtn>
+										<FlatBackBtn >
 										<FiEdit />
 										</FlatBackBtn>
 									</td>
