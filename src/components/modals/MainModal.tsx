@@ -9,6 +9,8 @@ import { cn } from '@/lib/utils';
 import { RiDeleteBin2Line } from 'react-icons/ri';
 import DeleteCollectionForm from '../forms/DeleteCollectionForm';
 import { SiOneplus } from 'react-icons/si';
+import AddBillForm from '../forms/AddBillForm';
+import { AddNewCollectionFormProps } from '@/data/formProps';
 
 interface MainModalProps {
     modalTypes: ModalBaseTypes
@@ -123,6 +125,16 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
             name={name}
             setIsSubmitting={setIsSubmitting}
             setOpen={setOpen}
+            />
+        )}
+        {(modalName === 'AddBill') && (
+          <AddBillForm
+            id={id}
+            name={name}
+            setIsSubmitting={setIsSubmitting}
+            setOpen={setOpen}
+            formName={AddNewCollectionFormProps.formName}
+            dimentions={AddNewCollectionFormProps.dimentions}
             />
         )}
 
