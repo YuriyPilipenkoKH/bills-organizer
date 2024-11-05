@@ -35,8 +35,7 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
 			defaultValues: {
 				claimed: 0,
         real: 0,
-        mounth:1
-			},
+        },
 				mode:'all',
 				resolver: zodResolver(addBillSchema),
 		})
@@ -82,6 +81,14 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
 		autoComplete="off"
 		noValidate>
 			<FormLabel>
+			<FormInput
+				{...register('mounth', { onChange: handleInputChange })}
+				placeholder={isSubmitting 
+          ? 'Processing' : 'mounth'}
+				type="text" // Ensures the input is treated as a string
+			/>
+			</FormLabel>
+			<FormLabel>
 			<FormInput 
 			 {...register('claimed', { onChange: handleInputChange })}
 				 placeholder=	{( isSubmitting )
@@ -93,7 +100,7 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
 				{...register('real', { onChange: handleInputChange })}
 				placeholder={isSubmitting 
           ? 'Processing' : 'real'}
-				type="text" // Ensures the input is treated as a string
+				type="text" 
 			/>
 			</FormLabel>
 			<CancelBtn 
@@ -104,10 +111,11 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
 				Add
 			</CancelBtn>
 		<div className='absolute bottom-[46px] sm:w-[300px]  md:w-[500px]'>
-		{( errors?.name || errors?.year ) && (
+		{( errors?.mounth || errors?.claimed || errors?.real ) && (
 			<AuthError className="autherror w-full">
-				{errors.name && <div>{errors.name.message}</div>}
-				{!errors.name && errors.year && <div>{errors.year.message}</div>}
+				{errors.mounth && <div>{errors.mounth.message}</div>}
+				{!errors.mounth && errors.claimed && <div>{errors.claimed.message}</div>}
+				{!errors.mounth && !errors.claimed && errors.real && <div>{errors.real.message}</div>}
 				{logError && <div>{logError}</div>}
 				<FlatBtn 
 					onClick={()=>reset()}>
