@@ -55,7 +55,7 @@ function CollectionCard({collection} :CollectionCardProps) {
 									<th className='w-1/4'>claimed</th>
 									<th className='w-1/4'>real</th>
 									<th className='w-1/4'>accrued</th>
-									<th className='w-1/8 text-end'>e</th>
+									<th className='w-1/8 '></th>
 								</tr>
 							</thead>
 							<Divider/>
@@ -74,7 +74,7 @@ function CollectionCard({collection} :CollectionCardProps) {
 									<td className='w-1/4  text-center'>
 										{bill.accrued}
 									</td>
-									<td className='w-1/4  '>
+									<td className='w-1/8  edit-wrapp'>
 										<FlatBackBtn>
 										<FiEdit />
 										</FlatBackBtn>
