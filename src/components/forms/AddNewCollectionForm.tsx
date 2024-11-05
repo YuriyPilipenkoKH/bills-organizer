@@ -69,48 +69,48 @@ export const AddNewCollectionForm: React.FC<FormBaseTypes> = ( {
 
   return (
 
-    <Form_Universal
+	<Form_Universal
 		onSubmit={handleSubmit(onSubmit, onInvalid)}
 		className='flex flex-col gap-3 items-center'
 		formHeight={dimentions[1]}
 		autoComplete="off"
 		noValidate>
 			<FormLabel>
-			<FormInput 
-			 {...register('name', { onChange: handleInputChange })}
-				 placeholder=	{( isSubmitting ) 
-				? "Processing" 
-				: 'name'}
-			/>
+				<FormInput 
+				{...register('name', { onChange: handleInputChange })}
+					placeholder=	{( isSubmitting ) 
+					? "Processing" 
+					: 'name'}
+				/>
 			</FormLabel>
 			<FormLabel>
-			<FormInput
-				{...register('year', { onChange: handleInputChange })}
-				placeholder={isSubmitting ? 'Processing' : 'year'}
-				type="text" // Ensures the input is treated as a string
-			/>
+				<FormInput
+					{...register('year', { onChange: handleInputChange })}
+					placeholder={isSubmitting ? 'Processing' : 'year'}
+					type="text" // Ensures the input is treated as a string
+				/>
 			</FormLabel>
 			<CancelBtn 
-			className='mt-auto '
-			type='submit'
-			disabled={isSubmitting || !isDirty || !isValid}
+				className='mt-auto '
+				type='submit'
+				disabled={isSubmitting || !isDirty || !isValid}
 						>
 				Add
 			</CancelBtn>
-		<div className='absolute bottom-[46px] sm:w-[300px]  md:w-[500px]'>
-		{( errors?.name || errors?.year ) && (
-			<AuthError className="autherror w-full">
-				{errors.name && <div>{errors.name.message}</div>}
-				{!errors.name && errors.year && <div>{errors.year.message}</div>}
-				{logError && <div>{logError}</div>}
-				<FlatBtn 
-					onClick={()=>reset()}>
-						<CgCloseO size={30} />
-				</FlatBtn>
-			</AuthError>
-			)}
-		</div>		
-    </Form_Universal>
+			<div className='absolute bottom-[46px] sm:w-[300px]  md:w-[500px]'>
+			{( errors?.name || errors?.year ) && (
+				<AuthError className="autherror w-full">
+					{errors.name && <div>{errors.name.message}</div>}
+					{!errors.name && errors.year && <div>{errors.year.message}</div>}
+					{logError && <div>{logError}</div>}
+					<FlatBtn 
+						onClick={()=>reset()}>
+							<CgCloseO size={30} />
+					</FlatBtn>
+				</AuthError>
+				)}
+			</div>		
+	</Form_Universal>
 
   )
 }

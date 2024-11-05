@@ -74,42 +74,42 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
     }
   };
   return (
-    <Form_Universal
-		onSubmit={handleSubmit(onSubmit)}
-		className='flex flex-col gap-3 items-center'
-		formHeight={dimentions[1]}
-		autoComplete="off"
-		noValidate>
-			<FormLabel>
-			<FormInput
-				{...register('mounth', { onChange: handleInputChange })}
-				placeholder={isSubmitting 
+  <Form_Universal
+  onSubmit={handleSubmit(onSubmit)}
+  className='flex flex-col gap-3 items-center'
+  formHeight={dimentions[1]}
+  autoComplete="off"
+  noValidate>
+    <FormLabel>
+      <FormInput
+        {...register('mounth', { onChange: handleInputChange })}
+        placeholder={isSubmitting 
           ? 'Processing' : 'mounth'}
-				type="text" // Ensures the input is treated as a string
-			/>
-			</FormLabel>
-			<FormLabel>
-			<FormInput 
-			 {...register('claimed', { onChange: handleInputChange })}
-				 placeholder=	{( isSubmitting )
-				  ? "Processing" : 'claimed'}
-			/>
-			</FormLabel>
-			<FormLabel>
-			<FormInput
-				{...register('real', { onChange: handleInputChange })}
-				placeholder={isSubmitting 
+        type="text" // Ensures the input is treated as a string
+      />
+    </FormLabel>
+    <FormLabel>
+      <FormInput 
+        {...register('claimed', { onChange: handleInputChange })}
+          placeholder=	{( isSubmitting )
+          ? "Processing" : 'claimed'}
+      />
+    </FormLabel>
+    <FormLabel>
+      <FormInput
+        {...register('real', { onChange: handleInputChange })}
+        placeholder={isSubmitting 
           ? 'Processing' : 'real'}
-				type="text" 
-			/>
-			</FormLabel>
-			<CancelBtn 
-			className='mt-auto '
-			type='submit'
-			disabled={isSubmitting || !isDirty || !isValid}
-						>
-				Add
-			</CancelBtn>
+        type="text" 
+      />
+    </FormLabel>
+    <CancelBtn 
+      className='mt-auto '
+      type='submit'
+      disabled={isSubmitting || !isDirty || !isValid}
+            >
+        Add
+    </CancelBtn>
 		<div className='absolute bottom-[46px] sm:w-[300px]  md:w-[500px]'>
 		{( errors?.mounth || errors?.claimed || errors?.real ) && (
 			<AuthError className="autherror w-full">
@@ -124,7 +124,7 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
 			</AuthError>
 			)}
 		</div>		
-    </Form_Universal>
+  </Form_Universal>
   )
 }
 
