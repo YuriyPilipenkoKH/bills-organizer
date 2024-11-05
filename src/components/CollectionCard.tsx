@@ -11,7 +11,7 @@ import { Divider } from 'antd';
 import { McardHeader } from './styles/mcard/Mcard.styled';
 import { AiFillCaretDown } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
-
+import { Transition } from '@headlessui/react';
 interface CollectionCardProps {
     collection: Collection & {
         bills: Bill[]
@@ -44,8 +44,17 @@ function CollectionCard({collection} :CollectionCardProps) {
 				</BtnUpdate>
 			</div>
 			</McardHeader>
-			{isOpen && (
-			<>
+
+			<Transition
+				show={isOpen}
+				enter="transition-opacity duration-1400 ease-out"
+				enterFrom="opacity-0 max-h-0 overflow-hidden"
+				enterTo="opacity-100 max-h-screen overflow-visible"
+				leave="transition-opacity duration-1400 ease-in"
+				leaveFrom="opacity-100 max-h-screen overflow-visible"
+				leaveTo="opacity-0 max-h-0 overflow-hidden"
+      >
+			<div>
 				<div className='mcard-content'>
 					{bills && bills.length > 0 ? (
 						<table className='mcard-table w-full'	>
@@ -98,8 +107,8 @@ function CollectionCard({collection} :CollectionCardProps) {
 						name={collection.name}
 						/>
 				</div>
-			</>
-        )}
+			</div>
+			</Transition>
 		</>
   )
 }

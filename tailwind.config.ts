@@ -12,6 +12,9 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      transitionDuration: {
+        1400: '1400ms', // custom duration
+      },
     },
   },
   plugins: [],
