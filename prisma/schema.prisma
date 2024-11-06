@@ -31,3 +31,8 @@ model Bill {
   collectionId String @db.ObjectId // Add a field to reference the Collection
   collection   Collection @relation(fields: [collectionId], references: [id]) // Define the relation to Collection
 }
+
+// Why @relation is Not Needed for Embedded Documents
+// Embedded Type (type instead of model): When you define Bill as a type instead of a model, Prisma treats it as a part of the Collection document structure, not as a separate entity that would require a foreign key relationship.
+// Single Document Structure: Since Bill objects are nested directly within the Collection document as part of the bills array, there is no need for a relational reference to another collection.
+// @relation is Only for Cross-Model References: The @relation attribute is used by Prisma when connecting one model to another model in a relational manner, typically through a foreign key. Here, there is no second model to relate to because Bill is embedded within Collection
