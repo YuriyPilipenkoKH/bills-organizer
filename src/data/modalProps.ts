@@ -14,8 +14,8 @@ export const AddBillProps: ModalBaseTypes = {
   text: 'You can add 12 bills to current collection',
 };
 
-export const DeletingProductConfirmProps: ModalBaseTypes = {
-  modalName: 'DeletingProductConfirm',
+export const DeletingBillConfirmProps: ModalBaseTypes = {
+  modalName: 'DeletingBillConfirm',
   dimentions: ['320px', '200px'],
   title: 'Are you sure deleting',
   text: 'There will be no return....',
