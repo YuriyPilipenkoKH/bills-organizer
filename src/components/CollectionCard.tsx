@@ -12,6 +12,7 @@ import { McardHeader } from './styles/mcard/Mcard.styled';
 import { AiFillCaretDown } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import { Transition } from '@headlessui/react';
+import DeleteBillForm from './forms/DeleteBillForm';
 interface CollectionCardProps {
     collection: Collection & {
         bills: Bill[]
@@ -71,7 +72,11 @@ function CollectionCard({collection} :CollectionCardProps) {
 							{bills.map((bill, idx) => (
 								<tr key={idx} className='odd:bg-green-200'>
 									<td className='w-1/8 '>
-									
+									<DeleteBillForm
+									collectionId={}
+									billId={}
+									month={}
+									/>
 									</td>
 									<td className='w-1/4 text-center'>
 										{bill.claimed}

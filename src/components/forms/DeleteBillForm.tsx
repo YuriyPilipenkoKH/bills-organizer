@@ -10,20 +10,20 @@ interface DeleteBillFormProps {
   collectionId: string;
   billId: string;
   month:number;
-  setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  // setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   }
 
   const DeleteBillForm: React.FC<DeleteBillFormProps> = ({ 
     collectionId, 
     billId,
     month,
-    setIsSubmitting,
-    setOpen
+    // setIsSubmitting,
+    setIsOpen
    }) => {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      setIsSubmitting(true)
+      // setIsSubmitting(true)
       const formData = new FormData();
       formData.append('collectionId', collectionId);
       formData.append('billId', billId);
@@ -33,7 +33,7 @@ interface DeleteBillFormProps {
         if (result.success) {
             toast.success(`Bill ${capitalize(billId)} deleted successfully!`);
             await wait(1000)
-            setOpen(false)
+            setIsOpen(false)
         } else {
             toast.error(`Failed to delete ${capitalize(billId)} Bill: ${result.error}`);
         }
@@ -41,9 +41,9 @@ interface DeleteBillFormProps {
         const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
         toast.error(`An error occurred: ${errorMessage}`);
       }
-      finally{
-        setIsSubmitting(false)
-      }
+      // finally{
+      //   setIsSubmitting(false)
+      // }
 
     }
   return (
