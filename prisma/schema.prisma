@@ -32,6 +32,16 @@ model Bill {
   collection   Collection @relation(fields: [collectionId], references: [id]) // Define the relation to Collection
 }
 
+// in case all Bills are stored in bills array
+// type Bill {
+//   accrued   Int
+//   claimed   Int
+//   real      Int?
+//   month     Int
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+// }
+
 // Why @relation is Not Needed for Embedded Documents
 // Embedded Type (type instead of model): When you define Bill as a type instead of a model, Prisma treats it as a part of the Collection document structure, not as a separate entity that would require a foreign key relationship.
 // Single Document Structure: Since Bill objects are nested directly within the Collection document as part of the bills array, there is no need for a relational reference to another collection.
