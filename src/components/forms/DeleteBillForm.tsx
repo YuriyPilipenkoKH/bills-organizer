@@ -4,7 +4,6 @@ import { wait } from '@/lib/wait';
 import React from 'react'
 import toast from 'react-hot-toast';
 import { FlatBackBtn } from '../Button/Button';
-import { FiEdit } from 'react-icons/fi';
 
 interface DeleteBillFormProps {
   collectionId: string;

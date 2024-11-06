@@ -14,15 +14,15 @@ export const deleteBill = async (formData: FormData) => {
     await prisma.bill.delete({
       where: { id: billId }
     });
+    revalidatePath('/dashboard')
     return { success: true };
   }
   catch (error) {
       console.log('Error deleting bill:'+ error)
       const errorMessage = error instanceof Error 
         ? error.message : 'An unexpected error occurred';
+      revalidatePath('/dashboard')
       return { success: false, error: errorMessage };
   }
-  finally{
-      revalidatePath('/dashboard')
-  }
+
 }
