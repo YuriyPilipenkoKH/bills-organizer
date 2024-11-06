@@ -3,10 +3,13 @@ import capitalize from '@/lib/capitalize';
 import { wait } from '@/lib/wait';
 import React from 'react'
 import toast from 'react-hot-toast';
+import { FlatBackBtn } from '../Button/Button';
+import { FiEdit } from 'react-icons/fi';
 
 interface DeleteBillFormProps {
   collectionId: string;
-  billId: string
+  billId: string;
+  month:number;
   setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   }
@@ -14,6 +17,7 @@ interface DeleteBillFormProps {
   const DeleteBillForm: React.FC<DeleteBillFormProps> = ({ 
     collectionId, 
     billId,
+    month,
     setIsSubmitting,
     setOpen
    }) => {
@@ -54,10 +58,10 @@ interface DeleteBillFormProps {
       name='billId'
       defaultValue={billId}
     />
-    <ModalDelBtn
-     type='submit' >
-      Delete 
-    </ModalDelBtn>
+   
+      <FlatBackBtn  type='submit' >
+      {month}
+      </FlatBackBtn>
   </form>
   )
 }
