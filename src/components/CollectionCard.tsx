@@ -71,9 +71,7 @@ function CollectionCard({collection} :CollectionCardProps) {
 							{bills.map((bill, idx) => (
 								<tr key={idx} className='odd:bg-green-200'>
 									<td className='w-1/8 '>
-										<FlatBackBtn >
-											{bill.month}
-										</FlatBackBtn>
+									
 									</td>
 									<td className='w-1/4 text-center'>
 										{bill.claimed}
