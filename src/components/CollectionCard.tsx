@@ -67,7 +67,6 @@ function CollectionCard({collection} :CollectionCardProps) {
 									<th className='w-1/8 '></th>
 								</tr>
 							</thead>
-							<Divider/>
 							<tbody className='mcard-tablebody'>
 							{bills.map((bill, idx) => (
 								<tr key={idx} className='odd:bg-green-200'>
