@@ -43,7 +43,22 @@ interface DeleteBillFormProps {
 
     }
   return (
-    <div>DeleteBillForm</div>
+    <form onSubmit={handleSubmit}>
+    <input
+      hidden
+      name='collectionId'
+      defaultValue={collectionId}
+    />
+    <input
+      hidden
+      name='billId'
+      defaultValue={billId}
+    />
+    <ModalDelBtn
+     type='submit' >
+      Delete 
+    </ModalDelBtn>
+  </form>
   )
 }
 
