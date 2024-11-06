@@ -73,9 +73,10 @@ function CollectionCard({collection} :CollectionCardProps) {
 								<tr key={idx} className='odd:bg-green-200'>
 									<td className='w-1/8 '>
 									<DeleteBillForm
-									collectionId={}
-									billId={}
-									month={}
+									collectionId={collection.id}
+									billId={bill.id}
+									month={bill.month}
+									setIsOpen={setIsOpen}
 									/>
 									</td>
 									<td className='w-1/4 text-center'>
