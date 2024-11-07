@@ -11,6 +11,7 @@ import DeleteCollectionForm from '../forms/DeleteCollectionForm';
 import { SiOneplus } from 'react-icons/si';
 import AddBillForm from '../forms/AddBillForm';
 import { AddBillFormProps } from '@/data/formProps';
+import DeleteBillForm from '../forms/DeleteBillForm';
 
 interface MainModalProps {
     modalTypes: ModalBaseTypes
@@ -79,7 +80,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, month}) => 
       className={cn('MainModal relative',
         (modalName === 'DeletingCollectionConfirm')  && `DeletingCollectionConfirm`,
         (modalName === 'AddBill')  && `AddBill`,
-        (modalName === 'EditProduct')  && `editProduct`,
+        (modalName === 'DeletingBillConfirm')  && `DeletingBillConfirm`,
         (modalName === 'UpdateImgUrl')  && `updateImgUrl`,
         )}
       open={open}
@@ -129,6 +130,14 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, month}) => 
             setOpen={setOpen}
             formName={AddBillFormProps.formName}
             dimentions={AddBillFormProps.dimentions}
+            />
+        )}
+        {(modalName === 'DeletingBillConfirm') && (
+          <DeleteBillForm
+            collectionId={id}
+            name={name}
+            setIsSubmitting={setIsSubmitting}
+            setOpen={setOpen}
             />
         )}
 

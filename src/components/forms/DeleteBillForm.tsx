@@ -9,7 +9,7 @@ interface DeleteBillFormProps {
   collectionId: string;
   billId: string;
   month:number;
-  // setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   }
 
@@ -17,12 +17,12 @@ interface DeleteBillFormProps {
     collectionId, 
     billId,
     month,
-    // setIsSubmitting,
+    setIsSubmitting,
     setIsOpen
    }) => {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      // setIsSubmitting(true)
+      setIsSubmitting(true)
       const formData = new FormData();
       formData.append('collectionId', collectionId);
       formData.append('billId', billId);
@@ -40,9 +40,9 @@ interface DeleteBillFormProps {
         const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
         toast.error(`An error occurred: ${errorMessage}`);
       }
-      // finally{
-      //   setIsSubmitting(false)
-      // }
+      finally{
+        setIsSubmitting(false)
+      }
 
     }
   return (
