@@ -4,3 +4,7 @@ export interface ModalBaseTypes {
     title: string;
     text: string;
   }
+
+  export interface DeletingBillTypes extends ModalBaseTypes {
+    month: number
+  }
