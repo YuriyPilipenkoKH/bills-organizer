@@ -2,7 +2,7 @@
 import { Modal } from 'antd';
 import React, {  useState } from 'react';
 import '../styles/mainModal/mainModal.css'
-import { BtnDelete, BtnUpdate, CancelBtn} from '../Button/Button';
+import { BtnDelete, BtnUpdate, CancelBtn, FlatBackBtn} from '../Button/Button';
 import { ModalBaseTypes } from '@/types/modalTypes';
 import capitalize from '@/lib/capitalize';
 import { cn } from '@/lib/utils';
@@ -16,9 +16,10 @@ interface MainModalProps {
     modalTypes: ModalBaseTypes
     id: string
     name: string
+    month?: number
 }
 
-const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
+const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, month}) => {
     const {
         modalName, 
         text, 
@@ -65,6 +66,14 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         onClick={showModal}>
           <SiOneplus className='ml-[2px] mb-[2px]' />
       </BtnUpdate>
+    )}
+  {(modalName === 'DeletingBillConfirm')
+      && (
+      <FlatBackBtn
+        type="button" 
+        onClick={showModal}>
+          {month}
+      </FlatBackBtn>
     )}
     <Modal
       className={cn('MainModal relative',
