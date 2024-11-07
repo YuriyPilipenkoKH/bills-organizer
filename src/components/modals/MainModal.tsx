@@ -31,7 +31,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, month, bill
     const [open, setOpen] = useState<boolean>(false);
     const [canceling, setCanceling] = useState<boolean>(false);
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-
+console.log(modalName)
     const showModal = () => {
         setOpen(true);
     };
@@ -135,11 +135,14 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, month, bill
         )}
         {(modalName === 'DeletingBillConfirm') && (
           <DeleteBillForm
-            collectionId={id}
-            billId={billId || '0'}
-            month={month || 0}
+            id={id}
+            name={name}
             setIsSubmitting={setIsSubmitting}
             setOpen={setOpen}
+            billId={billId || '0'}
+            month={month || 0}
+            formName={AddBillFormProps.formName}
+            dimentions={AddBillFormProps.dimentions}
             />
         )}
 

@@ -4,21 +4,26 @@ import { wait } from '@/lib/wait';
 import React from 'react'
 import toast from 'react-hot-toast';
 import { FlatBackBtn } from '../Button/Button';
+import { FormBaseTypes } from '@/types/formTypes';
 
-interface DeleteBillFormProps {
-  collectionId: string;
-  billId: string;
-  month:number;
+interface DeleteBillFormProps extends FormBaseTypes {
+  id: string;
+  name: string
   setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  billId:string
+  month:number
   }
 
   const DeleteBillForm: React.FC<DeleteBillFormProps> = ({ 
-    collectionId, 
+    id: collectionId,
     billId,
-    month,
+    name,
     setIsSubmitting,
-    setOpen
+    setOpen,
+    formName,
+    dimentions,
+    month
    }) => {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
@@ -27,16 +32,17 @@ interface DeleteBillFormProps {
       formData.append('collectionId', collectionId);
       formData.append('billId', billId);
 
-      try {
-        const result = await deleteBill(formData);
-        if (result.success) {
-            toast.success(`Bill ${capitalize(billId)} deleted successfully!`);
-            await wait(1000)
-            setOpen(false)
-        } else {
-            toast.error(`Failed to delete ${capitalize(billId)} Bill: ${result.error}`);
-        }
-      } catch (error) {
+    try {
+      const result = await deleteBill(formData);
+      if (result.success) {
+          toast.success(`Bill ${capitalize(billId)} deleted successfully!`);
+          await wait(1000)
+          setOpen(false)
+      } else {
+          toast.error(`Failed to delete ${capitalize(billId)} Bill: ${result.error}`);
+      }
+      } 
+      catch (error) {
         const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
         toast.error(`An error occurred: ${errorMessage}`);
       }
