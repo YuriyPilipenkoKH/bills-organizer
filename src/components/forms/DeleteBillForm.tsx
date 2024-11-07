@@ -10,7 +10,7 @@ interface DeleteBillFormProps {
   billId: string;
   month:number;
   setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   }
 
   const DeleteBillForm: React.FC<DeleteBillFormProps> = ({ 
@@ -18,7 +18,7 @@ interface DeleteBillFormProps {
     billId,
     month,
     setIsSubmitting,
-    setIsOpen
+    setOpen
    }) => {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
@@ -32,7 +32,7 @@ interface DeleteBillFormProps {
         if (result.success) {
             toast.success(`Bill ${capitalize(billId)} deleted successfully!`);
             await wait(1000)
-            setIsOpen(false)
+            setOpen(false)
         } else {
             toast.error(`Failed to delete ${capitalize(billId)} Bill: ${result.error}`);
         }

@@ -6,7 +6,7 @@ import capitalize from '@/lib/capitalize'
 // import { MdCallMissedOutgoing } from "react-icons/md";
 import { BtnUpdate, FlatBackBtn } from './Button/Button';
 import MainModal from './modals/MainModal';
-import { AddBillProps, DeletingCollectionConfirmProps } from '@/data/modalProps';
+import { AddBillProps, DeletingBillConfirmProps, DeletingCollectionConfirmProps } from '@/data/modalProps';
 import { Divider } from 'antd';
 import { McardHeader } from './styles/mcard/Mcard.styled';
 import { AiFillCaretDown } from "react-icons/ai";
@@ -72,11 +72,12 @@ function CollectionCard({collection} :CollectionCardProps) {
 							{bills.map((bill, idx) => (
 								<tr key={idx} className='odd:bg-green-200'>
 									<td className='w-1/8 '>
-									<DeleteBillForm
-										collectionId={collection.id}
+									<MainModal
+										modalTypes={DeletingBillConfirmProps}
+										id={collection.id}
+										name={collection.name}
 										billId={bill.id}
 										month={bill.month}
-										setIsOpen={setIsOpen}
 									/>
 									</td>
 									<td className='w-1/4 text-center'>

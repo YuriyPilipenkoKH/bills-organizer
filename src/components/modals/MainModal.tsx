@@ -16,11 +16,12 @@ import DeleteBillForm from '../forms/DeleteBillForm';
 interface MainModalProps {
     modalTypes: ModalBaseTypes
     id: string
+    billId? :string
     name: string
     month?: number
 }
 
-const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, month}) => {
+const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, month, billId}) => {
     const {
         modalName, 
         text, 
@@ -135,7 +136,8 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, month}) => 
         {(modalName === 'DeletingBillConfirm') && (
           <DeleteBillForm
             collectionId={id}
-            name={name}
+            billId={billId || '0'}
+            month={month || 0}
             setIsSubmitting={setIsSubmitting}
             setOpen={setOpen}
             />
