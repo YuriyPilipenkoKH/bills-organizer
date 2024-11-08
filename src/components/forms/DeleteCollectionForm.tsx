@@ -23,7 +23,7 @@ const DeleteCollectionForm: React.FC<DeleteCollectionFormProps> = ({
   formName,
   dimentions
  }) => {
-  console.log('formName',formName,)
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsSubmitting(true)
