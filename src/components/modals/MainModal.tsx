@@ -2,7 +2,7 @@
 import { Modal } from 'antd';
 import React, {  useState } from 'react';
 import '../styles/mainModal/mainModal.css'
-import { BtnDelete, BtnUpdate, CancelBtn, FlatBackBtn} from '../Button/Button';
+import { BtnDelete, BtnUpdate, CancelBtn, FlatBackBtn, FlatBtn} from '../Button/Button';
 import { DeletingBillTypes, ModalBaseTypes } from '@/types/modalTypes';
 import capitalize from '@/lib/capitalize';
 import { cn } from '@/lib/utils';
@@ -18,7 +18,6 @@ interface MainModalProps {
     modalExtraTypes?: DeletingBillTypes
     id: string
     name: string
-
 }
 
 const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, modalExtraTypes}) => {
@@ -72,11 +71,11 @@ console.log(modalName)
     )}
   {(modalName === 'DeletingBillConfirm')
       && (
-      <FlatBackBtn
+      <FlatBtn
         type="button" 
         onClick={showModal}>
           {modalExtraTypes?.month}
-      </FlatBackBtn>
+      </FlatBtn>
     )}
     <Modal
       className={cn('MainModal relative',
@@ -135,16 +134,17 @@ console.log(modalName)
             />
         )}
         {modalName === 'DeletingBillConfirm' && modalExtraTypes && (
-          <DeleteBillForm
-            id={id}
-            name={name}
-            setIsSubmitting={setIsSubmitting}
-            setOpen={setOpen}
-            billId={modalExtraTypes?.billId}
-            month={modalExtraTypes?.month}
-            formName={AddBillFormProps.formName}
-            dimentions={AddBillFormProps.dimentions}
-            />
+          <div>Del Modal</div>
+          // <DeleteBillForm
+          //   id={id}
+          //   name={name}
+          //   setIsSubmitting={setIsSubmitting}
+          //   setOpen={setOpen}
+          //   billId={modalExtraTypes?.billId}
+          //   month={modalExtraTypes?.month}
+          //   formName={AddBillFormProps.formName}
+          //   dimentions={AddBillFormProps.dimentions}
+          //   />
         )}
 
         </div>
