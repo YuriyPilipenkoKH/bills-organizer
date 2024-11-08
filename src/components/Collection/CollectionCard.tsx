@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react';
-import './../components/styles/mcard/mcard.css';
+import './../../components/styles/mcard/mcard.css';
 import { Bill, Collection } from '@prisma/client'
 import capitalize from '@/lib/capitalize'
 // import { MdCallMissedOutgoing } from "react-icons/md";
