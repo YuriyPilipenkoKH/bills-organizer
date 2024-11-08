@@ -55,4 +55,9 @@
   .MainModal >div>.ant-modal-content >.ant-modal-footer > button.AddBill-cancel-btn{
     position: absolute;
     bottom: 42px;
+    right: 46px;
+  }
+  .AddBill-approve-btn{
+    align-self: start;
+    margin-left: 24px;
   }
