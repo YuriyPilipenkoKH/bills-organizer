@@ -10,7 +10,7 @@ import { RiDeleteBin2Line } from 'react-icons/ri';
 import DeleteCollectionForm from '../forms/DeleteCollectionForm';
 import { SiOneplus } from 'react-icons/si';
 import AddBillForm from '../forms/AddBillForm';
-import { AddBillFormProps } from '@/data/formProps';
+import { AddBillFormProps, DeleteBillFormProps } from '@/data/formProps';
 import DeleteBillForm from '../forms/DeleteBillForm';
 
 interface MainModalProps {
@@ -145,8 +145,8 @@ console.log(modalName)
             setOpen={setOpen}
             billId={modalExtraTypes?.billId}
             month={modalExtraTypes?.month}
-            formName={AddBillFormProps.formName}
-            dimentions={AddBillFormProps.dimentions}
+            formName={DeleteBillFormProps.formName}
+            dimentions={DeleteBillFormProps.dimentions}
             />
         )}
 

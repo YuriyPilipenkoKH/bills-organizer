@@ -27,7 +27,7 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
     dimentions
     }) => {
       const [logError, setLogError] = useState<string>('')
-      console.log('formName',formName)
+
 		const {
 			register, 
 			handleSubmit,
@@ -49,7 +49,6 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
 		} = formState
 		const onSubmit = async (data: addBillSchemaType) => {
 			const formData = new FormData();
-      // console.log(data)
 			
 			formData.append('claimed', String(data.claimed)); // Convert to string
 			formData.append('real', String(data.real)); 

@@ -5,6 +5,7 @@ import React from 'react'
 import toast from 'react-hot-toast';
 import { ModalDelBtn } from '../Button/Button';
 import { FormBaseTypes } from '@/types/formTypes';
+import { cn } from '@/lib/utils';
 
 interface DeleteBillFormProps extends FormBaseTypes {
   id: string;
@@ -25,6 +26,7 @@ interface DeleteBillFormProps extends FormBaseTypes {
     dimentions,
     month
    }) => {
+    console.log('formName',formName)
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       setIsSubmitting(true)
@@ -64,8 +66,12 @@ interface DeleteBillFormProps extends FormBaseTypes {
       defaultValue={billId}
     />
    
-      <ModalDelBtn  type='submit' >
-      Delete {month} momth
+      <ModalDelBtn  
+        className={cn('',
+          (formName === 'AddBillForm')  && `AddBill-cancel-btn`
+        )}
+        type='submit' >
+        Delete {month} momth
       </ModalDelBtn>
   </form>
   )
