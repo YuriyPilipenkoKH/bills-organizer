@@ -87,7 +87,7 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
       <FormInput
         {...register('month', { onChange: handleInputChange })}
         placeholder={isSubmitting 
-          ? 'Processing' : 'month'}
+          ? 'Processing' : 'month' }
         type="number" // Ensures the input is treated as a string
       />
     </FormLabel>
@@ -95,7 +95,7 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
       <FormInput 
         {...register('claimed', { onChange: handleInputChange })}
           placeholder=	{( isSubmitting )
-          ? "Processing" : 'claimed'}
+          ? "Processing" : 'claimed' }
           type="number" 
       />
     </FormLabel>
@@ -103,7 +103,7 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
       <FormInput
         {...register('real', { onChange: handleInputChange })}
         placeholder={isSubmitting 
-          ? 'Processing' : 'real'}
+          ? 'Processing' : 'real' }
           type="number" 
       />
     </FormLabel>

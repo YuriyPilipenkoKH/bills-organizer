@@ -115,7 +115,7 @@ console.log(modalName)
         }
         </p>
 
-        <div className='absolute bottom-[20px]'>
+        <div className=' w-[300px]'>
         {(modalName === 'DeletingCollectionConfirm') && (
           <DeleteCollectionForm
             id={id}

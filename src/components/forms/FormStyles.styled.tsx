@@ -110,6 +110,7 @@ const FormUniversal = css`
     display: flex;
     gap: 8px;
     padding: 6px;
+    width: 100%;
 `
 export const Form_Universal = styled("form", {
     shouldForwardProp: (prop: string) =>
