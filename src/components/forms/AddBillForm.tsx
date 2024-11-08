@@ -11,6 +11,7 @@ import { CancelBtn, FlatBtn } from '../Button/Button';
 import { CgCloseO } from 'react-icons/cg';
 import { FormBaseTypes } from '@/types/formTypes';
 import { cn } from '@/lib/utils';
+import { wait } from '@/lib/wait';
 interface AddBillFormProps extends FormBaseTypes {
     id: string;
     name: string
@@ -48,6 +49,7 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
 			isSubmitting,
 		} = formState
 		const onSubmit = async (data: addBillSchemaType) => {
+      setIsSubmitting(true)
 			const formData = new FormData();
 			
 			formData.append('claimed', String(data.claimed)); // Convert to string
@@ -61,6 +63,8 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
 					if (result.success) {
 							toast.success(`Bill for ${capitalize(String(data.month))} month added successfully`!);
 							reset();
+              await wait(1000)
+							setOpen(false)
 					} else {
 							toast.error(`Failed to add Bill for ${capitalize(String(data.month))} month  ${result.error}`);
 					}
@@ -71,6 +75,9 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
 					toast.error(`An error occurred: ${errorMessage}`);
 					setLogError(errorMessage)
 			}
+      finally{
+        setIsSubmitting(false)
+      }
 	};
   const handleInputChange = () => {
     if (logError) {
