@@ -4,7 +4,7 @@ import './../../components/styles/mcard/mcard.css';
 import { Bill, Collection } from '@prisma/client'
 import capitalize from '@/lib/capitalize'
 // import { MdCallMissedOutgoing } from "react-icons/md";
-import { BtnUpdate, FlatBackBtn, FlatBtn } from '../Button/Button';
+import { BtnUpdate,  FlatBtn } from '../Button/Button';
 import MainModal from '../modals/MainModal';
 import { AddBillProps, DeletingBillConfirmProps, DeletingCollectionConfirmProps } from '@/data/modalProps';
 import { Divider } from 'antd';
