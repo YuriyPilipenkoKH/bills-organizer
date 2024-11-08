@@ -4,7 +4,7 @@ import './../components/styles/mcard/mcard.css';
 import { Bill, Collection } from '@prisma/client'
 import capitalize from '@/lib/capitalize'
 // import { MdCallMissedOutgoing } from "react-icons/md";
-import { BtnUpdate, FlatBackBtn } from './Button/Button';
+import { BtnUpdate, FlatBackBtn, FlatBtn } from './Button/Button';
 import MainModal from './modals/MainModal';
 import { AddBillProps, DeletingBillConfirmProps, DeletingCollectionConfirmProps } from '@/data/modalProps';
 import { Divider } from 'antd';
@@ -92,9 +92,9 @@ function CollectionCard({collection} :CollectionCardProps) {
 										{bill.accrued}
 									</td>
 									<td className='w-1/8  edit-wrapp'>
-										<FlatBackBtn >
-										<FiEdit />
-										</FlatBackBtn>
+										<FlatBtn >
+											<FiEdit />
+										</FlatBtn>
 									</td>
 								</tr>
 							))}
