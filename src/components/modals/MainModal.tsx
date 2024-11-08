@@ -99,7 +99,9 @@ console.log(modalName)
           
       <CancelBtn
           key="back" 
-          className='cancel_btn w-[70px] rounded-md '
+          className={cn('cancel_btn w-[70px] rounded-md ',
+            (modalName === 'AddBill')  && `AddBill-cancel-btn`
+          )}
           disabled={ isSubmitting }
           onClick={handleCancel}>
       Cancel
@@ -115,7 +117,7 @@ console.log(modalName)
         }
         </p>
 
-        <div className=' w-[300px]'>
+        <div className=' w-full'>
         {(modalName === 'DeletingCollectionConfirm') && (
           <DeleteCollectionForm
             id={id}

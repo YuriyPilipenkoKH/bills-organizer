@@ -17,7 +17,7 @@ export const FormLabel = styled('label')`
     height: 38px;
     color: #999;
     font-weight: 600;
-    width: 300px;
+    /* width: 300px; */
     &>input.publishedAt{
         width: 155px;
        padding: 1.08rem 2px;

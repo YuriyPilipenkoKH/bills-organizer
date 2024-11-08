@@ -10,6 +10,7 @@ import { AuthError, Form_Universal, FormInput, FormLabel } from './FormStyles.st
 import { CancelBtn, FlatBtn } from '../Button/Button';
 import { CgCloseO } from 'react-icons/cg';
 import { FormBaseTypes } from '@/types/formTypes';
+import { cn } from '@/lib/utils';
 interface AddBillFormProps extends FormBaseTypes {
     id: string;
     name: string
@@ -26,6 +27,7 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
     dimentions
     }) => {
       const [logError, setLogError] = useState<string>('')
+      console.log('formName',formName)
 		const {
 			register, 
 			handleSubmit,
@@ -108,7 +110,9 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
       />
     </FormLabel>
     <CancelBtn 
-      className='mt-auto '
+      className={cn('mt-auto ',
+    (formName === 'AddBillForm')  && `AddBill-approve-btn`
+      )}
       type='submit'
       disabled={isSubmitting || !isDirty || !isValid}
             >
