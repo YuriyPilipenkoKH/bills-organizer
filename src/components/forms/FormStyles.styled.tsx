@@ -23,7 +23,7 @@ export const FormLabel = styled('label')`
        padding: 1.08rem 2px;
     }
     @media screen and (min-width: 768px) {
-        width: 500px;
+        width: 350px;
     }
 
 `;
