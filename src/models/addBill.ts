@@ -1,9 +1,7 @@
 import { z } from 'zod';
 
 export const addBillSchema = z.object({
-  // accrued: z.preprocess((val) => Number(val), 
-  //   z.number().min(0, { message: "Accrued amount cannot be negative" })
-  // ),
+
   claimed: z.preprocess((val) => Number(val), 
     z.number().min(0, { message: "Claimed amount cannot be negative" })
   ),
