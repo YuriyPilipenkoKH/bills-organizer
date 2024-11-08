@@ -5,8 +5,9 @@ import { ModalDelBtn } from '../Button/Button';
 import toast from 'react-hot-toast';
 import capitalize from '@/lib/capitalize';
 import { wait } from '@/lib/wait';
+import { FormBaseTypes } from '@/types/formTypes';
 
-interface DeleteCollectionFormProps {
+interface DeleteCollectionFormProps extends FormBaseTypes{
   id: string;
   name: string
   setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
@@ -19,7 +20,7 @@ const DeleteCollectionForm: React.FC<DeleteCollectionFormProps> = ({
   setIsSubmitting,
   setOpen
  }) => {
-
+  console.log('formName',name)
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsSubmitting(true)

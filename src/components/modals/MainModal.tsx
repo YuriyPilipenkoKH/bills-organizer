@@ -124,6 +124,8 @@ console.log(modalName)
             name={name}
             setIsSubmitting={setIsSubmitting}
             setOpen={setOpen}
+            formName={AddBillFormProps.formName}
+            dimentions={AddBillFormProps.dimentions}
             />
         )}
         {(modalName === 'AddBill') && (

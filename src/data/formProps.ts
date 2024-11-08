@@ -7,6 +7,12 @@ export const AddNewCollectionFormProps: FormBaseTypes = {
   title: '',
   text: '',
 };
+export const DeleteCollectionFormProps: FormBaseTypes = {
+  formName: 'DeleteCollectionForm',
+  dimentions: ['300px', '170px','420px','250px'],
+  title: '',
+  text: '',
+};
 export const AddBillFormProps: FormBaseTypes = {
   formName: 'AddBillForm',
   dimentions: ['250px', '240px','420px','250px'],
