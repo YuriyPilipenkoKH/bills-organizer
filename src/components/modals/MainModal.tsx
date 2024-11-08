@@ -3,7 +3,7 @@ import { Modal } from 'antd';
 import React, {  useState } from 'react';
 import '../styles/mainModal/mainModal.css'
 import { BtnDelete, BtnUpdate, CancelBtn, FlatBackBtn} from '../Button/Button';
-import { ModalBaseTypes } from '@/types/modalTypes';
+import { DeletingBillTypes, ModalBaseTypes } from '@/types/modalTypes';
 import capitalize from '@/lib/capitalize';
 import { cn } from '@/lib/utils';
 import { RiDeleteBin2Line } from 'react-icons/ri';
@@ -15,13 +15,13 @@ import DeleteBillForm from '../forms/DeleteBillForm';
 
 interface MainModalProps {
     modalTypes: ModalBaseTypes
+    modalExtraTypes?: DeletingBillTypes
     id: string
-    billId? :string
     name: string
-    month?: number
+
 }
 
-const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, month, billId}) => {
+const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, modalExtraTypes}) => {
     const {
         modalName, 
         text, 
@@ -31,6 +31,9 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, month, bill
     const [open, setOpen] = useState<boolean>(false);
     const [canceling, setCanceling] = useState<boolean>(false);
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+    if(modalExtraTypes) {
+      const {billId, month} = modalExtraTypes
+    }
 console.log(modalName)
     const showModal = () => {
         setOpen(true);
@@ -74,7 +77,7 @@ console.log(modalName)
       <FlatBackBtn
         type="button" 
         onClick={showModal}>
-          {month}
+          {modalExtraTypes?.month}
       </FlatBackBtn>
     )}
     <Modal
@@ -133,14 +136,14 @@ console.log(modalName)
             dimentions={AddBillFormProps.dimentions}
             />
         )}
-        {(modalName === 'DeletingBillConfirm') && (
+        {modalName === 'DeletingBillConfirm' && modalExtraTypes && (
           <DeleteBillForm
             id={id}
             name={name}
             setIsSubmitting={setIsSubmitting}
             setOpen={setOpen}
-            billId={billId || '0'}
-            month={month || 0}
+            billId={modalExtraTypes?.billId}
+            month={modalExtraTypes?.month}
             formName={AddBillFormProps.formName}
             dimentions={AddBillFormProps.dimentions}
             />

@@ -74,10 +74,12 @@ function CollectionCard({collection} :CollectionCardProps) {
 									<td className='w-1/8 '>
 									<MainModal
 										modalTypes={DeletingBillConfirmProps}
+										modalExtraTypes={{
+											billId:bill.id,
+											month:bill.month
+										}}
 										id={collection.id}
 										name={collection.name}
-										billId={bill.id}
-										month={bill.month}
 									/>
 									</td>
 									<td className='w-1/4 text-center'>

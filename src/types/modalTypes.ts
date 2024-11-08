@@ -3,8 +3,10 @@ export interface ModalBaseTypes {
     dimentions: string[];
     title: string;
     text: string;
+
   }
 
-  export interface DeletingBillTypes extends ModalBaseTypes {
+  export interface DeletingBillTypes  {
+    billId :string
     month: number
   }

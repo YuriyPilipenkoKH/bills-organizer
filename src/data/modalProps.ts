@@ -14,12 +14,12 @@ export const AddBillProps: ModalBaseTypes = {
   text: 'You can add 12 bills to current collection',
 };
 
-export const DeletingBillConfirmProps: DeletingBillTypes = {
+export const DeletingBillConfirmProps: ModalBaseTypes = {
   modalName: 'DeletingBillConfirm',
   dimentions: ['320px', '200px'],
   title: 'Are you sure deleting',
   text: 'There will be no return....',
-  month: 0
+
 };
 
 export const EditProductProps: ModalBaseTypes = {
