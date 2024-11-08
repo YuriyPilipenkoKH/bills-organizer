@@ -69,8 +69,7 @@ console.log(modalName)
           <SiOneplus className='ml-[2px] mb-[2px]' />
       </BtnUpdate>
     )}
-  {(modalName === 'DeletingBillConfirm')
-      && (
+ {modalName === 'DeletingBillConfirm' && modalExtraTypes && (
       <FlatBtn
         type="button" 
         onClick={showModal}>
@@ -134,17 +133,17 @@ console.log(modalName)
             />
         )}
         {modalName === 'DeletingBillConfirm' && modalExtraTypes && (
-          <div>Del Modal</div>
-          // <DeleteBillForm
-          //   id={id}
-          //   name={name}
-          //   setIsSubmitting={setIsSubmitting}
-          //   setOpen={setOpen}
-          //   billId={modalExtraTypes?.billId}
-          //   month={modalExtraTypes?.month}
-          //   formName={AddBillFormProps.formName}
-          //   dimentions={AddBillFormProps.dimentions}
-          //   />
+          
+          <DeleteBillForm
+            id={id}
+            name={name}
+            setIsSubmitting={setIsSubmitting}
+            setOpen={setOpen}
+            billId={modalExtraTypes?.billId}
+            month={modalExtraTypes?.month}
+            formName={AddBillFormProps.formName}
+            dimentions={AddBillFormProps.dimentions}
+            />
         )}
 
         </div>

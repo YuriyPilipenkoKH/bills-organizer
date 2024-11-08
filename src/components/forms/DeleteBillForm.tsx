@@ -3,7 +3,7 @@ import capitalize from '@/lib/capitalize';
 import { wait } from '@/lib/wait';
 import React from 'react'
 import toast from 'react-hot-toast';
-import { FlatBackBtn } from '../Button/Button';
+import { ModalDelBtn } from '../Button/Button';
 import { FormBaseTypes } from '@/types/formTypes';
 
 interface DeleteBillFormProps extends FormBaseTypes {
@@ -64,9 +64,9 @@ interface DeleteBillFormProps extends FormBaseTypes {
       defaultValue={billId}
     />
    
-      <FlatBackBtn  type='submit' >
-      {month}
-      </FlatBackBtn>
+      <ModalDelBtn  type='submit' >
+      Delete {month} momth
+      </ModalDelBtn>
   </form>
   )
 }
