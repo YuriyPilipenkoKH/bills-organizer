@@ -17,7 +17,7 @@ export const AddBillProps: ModalBaseTypes = {
 export const DeletingBillConfirmProps: ModalBaseTypes = {
   modalName: 'DeletingBillConfirm',
   dimentions: ['320px', '200px'],
-  title: 'Are you sure deleting from',
+  title: 'Are you sure deleting ',
   text: 'There will be no return....',
 
 };

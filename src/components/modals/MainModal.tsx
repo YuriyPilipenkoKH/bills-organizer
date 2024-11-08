@@ -88,7 +88,9 @@ console.log(modalName)
         ? (modalName === 'EditProduct') || (modalName === 'UpdateImgUrl')
           ? "updating.." 
           : "moving to trash.." 
-        : `${title} ${capitalize(name)} ?`
+        :(modalName === 'DeletingBillConfirm')
+          ?  `${title}  ${modalExtraTypes?.month} month from ${capitalize(name)} collection `
+          : `${title} ${capitalize(name)} ?`
       }
 
       onOk={handleOk}
