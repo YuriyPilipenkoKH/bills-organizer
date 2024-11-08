@@ -97,7 +97,7 @@ export const AddNewCollectionForm: React.FC<FormBaseTypes> = ( {
 						>
 				Add
 			</CancelBtn>
-			<div className='absolute bottom-[46px] sm:w-[300px]  md:w-[500px]'>
+			<div className='absolute bottom-[46px] sm:w-[300px]  md:w-[350px]'>
 			{( errors?.name || errors?.year ) && (
 				<AuthError className="autherror w-full">
 					{errors.name && <div>{errors.name.message}</div>}

@@ -34,6 +34,7 @@ const DeleteCollectionForm: React.FC<DeleteCollectionFormProps> = ({
         const result = await deleteCollection(formData);
         if (result.success) {
             toast.success(`Collection ${capitalize(name)} deleted successfully!`);
+            
             await wait(1000)
             setOpen(false)
         } else {

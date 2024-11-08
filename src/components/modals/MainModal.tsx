@@ -85,7 +85,7 @@ console.log(modalName)
         )}
       open={open}
       title={( isSubmitting ) 
-        ? (modalName === 'EditProduct') || (modalName === 'UpdateImgUrl')
+        ? (modalName === 'AddBill') || (modalName === 'UpdateImgUrl')
           ? "updating.." 
           : "moving to trash.." 
         :(modalName === 'DeletingBillConfirm')
@@ -110,7 +110,7 @@ console.log(modalName)
         >
         <p>
         {( isSubmitting ) 
-        ? (modalName === 'EditProduct') || (modalName === 'UpdateImgUrl')
+        ? (modalName === 'AddBill') || (modalName === 'UpdateImgUrl')
           ? "writing to database.." 
           : "too late.." 
         : text 
