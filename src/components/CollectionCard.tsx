@@ -12,7 +12,7 @@ import { McardHeader } from './styles/mcard/Mcard.styled';
 import { AiFillCaretDown } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import { Transition } from '@headlessui/react';
-import DeleteBillForm from './forms/DeleteBillForm';
+
 interface CollectionCardProps {
     collection: Collection & {
         bills: Bill[]

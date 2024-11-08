@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 import { ModalDelBtn } from '../Button/Button';
 import { FormBaseTypes } from '@/types/formTypes';
 import { cn } from '@/lib/utils';
+import { TbTrashX } from "react-icons/tb";
 
 interface DeleteBillFormProps extends FormBaseTypes {
   id: string;

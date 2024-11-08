@@ -12,6 +12,7 @@ import { SiOneplus } from 'react-icons/si';
 import AddBillForm from '../forms/AddBillForm';
 import { AddBillFormProps, DeleteBillFormProps, DeleteCollectionFormProps } from '@/data/formProps';
 import DeleteBillForm from '../forms/DeleteBillForm';
+import { TbTrashX } from "react-icons/tb";
 
 interface MainModalProps {
     modalTypes: ModalBaseTypes
@@ -30,6 +31,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, modalExtraT
     const [open, setOpen] = useState<boolean>(false);
     const [canceling, setCanceling] = useState<boolean>(false);
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+    const [hovered, setHovered] = useState<boolean>(false); // State to track hover
 
 console.log(modalName)
     const showModal = () => {
@@ -71,9 +73,12 @@ console.log(modalName)
     )}
  {modalName === 'DeletingBillConfirm' && modalExtraTypes && (
       <FlatBtn
-        type="button" 
-        onClick={showModal}>
-          {modalExtraTypes?.month}
+        type="button"
+        onClick={showModal}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+    >
+           {hovered ? <TbTrashX /> : modalExtraTypes?.month}
       </FlatBtn>
     )}
     <Modal
