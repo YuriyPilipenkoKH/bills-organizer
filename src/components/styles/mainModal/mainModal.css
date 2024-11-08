@@ -63,5 +63,9 @@
   }
   .DeleteBillForm-del-btn{
     position: absolute;
-    bottom: 18px;
+    bottom: 17px;
+  }
+  .DeleteCollectionForm-del-btn{
+    position: absolute;
+    bottom: 16px;
   }
