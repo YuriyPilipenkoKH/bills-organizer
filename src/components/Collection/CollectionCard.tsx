@@ -4,11 +4,11 @@ import './../components/styles/mcard/mcard.css';
 import { Bill, Collection } from '@prisma/client'
 import capitalize from '@/lib/capitalize'
 // import { MdCallMissedOutgoing } from "react-icons/md";
-import { BtnUpdate, FlatBackBtn, FlatBtn } from './Button/Button';
-import MainModal from './modals/MainModal';
+import { BtnUpdate, FlatBackBtn, FlatBtn } from '../Button/Button';
+import MainModal from '../modals/MainModal';
 import { AddBillProps, DeletingBillConfirmProps, DeletingCollectionConfirmProps } from '@/data/modalProps';
 import { Divider } from 'antd';
-import { McardHeader } from './styles/mcard/Mcard.styled';
+import { McardHeader } from '../styles/mcard/Mcard.styled';
 import { AiFillCaretDown } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import { Transition } from '@headlessui/react';

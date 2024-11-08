@@ -1,4 +1,4 @@
-import CollectionList from '@/components/CollectionList';
+import CollectionList from '@/components/Collection/CollectionList';
 import NewCollectionUi from '@/components/NewCollectionUi';
 
 

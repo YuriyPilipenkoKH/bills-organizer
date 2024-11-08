@@ -4,7 +4,7 @@ import "./globals.css";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import Navbar from "@/components/Navbar";
-import ClientSessionProvider from "@/components/ClientSessionProvider"; // Client Component for SessionProvider
+import ClientSessionProvider from "@/components/Collection/ClientSessionProvider"; // Client Component for SessionProvider
 import Container from "@/components/Container/Container";
 import { Toaster } from "react-hot-toast";
 import { options } from "@/lib/hotToast";
@@ -37,14 +37,14 @@ export default async function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ClientSessionProvider session={session}> {/* Pass session to Client Component */}
         <Container>
-                <Navbar 
-                // searchParams={searchParams}
-                />
-                {children}
-                <Toaster 
-                  position="top-center" 
-                  toastOptions={options} 
-                  gutter={24} />
+          <Navbar 
+          // searchParams={searchParams}
+          />
+          {children}
+          <Toaster 
+            position="top-center" 
+            toastOptions={options} 
+            gutter={24} />
           </Container>
         </ClientSessionProvider>
       </body>

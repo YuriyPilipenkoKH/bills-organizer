@@ -1,5 +1,5 @@
 import React from 'react'
-import prisma from '../../prisma'
+import prisma from '../../../prisma'
 import CollectionCard from './CollectionCard'
 
 async function CollectionList() {
