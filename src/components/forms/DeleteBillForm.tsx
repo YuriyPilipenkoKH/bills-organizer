@@ -68,7 +68,7 @@ interface DeleteBillFormProps extends FormBaseTypes {
    
       <ModalDelBtn  
         className={cn('',
-          (formName === 'AddBillForm')  && `AddBill-cancel-btn`
+          (formName === 'DeleteBillForm')  && `DeleteBillForm-del-btn`
         )}
         type='submit' >
         Delete {month} momth
