@@ -124,7 +124,7 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
             >
         Add
     </CancelBtn>
-		<div className='absolute bottom-[46px] sm:w-[300px]  md:w-[500px]'>
+		<div className='absolute bottom-[56px] sm:w-[270px]  md:w-[350px]'>
 		{( errors?.month || errors?.claimed || errors?.real ) && (
 			<AuthError className="autherror w-full">
 				{errors.month && <div>{errors.month.message}</div>}
