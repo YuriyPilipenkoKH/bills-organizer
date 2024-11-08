@@ -31,9 +31,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, modalExtraT
     const [open, setOpen] = useState<boolean>(false);
     const [canceling, setCanceling] = useState<boolean>(false);
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-    if(modalExtraTypes) {
-      const {billId, month} = modalExtraTypes
-    }
+
 console.log(modalName)
     const showModal = () => {
         setOpen(true);
