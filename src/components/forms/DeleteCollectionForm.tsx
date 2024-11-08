@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 import capitalize from '@/lib/capitalize';
 import { wait } from '@/lib/wait';
 import { FormBaseTypes } from '@/types/formTypes';
+import { cn } from '@/lib/utils';
 
 interface DeleteCollectionFormProps extends FormBaseTypes{
   id: string;
@@ -18,7 +19,9 @@ const DeleteCollectionForm: React.FC<DeleteCollectionFormProps> = ({
   id, 
   name,
   setIsSubmitting,
-  setOpen
+  setOpen,
+  formName,
+  dimentions
  }) => {
   console.log('formName',name)
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -52,6 +55,9 @@ const DeleteCollectionForm: React.FC<DeleteCollectionFormProps> = ({
         defaultValue={id}
       />
       <ModalDelBtn
+      className={cn('',
+        
+      )}
        type='submit' >
         Delete 
       </ModalDelBtn>
