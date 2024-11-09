@@ -2,9 +2,16 @@
 
 import prisma from "../../prisma";
 
- // Adjust this path to your Prisma instance
+interface IsMonthUniqueProps {
+  data: {
+    month: number, 
+    collectionId: string
+    
+  }
+}
 
-export async function isMonthUnique(month: number, collectionId: string): Promise<boolean> {
+export async function isMonthUnique({data}: IsMonthUniqueProps) {
+ const {collectionId, month} = data
   const existingBill = await prisma.bill.findFirst({
     where: { month, collectionId },
   });

@@ -12,12 +12,23 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+model User {
+  id           String       @id @default(auto()) @map("_id") @db.ObjectId
+  email        String?      @unique // Optional email, in case OAuth doesn't provide it
+  name         String?
+  password     String?      // Optional password, as it’s not required for OAuth
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  collections  Collection[] // One-to-many relationship with Collection
+}
 
 model Collection {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   name String
   year Int
   bills Bill[]
+  userId   String  @db.ObjectId // Foreign key for the User
+  user     User    @relation(fields: [userId], references: [id]) // Relation to the User model
 }
 
 model Bill {
