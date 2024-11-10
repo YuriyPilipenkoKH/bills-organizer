@@ -70,7 +70,7 @@ function CollectionCard({collection} :CollectionCardProps) {
 							</thead>
 							<tbody className='mcard-tablebody'>
 							{bills.map((bill, idx) => (
-								<tr key={idx} className='odd:bg-yellow-100  even:bg-green-200'>
+								<tr key={idx} className='odd:bg-yellow-100  even:bg-teal-100'>
 									<td className='w-1/8 '>
 									<MainModal
 										modalTypes={DeletingBillConfirmProps}
