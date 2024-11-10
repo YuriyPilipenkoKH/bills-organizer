@@ -17,8 +17,8 @@ export const authOptions: AuthOptions = {
   },
   callbacks: {
     async signIn({ user, account, profile }) {
-      // Check if the user is signing in via GitHub
-      if (account.provider === "github") {
+      // Ensure account is not null before accessing provider
+      if (account && account.provider === "github") {
         try {
           await prisma.user.upsert({
             where: { email: user.email! }, // Ensure the email exists
