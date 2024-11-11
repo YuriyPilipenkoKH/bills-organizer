@@ -1,11 +1,15 @@
 'use client'
+import UserContext, { UserContextType } from '@/context/UserContext'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useContext } from 'react'
 
 function Navbar() {
     const { data: session, status } = useSession()
     const pathname = usePathname()
+    const {user, setUser} = useContext(UserContext as React.Context<UserContextType>)
+    setUser(session?.user)
 
   return (
     <nav className='header flex gap-2 justify-between'>

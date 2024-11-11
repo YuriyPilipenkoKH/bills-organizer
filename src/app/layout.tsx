@@ -8,6 +8,7 @@ import ClientSessionProvider from "@/components/ClientSessionProvider"; // Clien
 import Container from "@/components/Container/Container";
 import { Toaster } from "react-hot-toast";
 import { options } from "@/lib/hotToast";
+import UserContextProvider from "@/context/UserContextProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -34,20 +35,22 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ClientSessionProvider session={session}> {/* Pass session to Client Component */}
-        <Container>
-          <Navbar 
-          // searchParams={searchParams}
-          />
-          {children}
-          <Toaster 
-            position="top-center" 
-            toastOptions={options} 
-            gutter={24} />
-          </Container>
-        </ClientSessionProvider>
-      </body>
+      <UserContextProvider>
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+          <ClientSessionProvider session={session}> {/* Pass session to Client Component */}
+            <Container>
+              <Navbar 
+              // searchParams={searchParams}
+              />
+              {children}
+              <Toaster 
+                position="top-center" 
+                toastOptions={options} 
+                gutter={24} />
+              </Container>
+          </ClientSessionProvider>
+        </body>
+      </UserContextProvider>
     </html>
   );
 }
