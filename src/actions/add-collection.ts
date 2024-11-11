@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import prisma from "../../prisma";
+import { retrieveUserId } from "@/lib/retrieveUserId";
 
 // The function for adding a collection to the database
 export const addCollection = async (formData: FormData) => {
@@ -20,8 +21,8 @@ export const addCollection = async (formData: FormData) => {
 
   // Assuming you have the userId available, you'd typically get this from the session
   // For now, I will use a placeholder userId, replace with actual logic (e.g., from session)
-  const userId = "someUserId"; // Replace this with actual user logic
-
+  const userId = await retrieveUserId()
+  console.log(userId)
   try {
     // Create a new collection
     const newCollection = await prisma.collection.create({
