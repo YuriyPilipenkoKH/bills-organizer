@@ -12,6 +12,7 @@ import { CgCloseO } from 'react-icons/cg';
 import { FormBaseTypes } from '@/types/formTypes';
 import { cn } from '@/lib/utils';
 import { wait } from '@/lib/wait';
+
 interface AddBillFormProps extends FormBaseTypes {
     id: string;
     name: string

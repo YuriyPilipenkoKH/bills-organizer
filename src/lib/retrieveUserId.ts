@@ -17,6 +17,5 @@ export async function retrieveUserId() {
   if (!user) {
     throw new Error("User not found in the database");
   }
-
   return user.id;
 }

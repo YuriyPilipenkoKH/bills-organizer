@@ -40,6 +40,13 @@ export const authOptions: AuthOptions = {
       }
       return true; // Allow the sign-in process
     },
+    async jwt({ token, user }) {
+      // Add MongoDB user ID to the token on first login
+      if (user) {
+        token.id = user.id;
+      }
+      return token;
+    },
     async session({ session, token }: { session: any, token: JWT }) {
       // Attach user email to the session object from the token
       if (token) {
