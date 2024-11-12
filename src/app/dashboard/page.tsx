@@ -1,5 +1,5 @@
 import CollectionList from '@/components/Collection/CollectionList';
-import NewCollectionUi from '@/components/NewCollectionUi';
+import NewCollectionUi from '@/components/Collection/NewCollectionUi';
 
 
 function DashboardPage() {

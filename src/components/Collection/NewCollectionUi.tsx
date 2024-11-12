@@ -1,10 +1,10 @@
 'use client'
 
 import React, { useState } from 'react'
-import { CancelBtn } from './Button/Button'
+import { CancelBtn } from '../Button/Button'
 import { BiDownArrow } from 'react-icons/bi'
-import { AddNewCollectionForm } from './forms/AddNewCollectionForm'
-import {cn} from './../lib/utils'
+import { AddNewCollectionForm } from '../forms/AddNewCollectionForm'
+import {cn} from '../../lib/utils'
 import { AddNewCollectionFormProps } from '@/data/formProps'
 
 
