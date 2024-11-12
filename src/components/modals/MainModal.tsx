@@ -92,7 +92,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, modalExtraT
         (modalName === 'DeletingCollectionConfirm')  && `DeletingCollectionConfirm`,
         (modalName === 'AddBill')  && `AddBill`,
         (modalName === 'DeletingBillConfirm')  && `DeletingBillConfirm`,
-        (modalName === 'UpdateImgUrl')  && `updateImgUrl`,
+        (modalName === 'EditBill')  && `EditBill`,
         )}
       open={open}
       title={( isSubmitting ) 

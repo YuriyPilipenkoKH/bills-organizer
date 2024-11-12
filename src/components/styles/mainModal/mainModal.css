@@ -23,11 +23,10 @@
     height: 180px;
   }
   .AddBill >div>.ant-modal-content{
-
     height: 360px;
   }
-  .editProduct >div>.ant-modal-content{
-    height: 240px;
+  .EditBill >div>.ant-modal-content{
+    height: 340px;
   }
   .updateImgUrl >div>.ant-modal-content{
     height: 420px;

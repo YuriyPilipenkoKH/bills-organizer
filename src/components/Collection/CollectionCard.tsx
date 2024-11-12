@@ -6,7 +6,7 @@ import capitalize from '@/lib/capitalize'
 // import { MdCallMissedOutgoing } from "react-icons/md";
 import { BtnUpdate,  FlatBtn } from '../Button/Button';
 import MainModal from '../modals/MainModal';
-import { AddBillProps, DeletingBillConfirmProps, DeletingCollectionConfirmProps } from '@/data/modalProps';
+import { AddBillProps, DeletingBillConfirmProps, DeletingCollectionConfirmProps, EditBillProps } from '@/data/modalProps';
 import { Divider } from 'antd';
 import { McardHeader } from '../styles/mcard/Mcard.styled';
 import { AiFillCaretDown } from "react-icons/ai";
@@ -95,9 +95,15 @@ function CollectionCard({collection} :CollectionCardProps) {
 										{bill.accrued}
 									</td>
 									<td className='w-1/8  edit-wrapp'>
-										{/* <FlatBtn >
-											<FiEdit />
-										</FlatBtn> */}
+									<MainModal
+										modalTypes={EditBillProps}
+										modalExtraTypes={{
+											billId: bill.id,
+											month:  bill.month
+										}}
+										id={collection.id}
+										name={collection.name}
+									/>
 									</td>
 								</tr>
 							))}
