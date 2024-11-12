@@ -6,6 +6,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { AuthError, Form_Universal, FormInput, FormLabel } from './FormStyles.styled';
+import { CancelBtn, FlatBtn } from '../Button/Button';
+import { cn } from '@/lib/utils';
+import { CgCloseO } from 'react-icons/cg';
 
 interface EditBillFormProps extends FormBaseTypes {
   id: string;
@@ -80,7 +84,53 @@ interface EditBillFormProps extends FormBaseTypes {
       }
     };
   return (
-    <div>EditBillForm</div>
+    <Form_Universal
+    onSubmit={handleSubmit(onSubmit)}
+    className='flex flex-col gap-3 items-center'
+    formHeight={dimentions[1]}
+    autoComplete="off"
+    noValidate>
+
+      <FormLabel>
+        <FormInput 
+          {...register('claimed', { onChange: handleInputChange })}
+            placeholder=	{( isSubmitting )
+            ? "Processing" : 'claimed' }
+            type="number" 
+        />
+      </FormLabel>
+      <FormLabel>
+        <FormInput
+          {...register('real', { onChange: handleInputChange })}
+          placeholder={isSubmitting 
+            ? 'Processing' : 'real' }
+            type="number" 
+        />
+      </FormLabel>
+      <CancelBtn 
+        className={cn('mt-auto ',
+      (formName === 'AddBillForm')  && `AddBill-approve-btn`
+        )}
+        type='submit'
+        disabled={isSubmitting || !isDirty || !isValid}
+              >
+          Add
+      </CancelBtn>
+      <div className='absolute bottom-[56px] sm:w-[270px]  md:w-[350px]'>
+      {( errors?.month || errors?.claimed || errors?.real ) && (
+        <AuthError className="autherror w-full">
+          {errors.month && <div>{errors.month.message}</div>}
+          {!errors.month && errors.claimed && <div>{errors.claimed.message}</div>}
+          {!errors.month && !errors.claimed && errors.real && <div>{errors.real.message}</div>}
+          {logError && <div>{logError}</div>}
+          <FlatBtn 
+            onClick={()=>reset()}>
+              <CgCloseO size={30} />
+          </FlatBtn>
+        </AuthError>
+        )}
+      </div>		
+    </Form_Universal>
   )
 }
 
