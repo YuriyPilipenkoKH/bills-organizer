@@ -10,6 +10,7 @@ import { AuthError, Form_Universal, FormInput, FormLabel } from './FormStyles.st
 import { CancelBtn, FlatBtn } from '../Button/Button';
 import { cn } from '@/lib/utils';
 import { CgCloseO } from 'react-icons/cg';
+import { editBill } from '@/actions/edit-bill';
 
 interface EditBillFormProps extends FormBaseTypes {
   id: string;
@@ -47,18 +48,20 @@ interface EditBillFormProps extends FormBaseTypes {
         isValid ,
         isSubmitting,
       } = formState
+      
       const onSubmit = async (data: editBillSchemaType) => {
         setIsSubmitting(true)
         const formData = new FormData();
         
         formData.append('claimed', String(data.claimed)); // Convert to string
         formData.append('real', String(data.real)); 
-        // formData.append('month', String(data.month)); 
+        formData.append('month', String(data.month)); 
         formData.append('accrued', String(0)); 
         formData.append('collectionId', id); 
+        formData.append('billId', id); 
   
         try {
-            const result = await addBill(formData);
+            const result = await editBill(formData);
             if (result.success) {
                 toast.success(`Bill for ${capitalize(String(data.month))} month added successfully`!);
                 reset();
@@ -117,11 +120,10 @@ interface EditBillFormProps extends FormBaseTypes {
           Add
       </CancelBtn>
       <div className='absolute bottom-[56px] sm:w-[270px]  md:w-[350px]'>
-      {( errors?.month || errors?.claimed || errors?.real ) && (
+      {(  errors?.claimed || errors?.real ) && (
         <AuthError className="autherror w-full">
-          {errors.month && <div>{errors.month.message}</div>}
-          {!errors.month && errors.claimed && <div>{errors.claimed.message}</div>}
-          {!errors.month && !errors.claimed && errors.real && <div>{errors.real.message}</div>}
+          {errors.claimed && <div>{errors.claimed.message}</div>}
+          {errors.claimed && errors.real && <div>{errors.real.message}</div>}
           {logError && <div>{logError}</div>}
           <FlatBtn 
             onClick={()=>reset()}>
