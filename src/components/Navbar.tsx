@@ -32,7 +32,7 @@ useEffect(() => {
   };
 
   fetchUserId(); // Call the async function inside useEffect
-}, [session, setUser]);
+}, [session]);
 
 
   return (
