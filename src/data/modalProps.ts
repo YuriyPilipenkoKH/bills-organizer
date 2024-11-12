@@ -22,13 +22,14 @@ export const DeletingBillConfirmProps: ModalBaseTypes = {
 
 };
 
-export const EditProductProps: ModalBaseTypes = {
-  modalName: 'EditProduct',
-  dimentions: ['320px', '300px'],
-  title: 'Update product',
+export const EditBillProps: ModalBaseTypes = {
+  modalName: 'EditBill',
+  dimentions:  ['300px', '380px','420px','450px'],
+  title: 'Updating Bill fields',
   text: 'You can edit anything',
 };
 
+// ===========template====================
 export const UpdateImgUrlProps: ModalBaseTypes = {
   modalName: 'UpdateImgUrl',
   dimentions: ['320px', '300px'],
