@@ -69,7 +69,10 @@ function CollectionCard({collection} :CollectionCardProps) {
 								</tr>
 							</thead>
 							<tbody className='mcard-tablebody'>
-							{bills.map((bill, idx) => (
+							{bills
+							.slice() // Create a shallow copy to avoid mutating the original array
+							.sort((a, b) => a.month - b.month) // Sort by `month` in ascending order
+							.map((bill, idx) => (
 								<tr key={idx} className='odd:bg-yellow-100  even:bg-teal-100'>
 									<td className='w-1/8 '>
 									<MainModal
