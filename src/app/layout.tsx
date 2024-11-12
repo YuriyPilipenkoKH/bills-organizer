@@ -4,7 +4,7 @@ import "./globals.css";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import Navbar from "@/components/Navbar";
-import ClientSessionProvider from "@/components/ClientSessionProvider"; // Client Component for SessionProvider
+import ClientSessionProvider from "@/providers/ClientSessionProvider"; // Client Component for SessionProvider
 import Container from "@/components/Container/Container";
 import { Toaster } from "react-hot-toast";
 import { options } from "@/lib/hotToast";
