@@ -95,9 +95,9 @@ function CollectionCard({collection} :CollectionCardProps) {
 										{bill.accrued}
 									</td>
 									<td className='w-1/8  edit-wrapp'>
-										<FlatBtn >
+										{/* <FlatBtn >
 											<FiEdit />
-										</FlatBtn>
+										</FlatBtn> */}
 									</td>
 								</tr>
 							))}

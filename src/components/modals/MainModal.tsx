@@ -13,6 +13,7 @@ import AddBillForm from '../forms/AddBillForm';
 import { AddBillFormProps, DeleteBillFormProps, DeleteCollectionFormProps } from '@/data/formProps';
 import DeleteBillForm from '../forms/DeleteBillForm';
 import { TbTrashX } from "react-icons/tb";
+import { FiEdit } from 'react-icons/fi';
 
 interface MainModalProps {
     modalTypes: ModalBaseTypes
@@ -60,9 +61,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, modalExtraT
          <RiDeleteBin2Line />
     </BtnDelete>
     )}
-  {(modalName === 'AddBill' 
-      || modalName === 'DeletingProductConfirm')
-      && (
+  {(modalName === 'AddBill' )  && (
       <BtnUpdate
         className='addOne'
         type="button" 
@@ -70,7 +69,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, modalExtraT
           <SiOneplus className='ml-[2px] mb-[2px]' />
       </BtnUpdate>
     )}
- {modalName === 'DeletingBillConfirm' && modalExtraTypes && (
+  {modalName === 'DeletingBillConfirm' && modalExtraTypes && (
       <FlatBtn
         type="button"
         onClick={showModal}
@@ -78,6 +77,14 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, modalExtraT
         onMouseLeave={() => setHovered(false)}
     >
            {hovered ? <TbTrashX /> : modalExtraTypes?.month}
+      </FlatBtn>
+    )}
+    {(modalName === 'EditBill')  && modalExtraTypes && (
+      <FlatBtn
+        className='EditBill'
+        type="button" 
+        onClick={showModal}>
+          <FiEdit className='ml-[2px] mb-[2px]' />
       </FlatBtn>
     )}
     <Modal
