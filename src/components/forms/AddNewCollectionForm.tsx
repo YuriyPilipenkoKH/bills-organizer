@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {  CancelBtn,  FlatBtn } from '../Button/Button'
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -10,12 +10,15 @@ import { AuthError, Form_Universal, FormInput, FormLabel } from './FormStyles.st
 import { addNewCollectionSchema, addNewCollectionSchemaType,  } from '@/models/addCollection';
 import { CgCloseO } from "react-icons/cg";
 import { FormBaseTypes } from '@/types/formTypes';
+import UserContext, { UserContextType } from '@/context/UserContext';
 
 
 export const AddNewCollectionForm: React.FC<FormBaseTypes> = ( {
 	dimentions
 } ) => {
+	const {user} = useContext(UserContext as React.Context<UserContextType>)
 		const [logError, setLogError] = useState<string>('')
+	console.log('user',user)
 		const {
 			register, 
 			handleSubmit,
