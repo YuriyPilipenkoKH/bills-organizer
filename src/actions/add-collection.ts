@@ -9,6 +9,7 @@ import { retrieveUserId } from "./retrieve-UserId";
 export const addCollection = async (formData: FormData) => {
   const name = formData.get('name'); // name of the collection
   const year = formData.get('year'); // year of the collection
+  const userId = formData.get('userId') as string | null; // year of the collection
 
   // Validation for required fields
   if (!name || !year) {
@@ -22,7 +23,7 @@ export const addCollection = async (formData: FormData) => {
 
   // Assuming you have the userId available, you'd typically get this from the session
   // For now, I will use a placeholder userId, replace with actual logic (e.g., from session)
-  const userId = await retrieveUserId()
+  // const userId = await retrieveUserId()
   console.log(userId)
   try {
     // Create a new collection
@@ -30,7 +31,7 @@ export const addCollection = async (formData: FormData) => {
       data: {
         name,
         year: Number(year), // Ensure year is a number
-        userId: userId || '', // Associate collection with a specific user
+        userId: userId ?? '', // Associate collection with a specific user
       },
     });
 

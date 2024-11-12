@@ -2,18 +2,11 @@
 
 import { revalidatePath } from 'next/cache'
 import prisma from '../../prisma'
-import { getServerSession } from 'next-auth/next'
-import { authOptions } from '@/pages/api/auth/[...nextauth]'
+
 
 // Fetch and cache user ID based on the current session's email
-export async function retrieveUserId() {
-  // Retrieve session
-  const session = await getServerSession(authOptions)
-  const userEmail = session?.user?.email
+export async function retrieveUserId(userEmail:string) {
 
-  if (!userEmail) {
-    throw new Error('User is not authenticated or email is missing from session')
-  }
 
   try {
     // Retrieve the user from MongoDB based on email
