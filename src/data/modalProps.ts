@@ -25,7 +25,7 @@ export const DeletingBillConfirmProps: ModalBaseTypes = {
 export const EditBillProps: ModalBaseTypes = {
   modalName: 'EditBill',
   dimentions:  ['300px', '380px','420px','450px'],
-  title: 'Updating Bill fields',
+  title: 'Updating ',
   text: 'You can edit anything',
 };
 

@@ -101,7 +101,9 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, modalExtraT
           : "moving to trash.." 
         :(modalName === 'DeletingBillConfirm')
           ?  `${title}  ${modalExtraTypes?.month} month from ${capitalize(name)} collection `
-          : `${title} ${capitalize(name)} ?`
+          : (modalName === 'EditBill') 
+            ? `${title}  ${modalExtraTypes?.month} month from ${capitalize(name)} collection `
+            :`${title} ${capitalize(name)} ?`
       }
 
       onOk={handleOk}
