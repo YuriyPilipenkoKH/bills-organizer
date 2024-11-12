@@ -95,15 +95,17 @@ function CollectionCard({collection} :CollectionCardProps) {
 										{bill.accrued}
 									</td>
 									<td className='w-1/8  edit-wrapp'>
-									<MainModal
-										modalTypes={EditBillProps}
-										modalExtraTypes={{
-											billId: bill.id,
-											month:  bill.month
-										}}
-										id={collection.id}
-										name={collection.name}
-									/>
+										<MainModal
+											modalTypes={EditBillProps}
+											modalExtraTypes={{
+												billId: bill.id,
+												month:  bill.month,
+												claimed: bill.claimed,
+												real: bill.real ?? undefined, // Convert `null` to `undefined`
+											}}
+											id={collection.id}
+											name={collection.name}
+										/>
 									</td>
 								</tr>
 							))}

@@ -9,4 +9,7 @@ export interface ModalBaseTypes {
   export interface DeletingBillTypes  {
     billId :string
     month: number
+    claimed?: number
+    real?: number
+
   }

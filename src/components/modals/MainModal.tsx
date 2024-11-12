@@ -10,10 +10,11 @@ import { RiDeleteBin2Line } from 'react-icons/ri';
 import DeleteCollectionForm from '../forms/DeleteCollectionForm';
 import { SiOneplus } from 'react-icons/si';
 import AddBillForm from '../forms/AddBillForm';
-import { AddBillFormProps, DeleteBillFormProps, DeleteCollectionFormProps } from '@/data/formProps';
+import { AddBillFormProps, DeleteBillFormProps, DeleteCollectionFormProps, EditBillFormProps } from '@/data/formProps';
 import DeleteBillForm from '../forms/DeleteBillForm';
 import { TbTrashX } from "react-icons/tb";
 import { FiEdit } from 'react-icons/fi';
+import EditBillForm from '../forms/EditBillForm';
 
 interface MainModalProps {
     modalTypes: ModalBaseTypes
@@ -162,6 +163,19 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, modalExtraT
             month={modalExtraTypes?.month}
             formName={DeleteBillFormProps.formName}
             dimentions={DeleteBillFormProps.dimentions}
+            />
+        )}
+        {modalName === 'EditBill' && modalExtraTypes && (
+          <EditBillForm
+            id={id}
+            name={name}
+            setIsSubmitting={setIsSubmitting}
+            setOpen={setOpen}
+            billId={modalExtraTypes?.billId}
+            month={modalExtraTypes?.month}
+            
+            formName={EditBillFormProps.formName}
+            dimentions={EditBillFormProps.dimentions}
             />
         )}
 
