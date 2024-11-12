@@ -1,5 +1,5 @@
 'use client'
-import { retrieveUserId } from '@/actions/retrieve-UserId'
+
 import UserContext, { UserContextType } from '@/context/UserContext'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
@@ -9,8 +9,8 @@ import { useContext, useEffect } from 'react'
 function Navbar() {
     const { data: session, status } = useSession()
     const pathname = usePathname()
-    const { user,setUser} = useContext(UserContext as React.Context<UserContextType>)
-
+    const { user, setUser} = useContext(UserContext as React.Context<UserContextType>)
+console.log('user',user)
     useEffect(() => {
       // Make sure the session user data fits the expected context type
       if (session?.user) {
@@ -18,14 +18,14 @@ function Navbar() {
         const userData = {
           name: session.user.name ?? null,
           email: session.user.email ?? null,
-          // id:  retrieveUserId() ?? '', // Add your logic to get the user ID (possibly from your database)
+          id:  session.user.email ?? '', // Add your logic to get the user ID (possibly from your database)
           password: null, // Password is not included in session, so we set it as null
           createdAt: new Date(), // Set the creation date based on your requirements
           updatedAt: new Date(), // Set the update date based on your requirements
         }
         setUser(userData)
       }
-    }, [session, user])
+    }, [session])
 
 
   return (

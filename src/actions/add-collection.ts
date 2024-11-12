@@ -2,7 +2,8 @@
 
 import { revalidatePath } from "next/cache";
 import prisma from "../../prisma";
-import { retrieveUserId } from "@/lib/retrieveUserId";
+import { retrieveUserId } from "./retrieve-UserId";
+
 
 // The function for adding a collection to the database
 export const addCollection = async (formData: FormData) => {
@@ -29,7 +30,7 @@ export const addCollection = async (formData: FormData) => {
       data: {
         name,
         year: Number(year), // Ensure year is a number
-        userId, // Associate collection with a specific user
+        userId: userId || '', // Associate collection with a specific user
       },
     });
 
