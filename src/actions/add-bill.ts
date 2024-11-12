@@ -7,6 +7,7 @@ export const addBill = async (formData: FormData) => {
   const collectionId = formData.get("collectionId") as string;
   const accrued = parseInt(formData.get("accrued") as string);
   const claimed = parseInt(formData.get("claimed") as string);
+  const real = parseInt(formData.get("real") as string);
   const month = parseInt(formData.get("month") as string);
 
   if (!collectionId || isNaN(accrued) || isNaN(claimed) || isNaN(month)) {
@@ -38,6 +39,7 @@ export const addBill = async (formData: FormData) => {
         accrued,
         claimed,
         month,
+				real,
         createdAt: new Date(),
         updatedAt: new Date()
       }

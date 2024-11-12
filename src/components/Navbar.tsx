@@ -53,13 +53,15 @@ useEffect(() => {
             <p>Home</p>
           </Link>
         </li>
-        <li>
-          <Link 
-            className={`link ${pathname === '/dashboard' ? 'active' : ''}`}
-            href='/dashboard'>
-            <p>Dashboard</p>
-          </Link>
-        </li>
+        {session && user && (
+          <li>
+            <Link 
+              className={`link ${pathname === '/dashboard' ? 'active' : ''}`}
+              href='/dashboard'>
+              <p>Dashboard</p>
+            </Link>
+          </li>
+        )}
 
         {(status !== "authenticated")  && !session && (
           <li>
