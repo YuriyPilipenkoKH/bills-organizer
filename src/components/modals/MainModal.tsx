@@ -33,7 +33,6 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, modalExtraT
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
     const [hovered, setHovered] = useState<boolean>(false); // State to track hover
 
-console.log(modalName)
     const showModal = () => {
         setOpen(true);
     };
