@@ -20,11 +20,9 @@ interface DeleteBillFormProps extends FormBaseTypes {
   const DeleteBillForm: React.FC<DeleteBillFormProps> = ({ 
     id: collectionId,
     billId,
-    name,
     setIsSubmitting,
     setOpen,
     formName,
-    dimentions,
     month
    }) => {
    

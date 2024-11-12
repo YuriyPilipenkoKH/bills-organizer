@@ -17,11 +17,14 @@ interface EditBillFormProps extends FormBaseTypes {
   name: string
   setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  billId:string
+  month:number
   }
 
   const EditBillForm: React.FC<EditBillFormProps> = ({ 
-    id, 
-    name,
+    id: collectionId,
+    billId,
+    month,
     setIsSubmitting,
     setOpen,
     formName,
@@ -48,27 +51,27 @@ interface EditBillFormProps extends FormBaseTypes {
         isValid ,
         isSubmitting,
       } = formState
-      
+
       const onSubmit = async (data: editBillSchemaType) => {
         setIsSubmitting(true)
         const formData = new FormData();
         
         formData.append('claimed', String(data.claimed)); // Convert to string
         formData.append('real', String(data.real)); 
-        formData.append('month', String(data.month)); 
+        formData.append('month', String(month)); 
         formData.append('accrued', String(0)); 
-        formData.append('collectionId', id); 
-        formData.append('billId', id); 
+        formData.append('collectionId', collectionId); 
+        formData.append('billId', billId); 
   
         try {
             const result = await editBill(formData);
             if (result.success) {
-                toast.success(`Bill for ${capitalize(String(data.month))} month added successfully`!);
+                toast.success(`Bill for ${capitalize(String(month))} month added successfully`!);
                 reset();
                 await wait(1000)
                 setOpen(false)
             } else {
-                toast.error(`Failed to add Bill for ${capitalize(String(data.month))} month  ${result.error}`);
+                toast.error(`Failed to add Bill for ${capitalize(String(month))} month  ${result.error}`);
             }
           } catch 
           (error) {
