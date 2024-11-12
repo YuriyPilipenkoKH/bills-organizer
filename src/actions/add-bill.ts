@@ -1,63 +1,61 @@
 'use server'
 
-import { revalidatePath } from "next/cache"
+import { revalidatePath } from "next/cache";
 import prisma from "../../prisma";
 
 export const addBill = async (formData: FormData) => {
-    const accrued = formData.get('accrued') 
-    const claimed = formData.get('claimed') 
-    const real = formData.get('real') 
-    const month = formData.get('month') 
-    const collectionId = formData.get('collectionId') 
-		// Validate required fields
-    if (!accrued || !collectionId || !claimed || !month) {
-        return { success: false, error: "all fields are required" };
-    }
-      // Validate types
-			if (
-        typeof collectionId !== 'string' ||
-        isNaN(Number(accrued)) ||
-        isNaN(Number(claimed)) ||
-        isNaN(Number(month))
-    ) {
-        return { success: false, error: "Invalid input data" };
-    }
-    if (typeof collectionId !== 'string' || !accrued || isNaN(Number(accrued))) {
-        return { success: false, error: "Invalid input data" };
+  const collectionId = formData.get("collectionId") as string;
+  const accrued = parseInt(formData.get("accrued") as string);
+  const claimed = parseInt(formData.get("claimed") as string);
+  const month = parseInt(formData.get("month") as string);
+
+  if (!collectionId || isNaN(accrued) || isNaN(claimed) || isNaN(month)) {
+    return { success: false, error: "Invalid input data" };
+  }
+
+  try {
+    // Retrieve the collection and check for an existing bill with the same month
+    const collection = await prisma.collection.findUnique({
+      where: { id: collectionId },
+      select: { bills: true }
+    });
+
+    if (!collection) {
+      throw new Error("Collection not found");
     }
 
-		try {
-			// Build the new bill data
-			const newBill = {
-					accrued: Number(accrued),
-					claimed: Number(claimed),
-					real: real ? Number(real) : null,
-					month: Number(month),
-					createdAt: new Date(),
-					updatedAt: new Date(),
-			};
+    // Check if any existing bill has the same month
+    const duplicateBill = collection.bills.some((bill) => bill.month === month);
+    if (duplicateBill) {
+      return { success: false, error: `A bill for month ${month} already exists in this collection.` };
+    }
 
-			// Append the new bill to the bills array in the specified collection
-			await prisma.collection.update({
-					where: { id: collectionId },
-					data: {
-							bills: {
-									push: newBill, // Use push to append to the array
-							},
-					},
-			});
+    // Add the new bill to the `bills` array
+    const updatedBills = [
+      ...collection.bills,
+      {
+        id: crypto.randomUUID(), // Generate a unique ID for each bill
+        accrued,
+        claimed,
+        month,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
+    ];
 
-			// Revalidate the cache for the dashboard route
-			revalidatePath('/dashboard');
+    // Update the collection with the new bill added
+    await prisma.collection.update({
+      where: { id: collectionId },
+      data: { bills: updatedBills }
+    });
 
-			return { success: true };
-	} catch (error) {
-			console.error('Error adding bill:', error);
-
-			const errorMessage = error instanceof Error ? error.message : 'An unexpected error occurred';
-
-			revalidatePath('/dashboard');
-
-			return { success: false, error: errorMessage };
-	}
-}
+    revalidatePath("/dashboard");
+    return { success: true };
+  } catch (error) {
+    console.error("Error adding bill:", error);
+    const errorMessage = error instanceof Error ? error.message : "An unexpected error occurred";
+    return { success: false, error: errorMessage };
+  } finally {
+    await prisma.$disconnect();
+  }
+};

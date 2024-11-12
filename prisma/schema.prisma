@@ -34,10 +34,11 @@ model Collection {
 
 // in case all Bills are stored in bills array
 type Bill {
+  id        String    @default(uuid())
   accrued   Int
   claimed   Int
   real      Int?
-  month     Int
+  month     Int 
   createdAt DateTime @default(now())
   updatedAt DateTime // Manually handle this field in code
 }
