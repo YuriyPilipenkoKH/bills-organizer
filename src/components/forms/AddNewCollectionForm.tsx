@@ -40,8 +40,13 @@ export const AddNewCollectionForm: React.FC<FormBaseTypes> = ( {
 		} = formState
 
 		const onSubmit = async (data: addNewCollectionSchemaType) => {
+			if (!user) {
+				toast.error('User not found. Please log in.');
+				return;
+			}
 			const formData = new FormData();
 			formData.append('name', data.name);
+			formData.append('userId', user.id);
 			formData.append('year', String(data.year)); // Convert `year` to a string
 
 			try {
