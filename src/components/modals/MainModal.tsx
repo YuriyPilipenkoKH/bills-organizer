@@ -100,7 +100,7 @@ const MainModal: React.FC<MainModalProps> = ({
       open={open}
       title={( isSubmitting ) 
         ? (modalName === 'AddBill') || (modalName === 'UpdateImgUrl')
-          ? "updating.." 
+          ? "writing to MongoDB.." 
           : "moving to trash.." 
         :(modalName === 'DeletingBillConfirm')
           ?  `${title}  ${bill?.month} month from ${capitalize(name)} collection `
