@@ -135,7 +135,8 @@ console.log('formName',formName)
         type='submit'
         disabled={isSubmitting || !isDirty || !isValid}
               >
-          Add
+          {isSubmitting ? 'Prosses..' : 'Update'}
+          
       </CancelBtn>
       <div className='absolute bottom-[56px] sm:w-[270px]  md:w-[350px]'>
       {(  errors?.claimed || errors?.real ) && (
