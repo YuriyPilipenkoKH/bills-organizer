@@ -36,7 +36,7 @@ const MainModal: React.FC<MainModalProps> = ({
     const [canceling, setCanceling] = useState<boolean>(false);
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
     const [hovered, setHovered] = useState<boolean>(false); // State to track hover
-
+console.log('modalName',modalName)
     const showModal = () => {
         setOpen(true);
     };
@@ -175,7 +175,7 @@ const MainModal: React.FC<MainModalProps> = ({
             name={name}
             setIsSubmitting={setIsSubmitting}
             setOpen={setOpen}
-            // bill={ bill }
+            bill={ bill }
             formName={EditBillFormProps.formName}
             dimentions={EditBillFormProps.dimentions}
             />
