@@ -2,8 +2,8 @@
 import { Modal } from 'antd';
 import React, {  useState } from 'react';
 import '../styles/mainModal/mainModal.css'
-import { BtnDelete, BtnUpdate, CancelBtn, FlatBackBtn, FlatBtn} from '../Button/Button';
-import { DeletingBillTypes, ModalBaseTypes } from '@/types/modalTypes';
+import { BtnDelete, BtnUpdate, CancelBtn,  FlatBtn} from '../Button/Button';
+import {  ModalBaseTypes } from '@/types/modalTypes';
 import capitalize from '@/lib/capitalize';
 import { cn } from '@/lib/utils';
 import { RiDeleteBin2Line } from 'react-icons/ri';
@@ -15,20 +15,22 @@ import DeleteBillForm from '../forms/DeleteBillForm';
 import { TbTrashX } from "react-icons/tb";
 import { FiEdit } from 'react-icons/fi';
 import EditBillForm from '../forms/EditBillForm';
+import { Bill } from '@prisma/client';
 
 interface MainModalProps {
-    modalTypes: ModalBaseTypes
-    modalExtraTypes?: DeletingBillTypes
-    id: string
-    name: string
+  modalTypes: ModalBaseTypes;
+  bill?: Bill;
+  id: string;
+  name: string;
 }
 
-const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, modalExtraTypes}) => {
-    const {
-        modalName, 
-        text, 
-        title,
-    } = modalTypes
+const MainModal: React.FC<MainModalProps> = ({ 
+  modalTypes,
+  id ,
+  name, 
+  bill
+}) => {
+    const { modalName, text, title } = modalTypes;
     const [loading, setLoading] = useState<boolean>(false);
     const [open, setOpen] = useState<boolean>(false);
     const [canceling, setCanceling] = useState<boolean>(false);
@@ -70,17 +72,17 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, modalExtraT
           <SiOneplus className='ml-[2px] mb-[2px]' />
       </BtnUpdate>
     )}
-  {modalName === 'DeletingBillConfirm' && modalExtraTypes && (
+  {modalName === 'DeletingBillConfirm' && bill && (
       <FlatBtn
         type="button"
         onClick={showModal}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
     >
-           {hovered ? <TbTrashX /> : modalExtraTypes?.month}
+           {hovered ? <TbTrashX /> : bill?.month}
       </FlatBtn>
     )}
-    {(modalName === 'EditBill')  && modalExtraTypes && (
+    {(modalName === 'EditBill')  && bill && (
       <FlatBtn
         className='EditBill'
         type="button" 
@@ -101,9 +103,9 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, modalExtraT
           ? "updating.." 
           : "moving to trash.." 
         :(modalName === 'DeletingBillConfirm')
-          ?  `${title}  ${modalExtraTypes?.month} month from ${capitalize(name)} collection `
+          ?  `${title}  ${bill?.month} month from ${capitalize(name)} collection `
           : (modalName === 'EditBill') 
-            ? `${title}  ${modalExtraTypes?.month} month from ${capitalize(name)} collection `
+            ? `${title}  ${bill?.month} month from ${capitalize(name)} collection `
             :`${title} ${capitalize(name)} ?`
       }
 
@@ -152,28 +154,26 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, modalExtraT
             dimentions={AddBillFormProps.dimentions}
             />
         )}
-        {modalName === 'DeletingBillConfirm' && modalExtraTypes && (
+        {modalName === 'DeletingBillConfirm' && bill && (
           
           <DeleteBillForm
             id={id}
             name={name}
             setIsSubmitting={setIsSubmitting}
             setOpen={setOpen}
-            billId={modalExtraTypes?.billId}
-            month={modalExtraTypes?.month}
+            billId={bill?.id}
+            month={bill?.month}
             formName={DeleteBillFormProps.formName}
             dimentions={DeleteBillFormProps.dimentions}
             />
         )}
-        {modalName === 'EditBill' && modalExtraTypes && (
+        {modalName === 'EditBill' && bill && (
           <EditBillForm
             id={id}
             name={name}
             setIsSubmitting={setIsSubmitting}
             setOpen={setOpen}
-            billId={modalExtraTypes?.billId}
-            month={modalExtraTypes?.month}
-            
+            // bill={ bill }
             formName={EditBillFormProps.formName}
             dimentions={EditBillFormProps.dimentions}
             />

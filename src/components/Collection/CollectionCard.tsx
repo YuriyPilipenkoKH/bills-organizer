@@ -4,13 +4,12 @@ import './../../components/styles/mcard/mcard.css';
 import { Bill, Collection } from '@prisma/client'
 import capitalize from '@/lib/capitalize'
 // import { MdCallMissedOutgoing } from "react-icons/md";
-import { BtnUpdate,  FlatBtn } from '../Button/Button';
+import { BtnUpdate} from '../Button/Button';
 import MainModal from '../modals/MainModal';
 import { AddBillProps, DeletingBillConfirmProps, DeletingCollectionConfirmProps, EditBillProps } from '@/data/modalProps';
 import { Divider } from 'antd';
 import { McardHeader } from '../styles/mcard/Mcard.styled';
 import { AiFillCaretDown } from "react-icons/ai";
-import { FiEdit } from "react-icons/fi";
 import { Transition } from '@headlessui/react';
 
 interface CollectionCardProps {
@@ -77,10 +76,7 @@ function CollectionCard({collection} :CollectionCardProps) {
 									<td className='w-1/8 '>
 									<MainModal
 										modalTypes={DeletingBillConfirmProps}
-										modalExtraTypes={{
-											billId:bill.id,
-											month:bill.month
-										}}
+										bill={bill}
 										id={collection.id}
 										name={collection.name}
 									/>
@@ -97,12 +93,7 @@ function CollectionCard({collection} :CollectionCardProps) {
 									<td className='w-1/8  edit-wrapp'>
 										<MainModal
 											modalTypes={EditBillProps}
-											modalExtraTypes={{
-												billId: bill.id,
-												month:  bill.month,
-												claimed: bill.claimed,
-												real: bill.real ?? undefined, // Convert `null` to `undefined`
-											}}
+											bill={bill}
 											id={collection.id}
 											name={collection.name}
 										/>

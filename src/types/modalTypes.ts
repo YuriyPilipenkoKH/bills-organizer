@@ -6,10 +6,24 @@ export interface ModalBaseTypes {
 
   }
 
-  export interface DeletingBillTypes  {
-    billId :string
-    month: number
-    claimed?: number
-    real?: number
 
+  export interface EssintialBillTypes {
+    bill: {
+      id: string;
+      month: number;
+      claimed?: number;
+      real?: number | null; // Allows null values, matching Prisma's Int? type
+      accrued?: number;
+    };
   }
+  
+    export interface DeletingBillTypes  {
+      bill:{
+        id :string
+        month: number
+        claimed?: number
+        real?: number | null; // Allowing null as well
+        accrued?: number
+      }
+  
+    }
