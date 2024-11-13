@@ -116,7 +116,8 @@ console.log('modalName',modalName)
       <CancelBtn
           key="back" 
           className={cn('cancel_btn w-[70px] rounded-md ',
-            (modalName === 'AddBill')  && `AddBill-cancel-btn`
+            (modalName === 'AddBill')  && `AddBill-cancel-btn`,
+            (modalName === 'EditBill')  && `EditBill-cancel-btn`,
           )}
           disabled={ isSubmitting }
           onClick={handleCancel}>

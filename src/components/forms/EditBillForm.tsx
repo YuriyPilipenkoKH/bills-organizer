@@ -23,6 +23,7 @@ interface EditBillFormProps extends FormBaseTypes {
 
   const EditBillForm: React.FC<EditBillFormProps> = ({ 
     id: collectionId,
+    name: collectionName,
     setIsSubmitting,
     setOpen,
     formName,
@@ -30,7 +31,7 @@ interface EditBillFormProps extends FormBaseTypes {
     bill
     }) => {
       const [logError, setLogError] = useState<string>('')
-
+console.log('formName',formName)
       const {
         register, 
         handleSubmit,
@@ -95,12 +96,14 @@ interface EditBillFormProps extends FormBaseTypes {
   return (
     <Form_Universal
     onSubmit={handleSubmit(onSubmit)}
-    className='flex flex-col gap-3 items-center'
+    className='flex flex-col  items-center EditBillForm'
     formHeight={dimentions[1]}
     autoComplete="off"
     noValidate>
 
-      <FormLabel>
+      <FormLabel 
+      className='text-gray-900'>
+        claimed
         <FormInput 
           {...register('claimed', { onChange: handleInputChange })}
             placeholder=	{( isSubmitting )
@@ -108,7 +111,9 @@ interface EditBillFormProps extends FormBaseTypes {
             type="number" 
         />
       </FormLabel>
-      <FormLabel>
+      <FormLabel
+       className='text-gray-900'>
+        real
         <FormInput
           {...register('real', { onChange: handleInputChange })}
           placeholder={isSubmitting 
@@ -118,7 +123,7 @@ interface EditBillFormProps extends FormBaseTypes {
       </FormLabel>
       <CancelBtn 
         className={cn('mt-auto ',
-      (formName === 'AddBillForm')  && `AddBill-approve-btn`
+      (formName === 'EditBillForm')  && `EditBill-approve-btn`
         )}
         type='submit'
         disabled={isSubmitting || !isDirty || !isValid}
