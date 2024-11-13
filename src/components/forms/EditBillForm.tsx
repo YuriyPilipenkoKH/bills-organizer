@@ -38,7 +38,7 @@ interface EditBillFormProps extends FormBaseTypes {
         reset,
       } = useForm<editBillSchemaType>({
         defaultValues: {
-          claimed: bill?.claimed,
+          claimed: bill?.claimed ,
           real: bill?.real || undefined ,
           },
           mode:'all',

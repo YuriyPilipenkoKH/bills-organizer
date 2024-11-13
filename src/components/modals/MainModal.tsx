@@ -100,7 +100,7 @@ console.log('modalName',modalName)
       open={open}
       title={( isSubmitting ) 
         ? (modalName === 'AddBill') || (modalName === 'UpdateImgUrl')
-          ? "writing to MongoDB.." 
+          ? "Prosessing.." 
           : "moving to trash.." 
         :(modalName === 'DeletingBillConfirm')
           ?  `${title}  ${bill?.month} month from ${capitalize(name)} collection `
