@@ -41,7 +41,7 @@ export const editBill = async (formData: FormData) => {
     });
 
     revalidatePath("/dashboard");
-    return { success: true };
+    return { success: true , updatedBill:{claimed,real}};
   } catch (error) {
     console.error("Error updating bill:", error);
     const errorMessage = error instanceof Error ? error.message : "An unexpected error occurred";

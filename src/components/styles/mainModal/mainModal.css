@@ -75,4 +75,7 @@
   }
   .modalFormWrapper>form.EditBillForm{
     gap: 32px ;
+    &>label{
+      color: var(--text-color);
+    }
   }

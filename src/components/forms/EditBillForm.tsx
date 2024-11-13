@@ -3,7 +3,7 @@ import { wait } from '@/lib/wait';
 import { editBillSchema, editBillSchemaType } from '@/models/editBillSchema';
 import { FormBaseTypes } from '@/types/formTypes';
 import { zodResolver } from '@hookform/resolvers/zod';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { AuthError, Form_Universal, FormInput, FormLabel } from './FormStyles.styled';
@@ -70,12 +70,18 @@ console.log('formName',formName)
         try {
             const result = await editBill(formData);
             if (result.success) {
-                toast.success(`Bill for ${capitalize(String(bill.month))} month added successfully`!);
-                reset();
+                toast.success(`Bill for ${capitalize(String(bill.month))} month updated successfully`!);
+              }
+            if (result.updatedBill)    {
+
+              reset({
+                claimed: result.updatedBill.claimed,
+                real: result.updatedBill.real ,
+              });
                 await wait(1000)
                 setOpen(false)
             } else {
-                toast.error(`Failed to add Bill for ${capitalize(String(bill.month))} month  ${result.error}`);
+                toast.error(`Failed to update Bill for ${capitalize(String(bill.month))} month  ${result.error}`);
             }
           } catch 
           (error) {
@@ -93,6 +99,9 @@ console.log('formName',formName)
         setLogError('');
       }
     };
+    useEffect(() => {
+			reset({ bill })
+		}, [bill, reset])
   return (
     <Form_Universal
     onSubmit={handleSubmit(onSubmit)}
