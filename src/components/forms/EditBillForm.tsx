@@ -99,9 +99,7 @@ console.log('formName',formName)
         setLogError('');
       }
     };
-    useEffect(() => {
-			reset({ bill })
-		}, [bill, reset])
+
   return (
     <Form_Universal
     onSubmit={handleSubmit(onSubmit)}
