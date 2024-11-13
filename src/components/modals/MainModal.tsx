@@ -136,7 +136,7 @@ console.log('modalName',modalName)
         }
         </p>
 
-        <div className=' w-full'>
+        <div className=' w-full modalFormWrapper'>
         {(modalName === 'DeletingCollectionConfirm') && (
           <DeleteCollectionForm
             id={id}

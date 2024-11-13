@@ -73,6 +73,6 @@
     position: absolute;
     bottom: 16px;
   }
-  .EditBillForm{
-    gap: 32px;
+  .modalFormWrapper>form.EditBillForm{
+    gap: 32px ;
   }
