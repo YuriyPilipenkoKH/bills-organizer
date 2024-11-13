@@ -11,14 +11,14 @@ import { CancelBtn, FlatBtn } from '../Button/Button';
 import { cn } from '@/lib/utils';
 import { CgCloseO } from 'react-icons/cg';
 import { editBill } from '@/actions/edit-bill';
-import { EssintialBillTypes } from '@/types/modalTypes';
+import { Bill } from '@prisma/client';
 
 interface EditBillFormProps extends FormBaseTypes {
   id: string;
   name: string
   setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  bill?: EssintialBillTypes['bill'];
+  bill?: Bill;
   }
 
   const EditBillForm: React.FC<EditBillFormProps> = ({ 
@@ -39,7 +39,7 @@ interface EditBillFormProps extends FormBaseTypes {
       } = useForm<editBillSchemaType>({
         defaultValues: {
           claimed: bill?.claimed,
-          real: bill?.real || null,
+          real: bill?.real || undefined ,
           },
           mode:'all',
           resolver: zodResolver(editBillSchema),
@@ -52,12 +52,16 @@ interface EditBillFormProps extends FormBaseTypes {
       } = formState
 
       const onSubmit = async (data: editBillSchemaType) => {
+        if (!bill) {
+          toast.error("No bill selected for editing.");
+          return;
+        }
         setIsSubmitting(true)
         const formData = new FormData();
         
         formData.append('claimed', String(data.claimed)); // Convert to string
         formData.append('real', String(data.real)); 
-        formData.append('month', String(bill?.month)); 
+        formData.append('month', String(bill.month)); 
         formData.append('accrued', String(0)); 
         formData.append('collectionId', collectionId); 
         formData.append('billId', bill.id); 
@@ -65,12 +69,12 @@ interface EditBillFormProps extends FormBaseTypes {
         try {
             const result = await editBill(formData);
             if (result.success) {
-                toast.success(`Bill for ${capitalize(String(bill?.month))} month added successfully`!);
+                toast.success(`Bill for ${capitalize(String(bill.month))} month added successfully`!);
                 reset();
                 await wait(1000)
                 setOpen(false)
             } else {
-                toast.error(`Failed to add Bill for ${capitalize(String(bill?.month))} month  ${result.error}`);
+                toast.error(`Failed to add Bill for ${capitalize(String(bill.month))} month  ${result.error}`);
             }
           } catch 
           (error) {
