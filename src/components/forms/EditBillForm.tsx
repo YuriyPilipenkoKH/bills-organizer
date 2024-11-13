@@ -76,7 +76,7 @@ console.log('formName',formName)
 
               reset({
                 claimed: result.updatedBill.claimed,
-                real: result.updatedBill.real ,
+                real: result.updatedBill.real ?? undefined, // Convert null to undefined
               });
                 await wait(1000)
                 setOpen(false)
