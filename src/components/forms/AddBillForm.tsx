@@ -123,7 +123,7 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
       type='submit'
       disabled={isSubmitting || !isDirty || !isValid}
             >
-        Add
+        {isSubmitting ? 'Prosses..' : 'Add'}
     </CancelBtn>
 		<div className='absolute bottom-[56px] sm:w-[270px]  md:w-[350px]'>
 		{( errors?.month || errors?.claimed || errors?.real ) && (
