@@ -11,28 +11,26 @@ function Navbar() {
     const { data: session, status } = useSession()
     const pathname = usePathname()
     const { user, setUser} = useContext(UserContext as React.Context<UserContextType>)
-console.log('user',user)
 
-useEffect(() => {
-  // Define an async function inside useEffect
-  const fetchUserId = async () => {
-    if (session?.user) {
-      const userId = await retrieveUserId(session.user.email || '');
-      // Define a user object that matches the expected type  
-      const userData = {
-        name: session.user.name ?? null,
-        email: session.user.email ?? null,
-        id: userId ?? '', // Await the user ID before setting it
-        password: null, // Password is not included in session, so we set it as null
-        createdAt: new Date(), // Set the creation date based on your requirements
-        updatedAt: new Date(), // Set the update date based on your requirements
-      };
-      setUser(userData);
-    }
-  };
-
-  fetchUserId(); // Call the async function inside useEffect
-}, [session]);
+  useEffect(() => {
+    // Define an async function inside useEffect
+    const fetchUserId = async () => {
+      if (session?.user) {
+        const userId = await retrieveUserId(session.user.email || '');
+        // Define a user object that matches the expected type  
+        const userData = {
+          name: session.user.name ?? null,
+          email: session.user.email ?? null,
+          id: userId ?? '', // Await the user ID before setting it
+          password: null, // Password is not included in session, so we set it as null
+          createdAt: new Date(), // Set the creation date based on your requirements
+          updatedAt: new Date(), // Set the update date based on your requirements
+        };
+        setUser(userData);
+      }
+    };
+    fetchUserId(); // Call the async function inside useEffect
+  }, [session]);
 
 
   return (

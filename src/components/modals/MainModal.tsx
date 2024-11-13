@@ -127,8 +127,10 @@ const MainModal: React.FC<MainModalProps> = ({
         <p>
         {( isSubmitting ) 
         ? (modalName === 'AddBill') || (modalName === 'UpdateImgUrl')
-          ? "writing to database.." 
-          : "too late.." 
+          ? "writing to MongoDB.." 
+          : (modalName === 'EditBill') 
+            ? "updating data.." 
+            : "too late.." 
         : text 
         }
         </p>
