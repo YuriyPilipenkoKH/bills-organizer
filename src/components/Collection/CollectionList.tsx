@@ -5,7 +5,7 @@ import CollectionCard from './CollectionCard'
 async function CollectionList() {
     const collections= await prisma.collection.findMany({
         include: {
-          bills: true, // Include related products
+        //   bills: true, // Include related products
         },
       })
   return (
