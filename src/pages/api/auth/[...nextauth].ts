@@ -1,4 +1,4 @@
-import NextAuth, { AuthOptions } from "next-auth";
+import NextAuth, { AuthOptions, Session} from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import prisma from "../../../../prisma";
 import { JWT } from "next-auth/jwt";
@@ -47,12 +47,11 @@ export const authOptions: AuthOptions = {
       }
       return token;
     },
-    async session({ session, token }: { session: any, token: JWT }) {
+    async session({ session, token }: { session:  Session, token: JWT }) {
       // Attach user email to the session object from the token
-      if (token) {
-        session.user.email = token.email!;
-        // Optionally add more info to the session
-        session.user.id = token.id; // if you store the user's ID in token
+      if (token && session.user) {
+        session.user.email = token.email as string;
+        session.user.id = token.id as string; // Explicitly cast token.id as a string
       }
       return session;
     },
