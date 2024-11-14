@@ -10,5 +10,9 @@ export default function ClientSessionProvider({
   children: React.ReactNode;
   session: Session | null; // Adjust the type based on your session data
 }) {
-  return <SessionProvider session={session}>{children}</SessionProvider>;
+  return (
+  <SessionProvider session={session}>
+    {children}
+    </SessionProvider>
+    )
 }

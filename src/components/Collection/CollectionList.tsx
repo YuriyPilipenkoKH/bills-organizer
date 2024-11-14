@@ -1,3 +1,4 @@
+
 import React from 'react'
 import prisma from '../../../prisma'
 import CollectionCard from './CollectionCard'
@@ -10,18 +11,18 @@ async function CollectionList() {
       })
   return (
     <div>
-        {collections.length > 0 ? (
-        <div className='grid gap-2'>
-            {collections.map((collection,idx:number)=> (
-                <div key={idx}>
-                    <CollectionCard collection={collection}/>
-                </div>
-            ))}
+			{collections.length > 0 ? (
+			<div className='grid gap-2'>
+				{collections.map((collection,idx:number)=> (
+					<div key={idx}>
+						<CollectionCard collection={collection}/>
+					</div>
+				))}
         </div>
     ) : (
-        <div className='text-center'>
-        Add collection today
-        </div>
+			<div className='text-center'>
+				Add collection today
+			</div>
     )}
     </div>
   )
