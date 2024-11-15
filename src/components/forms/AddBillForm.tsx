@@ -56,7 +56,7 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
 			formData.append('claimed', String(data.claimed)); // Convert to string
 			formData.append('real', String(data.real)); 
 			formData.append('month', String(data.month)); 
-			formData.append('accrued', String(0)); 
+			formData.append('accrued', String(data.accrued)); 
 			formData.append('collectionId', id); 
 
 			try {
