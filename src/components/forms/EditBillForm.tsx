@@ -142,7 +142,7 @@ console.log('formName',formName)
       {(  errors?.claimed || errors?.real ) && (
         <AuthError className="autherror w-full">
           {errors.claimed && <div>{errors.claimed.message}</div>}
-          {errors.claimed && errors.real && <div>{errors.real.message}</div>}
+          {!errors.claimed && errors.real && <div>{errors.real.message}</div>}
           {logError && <div>{logError}</div>}
           <FlatBtn 
             onClick={()=>reset()}>
