@@ -131,7 +131,7 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
 				{errors.month && <div>{errors.month.message}</div>}
 				{!errors.month && errors.claimed && <div>{errors.claimed.message}</div>}
 				{!errors.month && !errors.claimed && errors.real && <div>{errors.real.message}</div>}
-				{logError && <div>{logError}</div>}
+				{!errors && logError && <div>{logError}</div>}
 				<FlatBtn 
 					onClick={()=>reset()}>
 						<CgCloseO size={30} />

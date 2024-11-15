@@ -110,7 +110,7 @@ export const AddNewCollectionForm: React.FC<FormBaseTypes> = ( {
 				<AuthError className="autherror w-full">
 					{errors.name && <div>{errors.name.message}</div>}
 					{!errors.name && errors.year && <div>{errors.year.message}</div>}
-					{logError && <div>{logError}</div>}
+					{!errors && logError && <div>{logError}</div>}
 					<FlatBtn 
 						onClick={()=>reset()}>
 							<CgCloseO size={30} />
