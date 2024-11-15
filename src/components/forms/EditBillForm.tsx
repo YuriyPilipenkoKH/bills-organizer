@@ -41,6 +41,7 @@ console.log('formName',formName)
         defaultValues: {
           claimed: bill?.claimed ,
           real: bill?.real || undefined ,
+          accrued: bill?.real || undefined ,
           },
           mode:'all',
           resolver: zodResolver(editBillSchema),
@@ -63,7 +64,7 @@ console.log('formName',formName)
         formData.append('claimed', String(data.claimed)); // Convert to string
         formData.append('real', String(data.real)); 
         formData.append('month', String(bill.month)); 
-        formData.append('accrued', String(0)); 
+        formData.append('accrued', String(data.accrued)); 
         formData.append('collectionId', collectionId); 
         formData.append('billId', bill.id); 
   
@@ -125,6 +126,16 @@ console.log('formName',formName)
           {...register('real', { onChange: handleInputChange })}
           placeholder={isSubmitting 
             ? 'Processing' : 'real' }
+            type="number" 
+        />
+      </FormLabel>
+      <FormLabel 
+      className='text-gray-900'>
+        claimed
+        <FormInput 
+          {...register('accrued', { onChange: handleInputChange })}
+            placeholder=	{( isSubmitting )
+            ? "Processing" : 'accrued' }
             type="number" 
         />
       </FormLabel>
