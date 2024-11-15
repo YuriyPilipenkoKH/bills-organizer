@@ -26,7 +26,7 @@
     height: 380px;
   }
   .EditBill >div>.ant-modal-content{
-    height: 340px;
+    height: 410px;
   }
   .updateImgUrl >div>.ant-modal-content{
     height: 420px;
@@ -74,7 +74,7 @@
     bottom: 16px;
   }
   .modalFormWrapper>form.EditBillForm{
-    gap: 32px ;
+    gap: 24px ;
     &>label{
       color: var(--text-color);
     }

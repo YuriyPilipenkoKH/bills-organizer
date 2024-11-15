@@ -27,7 +27,7 @@ export const DeleteBillFormProps: FormBaseTypes = {
 };
 export const EditBillFormProps: FormBaseTypes = {
   formName: 'EditBillForm',
-  dimentions: ['250px', '240px','420px','250px'],
+  dimentions: ['250px', '290px','420px','250px'],
   title: '',
   text: '',
 };
