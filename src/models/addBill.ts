@@ -11,6 +11,10 @@ export const addBillSchema = z.object({
     z.number().min(1, { message: "Real amount cannot be negative" })
     .optional()
   ),
+  accrued: z.preprocess(
+    (val) => Number(val),
+    z.number().min(1, { message: "Accrued amount cannot be negative" })
+  ),
   month: z.preprocess(
     (val) => Number(val),
     z.number().min(1, { message: "Month must be between 1 and 12" })

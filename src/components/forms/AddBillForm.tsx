@@ -116,6 +116,14 @@ const AddBillForm: React.FC<AddBillFormProps> = ({
           type="number" 
       />
     </FormLabel>
+    <FormLabel>
+      <FormInput
+        {...register('accrued', { onChange: handleInputChange })}
+        placeholder={isSubmitting 
+          ? 'Processing' : 'accrued' }
+          type="number" 
+      />
+    </FormLabel>
     <CancelBtn 
       className={cn('mt-auto ',
     (formName === 'AddBillForm')  && `AddBill-approve-btn`
