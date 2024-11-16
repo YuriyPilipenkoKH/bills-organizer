@@ -116,11 +116,11 @@ export const Form_Universal = styled("form", {
     shouldForwardProp: (prop: string) =>
       isPropValid(prop) && !["formHeight"].includes(prop),
     })<FormUniversalProps>(
-        ({ formHeight }) => css`
-					height: ${formHeight ? formHeight : ''};
+			({ formHeight }) => css`
+				height: ${formHeight ? formHeight : ''};
 
-					${FormUniversal}
-        `
+				${FormUniversal}
+			`
     );
 
 

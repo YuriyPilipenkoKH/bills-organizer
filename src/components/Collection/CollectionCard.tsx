@@ -21,7 +21,7 @@ interface CollectionCardProps {
 function CollectionCard({collection} :CollectionCardProps) {
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 	const { bills } = collection 
-
+console.log('bills.length ',bills.length )
   return (
     <>
 			<McardHeader
