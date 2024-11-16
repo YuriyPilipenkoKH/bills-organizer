@@ -109,6 +109,10 @@ console.log('bills.length ',bills.length )
 				</div>
 				 <Divider/>
 				<div className="mcard-footer">
+					{(bills.length === 12) && (
+						<h2 className='text-green-500 text-md font-bold'>
+							Completed</h2>
+					)}
 				<MainModal 
 						modalTypes={AddBillProps}
 						id={collection.id}
