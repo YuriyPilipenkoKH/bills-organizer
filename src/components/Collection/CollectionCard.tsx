@@ -21,7 +21,7 @@ interface CollectionCardProps {
 function CollectionCard({collection} :CollectionCardProps) {
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 	const { bills } = collection 
-console.log('bills.length ',bills.length )
+
   return (
     <>
 			<McardHeader
@@ -109,10 +109,11 @@ console.log('bills.length ',bills.length )
 				</div>
 				 <Divider/>
 				<div className="mcard-footer">
-					{(bills.length === 12) && (
-						<h2 className='text-green-500 text-md font-bold'>
-							Completed</h2>
-					)}
+				{(bills.length === 12) && (
+					<h2 className='text-green-500 text-md font-bold'>
+						Completed
+					</h2>
+				)}
 				<MainModal 
 						modalTypes={AddBillProps}
 						id={collection.id}

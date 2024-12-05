@@ -18,7 +18,7 @@ export const AddNewCollectionForm: React.FC<FormBaseTypes> = ( {
 } ) => {
 	const {user} = useContext(UserContext as React.Context<UserContextType>)
 		const [logError, setLogError] = useState<string>('')
-	console.log('user',user)
+
 		const {
 			register, 
 			handleSubmit,

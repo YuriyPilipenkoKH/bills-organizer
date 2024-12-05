@@ -22,7 +22,6 @@ interface AddBillFormProps extends FormBaseTypes {
 
 const AddBillForm: React.FC<AddBillFormProps> = ({ 
     id, 
-    name,
     setIsSubmitting,
     setOpen,
     formName,

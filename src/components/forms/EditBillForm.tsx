@@ -31,7 +31,7 @@ interface EditBillFormProps extends FormBaseTypes {
     bill
     }) => {
       const [logError, setLogError] = useState<string>('')
-console.log('formName',formName)
+
       const {
         register, 
         handleSubmit,
